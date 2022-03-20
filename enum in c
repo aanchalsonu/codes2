@@ -1,0 +1,23 @@
+//enumerator in c 
+#include<stdio.h>
+#include<stdlib.h>
+enum point 
+{
+    head, entry , a , b, c // head will store the value 0 and entry will store the value 1. No need to put semicolon  
+};
+typedef enum point p;
+int main()
+{
+    printf("head value is : %d \nEntry value is : %d \n%d\n%d\n%d",head,entry,a,b,c);
+    return 0;
+}
+//facts about enum 
+/* 1. enum is used to give names to integral constants
+2. enum can be declared anywhere in the program 
+3. enum will hold only integral constants 
+4. there is no need to assisgn values to the constants as enum will do automatic initialization 
+5. no float values are allowed 
+6. there should not be any two enums with the same member name in the same scope 
+7. Enum will initialize the next member with the value of previous member +1 
+*/
+
