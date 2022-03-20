@@ -1,0 +1,18 @@
+//program to use flags for AND OR and NOT operations 
+#include <stdio.h>
+
+int main()
+{
+    // int i= 4;
+    //if(i > 0  ) condition 
+    // i = (111) && (101); AND
+    // if(i>0 || i<9) OR
+    int i=2, a;
+    // if(!i) NOT
+    // a = i<<1; left shift
+    // a = i>>1; right shift 
+    a = 1 ^ 1;// xor operation 
+    printf("%d ", a);
+    return 0;
+}
+
