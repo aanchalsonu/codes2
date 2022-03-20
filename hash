@@ -1,0 +1,136 @@
+//hash table implementation 
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define HZ 5
+struct employee
+{
+    int n;
+    char nm[10];
+    float s;
+};
+typedef struct employee emp;
+
+//structure to maintane the hash table info 
+struct hash
+{
+    int k;
+    long int addr;
+};
+typedef struct hash h;
+int hashvalue(int );
+void insert(h *, int ,FILE *);
+void search(h *, int ,FILE *);
+void display(h * , int , FILE *);
+
+int main()
+{
+    FILE * fp = fopen("hashdata.txt","w+");
+    h ht[5];
+    for(int i=0;i<HZ;i++)
+    ht[i].k = -1;
+    int i,n,ch;
+    printf("\nSize of int and float is  %ld and %ld ",sizeof(int),sizeof(float));
+    for(;;)
+    {
+        printf("\n1.Insert\n2.Search\n3.Display\n4.exit\nEnter your choice ");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+            case 1: printf("\nEnter number of records to be entered ");
+                    scanf("%d",&n);
+                    insert(ht,n,fp);
+                    break;
+            case 2: search(ht,n,fp);
+                    break;
+            case 3: display(ht, n,fp);
+                    break;
+            case 4: exit(0);
+        }
+    }
+    return 0;
+}
+
+int hashvalue(int key)
+{
+    return key % HZ;
+}
+
+void insert(h *ht, int n,FILE *fp)
+{
+    emp a;
+    int hi,ci, flag = 0; // hi is hindex and ci is countindex 
+    for(int i=0;i<n;i++, flag = 0)
+    {
+    printf("\nEnter the employee number, Name and his salary ");
+    scanf("%d%s%f",&(a.n),a.nm,&(a.s));
+    hi = hashvalue(a.n);
+    ci = hi ;// to know wheather the hash table is completely filled or no 
+    while(ht[hi].k != -1)
+    {
+        hi = (hi + 1) % HZ;
+        flag =1;
+        if(hi == ci)
+        {
+            printf("\nEntry not possible ");
+            return;
+        }
+    }
+    ht[hi].k = a.n;
+    fseek(fp,0,SEEK_END);
+    ht[hi].addr = ftell(fp);
+    fwrite(&a,sizeof(emp),1,fp);
+    // fprintf(fp,"%d %s %f\n",a.n,a.nm,a.s);
+    printf("\nInsertion successfull ");
+    if(flag != 0)
+    printf("\nLinear probing is used ");
+    }
+}
+
+void search(h *ht , int n,FILE *fp)
+{
+    emp a;
+    int hi,ci;
+    printf("\nEnter the employee number you want to search ");
+    scanf("%d",&(a.n));
+    hi = hashvalue(a.n);
+    ci = hi;
+    while(ht[hi].k != a.n)
+    {
+        hi = (hi + 1)% HZ;
+        if(hi == ci)
+        {
+            printf("\nSearch uncessfull ");
+            return;
+        }
+    }
+    printf("\nSearch sucessfull ");
+    fseek(fp,ht[hi].addr,SEEK_SET);
+    fscanf(fp,"%d %s %f ",&(a.n),a.nm, &(a.s));
+    printf("\n%d %s %f ",a.n,a.nm,a.s);
+}
+
+void display(h * ht, int n, FILE *fp)
+{
+    emp a;
+    int i,j;
+    for(i=0;i<HZ;i++)
+    {
+        if(ht[i].k != -1)
+        {
+            printf("\nHash table : %d %ld ",ht[i].k, ht[i].addr );
+            fseek(fp,ht[i].addr, SEEK_SET);
+            // fscanf(fp,"%d%s%f",&(a.n),a.nm,&(a.s));
+            fread(&a,sizeof(emp),1,fp);
+            printf("\nThe contents are %d %s %f ",a.n,a.nm,a.s);
+            // fread(&a,sizeof(a.n),1,fp);
+            // printf("\nThe contents of file are \n %d ",a.n);
+            // fread(&a,sizeof(a.nm),1,fp);
+            // printf("\n%s ",a.nm);
+            // fread(&a,sizeof(a.s),1,fp);
+            // printf("\n%f",a.s);
+        }
+    }
+    
+}
+
