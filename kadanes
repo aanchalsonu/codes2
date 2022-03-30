@@ -1,0 +1,36 @@
+// kadanes algorithm to find subarray with maximum sum
+#include<stdio.h>
+#include<stdlib.h>
+long long max(long long a , long long b)
+{
+    return a>b ? a :b;
+}
+long long maxSubarraySum(int arr[], int n){
+        // Your code here
+        long long ms=arr[0],cs=arr[0];//ms - maxsum, cs - currentsum
+        int i=0;
+        for(i=1;i<n;i++)
+        {
+            if(cs>=0)
+            cs = cs + arr[i];
+            else
+            cs = arr[i];
+            if(cs>ms)
+            ms = cs;
+        }
+        //if(ms ==0)
+        //return -1;
+        return ms;
+}
+int main()
+{
+    int arr[10],n;
+    printf("\nEnter the size of array ");
+    scanf("%d",&n);
+    printf("\nEnter the array ");
+    for(int i=0;i<n;i++)
+    scanf("%d",&arr[i]);
+    printf("\nThe sum is ");
+    printf("%d ",maxSubarraySum(arr, n));
+    return 0;
+}
