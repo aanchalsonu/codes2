@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,k,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>k;
+	    long int a[n],r[n];
+	    for(i=0;i<n;i++)
+	    cin>>a[i];
+	    for(i=0;i<n;i++)
+	    {
+	        if(a[i]<=k)
+	        {
+	            r[i]=1;
+	            k = k-a[i];
+	        }
+	        else
+	        r[i]=0;
+	    }
+	    for(i=0;i<n;i++)
+	    cout<<r[i];
+	    cout<<endl;
+	}
+	return 0;
+}
