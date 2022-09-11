@@ -1,0 +1,151 @@
+//chef and wireframe
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,m,x,r;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>m>>x;
+	    r = (2*n)+(2*m);
+	    cout<<(r*x)<<endl;
+	}
+	return 0;
+}
+
+//2nd program : bob and the bank
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,w,x,y,z,r;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>w>>x>>y>>z;
+	    r = w+((x-y)*z);
+	    cout<<r<<endl;
+	}
+	return 0;
+}
+
+//3rd : speed limit check
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,a,b,x,y;
+	float r1,r2;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>a>>b>>x>>y;
+	    r1 = ((float)a/(float)x);
+	    r2 = ((float)b/(float)y);
+	    if(r1>r2)
+	    {
+	        cout<<"Alice"<<endl;
+	    }
+	    else if(r2>r1)
+	    {
+	        cout<<"Bob"<<endl;
+	    }
+	    else
+	    {
+	        cout<<"Equal"<<endl;
+	    }
+	}
+	return 0;
+}
+
+//4th Good pairs
+
+#include <iostream>
+
+#include<bits/stdc++.h>
+
+using namespace std;
+/*long int cal_n(long int n){
+   long int temp = 1;
+   for (long int i = 2; i <= n; i++)
+      temp = temp * i;
+   return temp;
+}
+//function to calculate ncr
+long int nCr(long int n,long int r){
+    if(r==0)
+    return 1;
+   return cal_n(n) / (cal_n(2) * cal_n(r));
+}
+*/
+int main() {
+	// your code goes here
+	long int t,n,i;
+	long int c;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    c=0;
+	    long int a[n];
+	    map<long int ,long int >mp;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        mp[a[i]]++;
+	    }
+	   // sort(a,a+n);
+	    for(auto x: mp)
+	    {
+	           if(x.second >= 2)
+	           c = c+ ((x.second)*(x.second-1)/2);
+	           //else if(x.second == 2)
+	           //c= c+1;
+	    }
+	    cout<<c<<endl;
+	}
+	return 0;
+}
+
+//5th Intresting subarray
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,mn,mx,iv,iv1,iv2;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n];
+	    vector<long int>r;
+	    for(i=0;i<n;i++)
+	    cin>>a[i];
+	    sort(a,a+n);
+	    mn = 1e18;
+	    mx= max(a[0]*a[0],a[n-1]*a[n-1]);
+	    if(a[0]<0 && a[n-1]>0)
+	    {
+	        mn = min(mn,a[0]*a[n-1]);
+	    }
+	    else
+	    {
+	        for(i=0;i<n;i++)
+	        {
+	            mn = min(mn,a[i]*a[i]);
+	        }
+	    }
+	    cout<<mn<<" "<<mx<<endl;
+	}
+	
+	return 0;
+}
