@@ -1,0 +1,39 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+// void swap(char a,char b)
+// {
+//     char t=a;
+//     a = b;
+//     b = t;
+// }
+int main() {
+	// your code goes here
+	long int t,n,i,f;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    f=0;
+	    string s;
+	    cin>>s;
+	    for(i=0;i<n/2;i++)
+	    {
+	        if(s[i]>s[n-1-i])
+	        swap(s[i],s[n-1-i]);
+	    }
+	    for(i=0;i<n-1;i++)
+	    {
+	        if(s[i]>s[i+1])
+	        {
+	            f=1;
+	            break;
+	        }
+	    }
+	    if(f==1)
+	    cout<<"NO"<<endl;
+	    else
+	    cout<<"YES"<<endl;
+	}
+	return 0;
+}
