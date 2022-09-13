@@ -1,0 +1,54 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,c=0,i;
+	cin>>t;
+	while(t--)
+	{
+	    c=0;
+	    string nat;
+	    cin>>n>>nat;
+	    while(n--)
+	    {
+	        string s;
+	        cin>>s;
+	        if(s == "CONTEST_WON")
+	        {
+	            long int r,b;
+	            cin>>r;
+	            if(r<=20 )
+	            b = 20-r;
+	            else
+	            b=0;
+	            c = c + 300+b;
+	        }
+	        else if( s== "TOP_CONTRIBUTOR")
+	        {
+	            c = c+300;
+	        }
+	        else if( s=="BUG_FOUND")
+	        {
+	            long int j;
+	            cin>>j;
+	            if(j>=50 && j <=1000)
+	            c = c+j;
+	        }
+	        else if(s=="CONTEST_HOSTED")
+	        {
+	            c = c+50;
+	        }
+	    }
+	    if(nat == "INDIAN")
+	    {
+	        cout<<c/200<<endl;
+	    }
+	    else
+	    {
+	        cout<<c/400<<endl;
+	    }
+	}
+	return 0;
+}
