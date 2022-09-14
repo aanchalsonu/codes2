@@ -1,0 +1,38 @@
+//maximize colors
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,x,y,z,c,a[3],i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>a[0]>>a[1]>>a[2];
+	    c=0;
+	    sort(a,a+3);
+	    x=a[0];
+	    y=a[1];
+	    z = a[2];
+	    for(i=0;i<3;i++)
+	    {
+	        if(a[i]>=1)
+	        c++;
+	    }
+	    if(x==2)
+	    {
+	        cout<<(z>=3 ? c+2:c+1)<<endl;
+	    }
+	    else if(x>=3){
+	        c = c+3;
+	        cout<<c<<endl;
+	    }
+	    else
+	    {
+	        cout<<(y<=1 ? c : c+1)<<endl;
+	    }
+	}
+	return 0;
+}
