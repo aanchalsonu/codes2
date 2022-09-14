@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,f,c,i;
+	cin>>t;
+	while(t--)
+	{
+	    long int a[4];
+	    f=0;
+	    c=0;
+	    for(i=0;i<4;i++)
+	    cin>>a[i];
+	    for(i=0;i<4;i++)
+	    {
+	        if(a[i] == 1)
+	        {
+	            f=1;
+	            cout<<"OUT"<<endl;
+	            break;
+	        }
+	        else
+	        {
+	            c++;
+	        }
+	    }
+	    if(c==4 && f==0)
+	    {
+	        cout<<"IN"<<endl;
+	    }
+	}
+	return 0;
+}
