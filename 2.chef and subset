@@ -1,0 +1,36 @@
+
+//Chef likes problems which using some math. Now he asks you to solve next one. You have 4 integers, Chef wondering is there non-empty subset which has sum equals 0.
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,a,b,c,d;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>a>>b>>c>>d;
+	    if(a ==0 || b==0 || c==0 || d==0)
+	    {
+	        cout<<"Yes"<<endl;
+	    }
+	    else if(a+b == 0 || a+c ==0 || a+d == 0 || b+c ==0 || b+d ==0 || c+d == 0)
+	    {
+	        cout<<"Yes"<<endl;
+	    }
+	    else if(a+b+c == 0 || a+c+d ==0 || b+c+d ==0 || a+d+b == 0 ||  c+d+a ==0 )
+	    {
+	        cout<<"Yes"<<endl;
+	    }
+	    else if(a+b+c+d ==0)
+	    {
+	        cout<<"Yes"<<endl;
+	    }
+	    else
+	    {
+	        cout<<"No"<<endl;
+	    }
+	}
+	return 0;
+}
