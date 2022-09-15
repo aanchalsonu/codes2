@@ -1,0 +1,38 @@
+// find the possible houses where thief can hide in order not to get caugth by cops , where x is speed of cops and y is the time till which cops can search m 
+are the house numbers where the cops are present
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+	// your code goes here
+	long int t,x,y,m,i,hc,j,c;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>m>>x>>y;
+	    c=0;
+	    long int a[m],r[110];
+	    for(i=0;i<m;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    sort(a,a+m);
+	   // hc = x*y;
+	    memset(r,0,sizeof(r));
+	    for(i=0;i<m;i++)
+	    {
+	        for(j=a[i];j<=a[i]+(x*y) && j<=100; j++)
+	        r[j]=1;
+	        for(j=a[i]; j>= a[i]-x*y && j>=1 ; j--)
+	        r[j] =1;
+	    }
+	    for(i=1;i<=100;i++)
+	    {
+	        if(r[i] == 0)
+	        c++;
+	    }
+	    cout<<c<<endl;
+	}
+	return 0;
+}
