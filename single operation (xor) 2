@@ -1,0 +1,30 @@
+/*Chef has the binary representation SS of a number XX with him. He can modify the number by applying the following operation exactly once:
+Chef wants to minimize the value of XX after performing the operation. Help Chef in determining the value of YY which will minimize the value of XX after the operation.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,pos;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    pos = n;
+	    for(i=1;i<s.length();i++)
+	    {
+	        if( s[i] == '1')
+	        {
+	            pos = i;
+	            break;
+	        }
+	    }
+	    cout<<pos<<endl;
+	}
+	
+	return 0;
+}
