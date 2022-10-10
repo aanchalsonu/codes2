@@ -1,0 +1,35 @@
+/*Chef has the binary representation SS of a number XX with him. He can modify the number by applying the following operation exactly once:
+make x  = x XOR (x/2^y) 
+Chef wants to maximize the value of XX after performing the operation. Help Chef in determining the value of YY which will maximize the value of XX after the operation.
+ For maximizing perform right shift of the binary representation of the number till the 1st  zero is encountered , the value right shifted by y times will give the maximum value of x 
+ where y is equal to position of 1st zero 
+ */
+ 
+ #include <iostream>
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,pos,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    pos = n;
+	    for(i=0;i<s.length();i++)
+	    {
+	        if(s[i] == '0')
+	        {
+	            pos = i;
+	            break;
+	        }
+	    }
+	    cout<<pos<<endl;
+	}
+	return 0;
+}
