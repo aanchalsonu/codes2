@@ -1,0 +1,42 @@
+/*You are given two positive integers AA and BB. You need to construct two different binary strings (i.e, they are strings which consist of only 00s and 11s), which satisfy these two conditions:
+
+Both the strings should be palindromes.
+Each string should have exactly AA 00s, and exactly BB 11s in them.
+Output Yes if two such different binary strings can be constructed and No otherwise.
+*/
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,a,b;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>a>>b;
+	   // if(a==0 || b==0 || a==1 || b==1)
+	   // {
+	   //     cout<<"No"<<endl;
+	   // }
+	   // else if(a%2 != 0 )
+	   // {
+	   //     cout<<"No"<<endl;
+	   // }
+	   // else 
+	   // {
+	   //     cout<<"Yes"<<endl;
+	   // }
+	   
+	   if(a%2 ==1 && b%2 ==1)
+	   cout<<"No"<<endl;
+	   else if(a==1 || b==1)
+	   cout<<"No"<<endl;
+	   else
+	   cout<<"Yes"<<endl;
+	   
+	   
+	   
+	}
+	
+	return 0;
+}
