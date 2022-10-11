@@ -1,0 +1,53 @@
+/*Alice and Bob are playing a game with a binary string SS of length NN and an empty string TT.
+They both take turns and Alice plays first.
+
+In Alice's turn, she picks the first character of string SS, appends the character to either the front or back of string TT and deletes the chosen character from string SS.
+In Bob's turn, he picks the last character of string SS, appends the character to either the front or back of string TT and deletes the chosen character from string SS.
+The game stops when SS becomes empty.
+Alice wants the resultant string TT to be lexicographically smallest, while Bob wants the resultant string TT to be lexicographically largest possible.
+
+Find the resultant string TT, if both of them play optimally
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int tc,n,i;
+
+	cin>>tc;
+	while(tc--)
+	{
+	    string s,t="";
+	    cin>>n;
+	    cin>>s;
+	    for(i=0;i<n/2;i++)
+	    {
+	        if(s[i] == '0')
+	        {
+	            t = '0'+t;
+	        }
+	        else{
+	            t =  t+ '1';
+	        }
+	        if(s[n-i-1] == '1')
+	        {
+	            t = '1'+t;
+	        }
+	        else
+	        {
+	            t = t + '0';
+	        }
+	    }
+	    if(n%2 != 0)
+	    {
+	        if(s[n/2] == '0')
+	        t = '0'+t;
+	        else
+	        t = t + '1';
+	    }
+	    cout<<t<<endl;
+	}
+	return 0;
+}
