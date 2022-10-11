@@ -1,0 +1,133 @@
+/*An encoded string (s) is given, the task is to decode it. The encoding pattern is that the occurance of the string is given at the 
+starting of the string and each string is enclosed by square brackets.
+Input: s = 1[b]
+Output: b
+Explaination: 'b' is present only one time.
+Input: s = 1[b]
+Output: b
+Explaination: 'b' is present only one time.
+
+*/
+
+class Solution{
+public:
+    string decodedString(string s){
+        // code here
+        // string res="";
+        // stack<char> st;
+        // for(int i=0;i<s.size();i++)
+        // {
+        //     if(s[i] == ']'){
+        //         while(st.top() != '[' && st.size()>0){
+        //             res = res + st.top();
+        //             st.pop();
+        //         }
+        //         if(st.size()!=0 )//to pop [
+        //         {
+        //             st.pop();
+        //         }
+        //         string num ="";
+        //         while(st.size() != 0 && st.top() >='0' && st.top()<='9'){
+        //             num = st.top() + num;
+        //             st.pop();
+        //         }
+        //         int x = stoi(num);
+        //         string temp = res;
+        //         for(int i = 0 ;i<x-1;i++)
+        //         res += temp;
+        //         for(int i =0;i<res.size();i++)
+        //         st.push(res[i]);
+        //         res = "";
+        //     }
+        //     else{
+        //         st.push(s[i]);
+        //     }
+        // }
+        // while(st.top() > 0)
+        // {
+        //     res = res + st.top();
+        //     st.pop();
+        // }
+        // return res;
+        
+        stack<char>m;
+
+        string ans="";
+
+        for(int i=0;i<s.size();i++){
+
+            if(s[i]==']'){
+
+                while(m.top()!='['&&m.size()>0){
+
+                    ans=m.top()+ans;
+
+                    m.pop();
+
+                }
+
+                if(m.size()!=0)
+
+                m.pop();
+
+                
+
+                string number="";
+
+                while(m.size()!=0&&m.top()>='0'&&m.top()<='9'){
+
+                    number=m.top()+number;
+
+                    m.pop();
+
+                }
+
+                int digit=stoi(number);
+
+                string temp=ans;
+
+                for(int i=0;i<digit-1;i++)
+
+                    ans+=temp;
+
+                    
+
+                 for(int i=0;i<ans.size();i++)
+
+                 m.push(ans[i]);
+
+                 ans="";
+
+                 
+
+                
+
+            }
+
+            else{
+
+                m.push(s[i]);
+
+            }
+
+            
+
+        }
+
+       while(m.size()>0){
+
+           ans=m.top()+ans;
+
+           m.pop();
+
+       }
+
+       return ans;
+        
+        
+        
+        
+    }
+};
+
+
