@@ -1,0 +1,79 @@
+/*
+Dazzler has a blank canvas and (N-1)(N−1) colours numbered from 22 to NN.
+Let BB denote the beauty of the canvas. The beauty of a blank canvas is 11.
+
+Dazzler paints the canvas by using all the (N-1)(N−1) colours exactly once. On applying the i^{th}i 
+th
+  colour (2 \leq i \leq N)(2≤i≤N):
+
+If ii is odd, B = BB=B \&& ii.
+If ii is even, B = B \oplus iB=B⊕i.
+Find the beauty of the canvas after applying all (N-1)(N−1) colours.
+
+Note: The colours are applied in ascending order. Colour number 22 is applied first. The i^{th}i 
+th
+  numbered colour is applied after (i-1)^{th}(i−1) 
+th
+  numbered colour for all i \gt 2i>2.
+  
+  */
+  #include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	   // long int a[n];
+	   // a[2] = 3;
+	   // for(i=3;i<=n;i++)
+	   // {
+	   //     if(i%2 == 0)
+	   //     {
+	   //         a[i] = a[i-1] ^ i;
+	   //     }
+	   //     else
+	   //     {
+	   //         a[i] = a[i-1] & i;
+	   //     }
+	   // }
+	   
+	   if(n%4 == 0)
+	   {
+	       cout<<n+3<<endl;
+	   }
+	   else if(n%2 == 1)
+	   {
+	       if((n/2)%2 == 0)
+	       {
+	           cout<<n<<endl;
+	       }
+	       else
+	       {
+	           cout<<"3"<<endl;
+	       }
+	   }
+	   else
+	   {
+	       cout<<3<<endl;
+	   }
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   // cout<<a[n]<<endl;
+	    
+	}
+	
+	
+	return 0;
+}
+
+  
+  
