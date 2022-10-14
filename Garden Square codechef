@@ -1,0 +1,43 @@
+/*
+Chef has just finished the construction of his new garden. He has sown the garden with patches of the most beautiful carpet grass he could find. He has filled it with patches of different color and now he wants to evaluate how elegant his garden is.
+
+Chef's garden looks like a rectangular grid of cells with N rows and M columns. So there are N x M cells in total. In each cell Chef planted grass of some color.
+
+The elegance of the garden is defined by the number of squares, composed of at least four garden cells, with edges parallel to the sides of the garden, that have four corner cells of the same color.
+
+Given the description of Chef's garden, calculate how many such squares exist.
+*/
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,m,n,c,i,j,k;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>m>>n;
+	    c=0;
+	    char a[m][n];
+	    for(i=0;i<m;i++)
+	    {
+	        for(j=0;j<n;j++)
+	        {
+	            cin>>a[i][j];
+	        }
+	    }
+	    for(i=0;i<m;i++)
+	    {
+	        for(j=0;j<n;j++)
+	        {
+	            for(k=1;k+i<m && k+j <n ; k++)
+	            {
+	                if(a[i][j] == a[i+k][j] && a[i][j] == a[i][j+k] && a[i][j] == a[i+k][j+k])
+	                c++;
+	            }
+	        }
+	    }
+	    cout<<c<<endl;
+	}
+	return 0;
+}
