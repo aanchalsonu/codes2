@@ -1,0 +1,61 @@
+/* Given a n * m matrix grid where each element can either be 0 or 1. You need to find the shortest distance between a given source cell to a destination cell. 
+The path can only be created out of a cell if its value is 1. 
+
+If the path is not possible between source cell and destination cell, then return -1.
+
+Note : You can move into an adjacent cell if that adjacent cell is filled with element 1. Two cells are adjacent if they share a side.
+In other words, you can move in one of the four directions, Up, Down, Left and Right.
+*/
+
+class Solution {
+  public:
+    int shortestPath(vector<vector<int>> &grid, pair<int, int> source,
+                     pair<int, int> destination) {
+                         queue<pair<int,int>>q;
+                         q.push({source.first,source.second});
+                         int d=0;
+                         int n = grid.size();
+                         int m = grid[0].size();
+                         while(!q.empty())
+                         {
+                             int sz = q.size();
+                             while(sz--)
+                             {
+                                 auto curr = q.front();
+                                 q.pop();
+                                 if(curr.first == destination.first && curr.second == destination.second)
+                                 {
+                                     return d;
+                                 }
+                                 int x = curr.first;
+                                 int y = curr.second;
+                                 grid[x][y] = 0;
+                                 if(x-1>=0 && grid[x-1][y] == 1)
+                                 {
+                                     grid[x-1][y] = 0;
+                                     q.push({x-1,y});
+                                 }
+                                 if(x+1 <n && grid[x+1][y] == 1)
+                                 {
+                                     grid[x+1][y] = 0;
+                                     q.push({x+1,y});
+                                 }
+                                 if(y-1 >=0 && grid[x][y-1] == 1)
+                                 {
+                                     grid[x][y-1] = 0;
+                                     q.push({x,y-1});
+                                 }
+                                 if(y+1<=m && grid[x][y+1]==1)
+                                 {
+                                     grid[x][y+1] =0;
+                                     q.push({x,y+1});
+                                 }
+                             }
+                             d++;
+                         }
+                         return -1;
+                         
+        // code here
+    }
+};
+
