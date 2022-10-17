@@ -1,0 +1,74 @@
+/*
+Baby Sanvi is grown up enough to identify the phone password
+(PIN) from the impression on the keypad. Her mother thought of
+a solution and spent few days and came up with a solution. She
+wants the position of keys (numbers) to be changing every time
+Sanvi tries to open the phone. Samples of positions keys are given
+below. The keyboard layout is 3*3. The numbers range from 1 to
+9. Design an algorithm and help Sanvi’s mother.
+*/
+
+//#include<time.h>
+#include<stdio.h>
+#include<stdlib.h>
+int search(int a[3][3],int k,int i,int j)
+{
+int x,y;
+for(x=0;x<=i;x++)
+{
+for(y=0;y<3;y++)
+{
+if(a[x][y] == k)
+return 1;
+}
+}
+return 0;
+}
+
+void solve()
+{ int i,j,a[3][3],k;
+for(i=0;i<3;i++)
+{
+for(j=0;j<3;j++)
+{
+k = rand() % (9-1+1) +1;
+while(search(a,k,i,j))
+{
+k = rand() % (9-1+1)+1;
+}
+a[i][j] = k;
+}
+}
+for(i=0;i<3;i++)
+{
+for(j=0;j<3;j++)
+{
+printf("%d ",a[i][j]);
+}
+printf("\n");
+}
+}
+
+int main()
+{
+//srand(time(0));
+int c;
+// for(i=0;i<3;i++)
+// {
+// for(j=0;j<3;j++)
+// {
+// a[i][j] = 0;
+// }
+// }
+for(;;)
+{
+printf("\n1.Generate\n2.Exit\n");
+printf("Enter your choice ");
+scanf("%d",&c);
+if(c==1)
+solve();
+else
+break;
+}
+return 0;
+}
