@@ -1,0 +1,60 @@
+/* Given 2 strings check wheather they form anagram or not*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int main()
+{
+char m[30],d[30];
+int mc,dc,i,j;
+printf("\nEnter moms letter ");
+//scanf("%[^\n]s",m);
+gets(m);
+printf("\nEnter dads letter ");
+//scanf("%[^\n]s",d);
+gets(d);
+mc = strlen(m);
+dc = strlen(d);
+//printf("%d %d \n",mc,dc);
+if(mc == dc)
+{
+for(i=0;i<mc;i++)
+{
+for(j=i+1;j<mc;j++)
+{
+if(m[j]>m[j+1])
+{
+char t = m[j];
+m[j] = m[j+1];
+m[j+1] = t;
+}
+}
+}
+for(i=0;i<dc;i++)
+{
+for(j=i+1;j<dc;j++)
+{
+if(d[j]>d[j+1])
+{
+char t = d[j];
+d[j] = d[j+1];
+d[j+1] = t;
+}
+}
+}
+if(strcmp(m,d) == 0)
+{
+printf("\nRight !");
+}
+else
+{
+printf("\nNo\n");
+}
+
+}
+else
+{
+printf("\nShhhh!!");
+}
+return 0;
+}
