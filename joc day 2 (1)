@@ -1,0 +1,63 @@
+/* Given a phone number check wheather sum of its digits is equal to 7 */
+
+
+1RN20CS003_Aanchal sharma <aanchalsuntwal@gmail.com>
+20:18 (1 minute ago)
+to me
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int solve(long int n)
+{
+int sum =0,r;
+while(n > 0)
+{
+r = n%10;
+sum = sum + r;
+n = n/10;
+}
+return sum;
+}
+int main()
+{
+//char s[20];
+int sum =0,i,n,r,c=0;
+long int d=0;
+printf("Enter the number ");
+scanf("%ld",&d);
+while(d>0)
+{
+r = d % 10;
+sum = sum + r;
+d = d/10;
+c++;
+}
+if(c>10 || c<10)
+{
+printf("\nDont Fool me ");
+exit(1);
+}
+/*else
+{
+//d = atoi(s);
+printf("%ld ",d);
+
+}
+*/
+n = sum;
+while(n > 9)
+{
+n = solve(n);
+}
+//n = sum;
+if(n == 7)
+{
+printf("\nYayy , I got this !!");
+}
+else
+{
+printf("\nNumber rejected ");
+}
+return 0;
+}
