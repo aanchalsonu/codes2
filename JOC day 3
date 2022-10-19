@@ -1,0 +1,111 @@
+/*Day 3 ( 19-10-2022 )
+Baby Sanvi demands balloons from her mother. Mother orders a pack of
+balloons online and it gets delivered. When Sanvi opens the pack, she
+jumps with joy to see hundreds of balloons with various colors. Here
+comes the twist. Sanvi s favourite colors are pink and blue, she can
+keep any number of pink and blue balloons. She doesn’t like orange
+and black, so she just keeps it aside. She loves to keep only one
+balloon of remaining colors. At last, she will blow the balloons and by
+then her mom asks her to arrange the balloons in alphabetical order
+based on colors.
+Note:
+Language of implementation : C
+Data Structure: Array/Linked list.
+Sample input
+Case 1
+Red, Green, Blue, Orange, Red, Yellow, Green, White, Black, Pink,
+Pink, Blue, Red, Green, Red, Black
+Expected output
+Blue, Blue, Green, Pink, Pink, Red, White, Yellow
+Sample input
+Case 2
+Orange, Red, Green, Blue, Orange, Red, Purple, Yellow, Green, White,
+Purple, Pink, Pink, Blue, Red, Green, Red, Black
+Expected output
+Blue, Blue, Green, Pink, Pink, Purple, Red, White, Yellow
+*/
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+/*int search(char r[20][10], char s[20][10],int n)
+{
+int i;
+for(i=0;i<=n;i++)
+{
+if(strcmp(r[i],s) == 0)
+return 1;
+}
+return 0;
+}
+*/
+
+int main()
+{
+int n,i,j,x,k=0;
+printf("Enter number of ballons \n");
+scanf("%d",&n);
+char s[n+1][10],r[n+1][10],t[20];
+printf("\nEnter the colors ");
+for(i=0;i<=n;i++)
+{
+gets(s[i]);
+}
+for(i=0;i<=n;i++)
+{
+if(strcmp(s[i],"Black") == 0 || strcmp(s[i], "Orange") ==0)
+{
+continue;
+}
+else
+{
+x=0;
+for(j=0;j<=k;j++)
+{
+if(strcmp(r[j],s[i]) == 0 && strcmp(r[j],"Blue") != 0 && strcmp(r[j],"Pink") != 0)
+x =1;
+}
+//x = search(r[n+1][10],s[n+1][10],k);
+if(x == 1)
+{
+continue;
+}
+else
+{
+strcpy(r[k++],s[i]);
+}
+
+}
+}
+for(i=0;i<k;i++)
+{
+printf("%s ",r[i]);
+}
+printf("\n");
+for(i=0;i<k;i++)
+{
+for(j=i+1;j<k;j++)
+{
+if(strcmp(r[i],r[j]) > 0)
+{
+strcpy(t,r[i]);
+strcpy(r[i],r[j]);
+strcpy(r[j],t);
+}
+}
+}
+
+for(i=0;i<k;i++)
+{
+printf("%s ",r[i]);
+}
+
+
+/*for(i=0;i<n;i++)
+{
+printf("%s\n",s[i]);
+}
+*/
+
+return 0;
+}
