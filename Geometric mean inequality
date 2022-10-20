@@ -1,0 +1,90 @@
+/*You are given an array AA of length NN containing the elements -1−1 and 11 only. Determine if it is possible to rearrange the array AA in such a way that A_iA 
+  is not the geometric mean of A_{i-1}A  and A_{i+1}A 
+ , for all ii such that 2 \leq i \leq N-12≤i≤N−1.
+
+YY is said to be the geometric mean of XX and ZZ if Y^2 = X \cdot ZY 
+2
+ =X⋅Z.
+
+*/
+
+
+#include <iostream>
+using namespace std;
+long int mod(long int a, long int b)
+{
+    if(a>=b)
+    return a-b;
+    else
+    return b-a;
+}
+int main() {
+	// your code goes here
+	long int t,n,i,j,co=0,cz=0;
+	cin>>t;
+	while(t--)
+	{
+	    co=0;
+	    cz=0;
+	    cin>>n;
+	    long int a[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        if(a[i] == 1)
+	        co++;
+	        else
+	        cz++;
+	    }
+	    
+	    long int dif  = mod(co,cz);
+	    if(dif<2)
+	    {
+	        cout<<"YES\n";
+	    }
+	    else if(dif == 2)
+	    {
+	        if(cz%2 == 1)
+	        {
+	            cout<<"NO\n";
+	        }
+	        else
+	        {
+	            cout<<"YES"<<endl;
+	        }
+	    }
+	    else
+	    {
+	        cout<<"NO"<<endl;
+	    }
+	    
+	    
+	   // if(co==0 || cz==0)
+	   // {
+	   //     cout<<"NO"<<endl;
+	   // }
+	   // else if(co%2 != 0 && cz%2 != 0)
+	   // {
+	   //     cout<<"No"<<endl;
+	   // }
+	   // else
+	   // {
+	   //     cout<<"YES"<<endl;
+	   // }
+	    
+	   // for(i=1;i<n-1;i++)
+	   // {
+	   //     if((a[i]*a[i]) == (a[i-1]*a[i+1]))
+	   //     {
+	   //         cout<<"NO"<<endl;
+	   //         break;
+	   //     }
+	   // }
+	   // if(i==n-1)
+	   // {
+	   //     cout<<"YES"<<endl;
+	   // }
+	}
+	
+	return 0;
+}
