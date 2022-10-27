@@ -1,0 +1,49 @@
+/*Chef and his little brother are playing with sticks. They have total N sticks. Length of i-th stick is Ai. 
+Chef asks his brother to choose any four sticks and to make a rectangle with those sticks its sides. Chef warns his brother to not to break
+any of the sticks, he has to use sticks as a whole. Also, he wants that the rectangle formed should have the maximum possible area among all the rectangles 
+that Chef's brother can make.
+
+Chef's little brother takes this challenge up and overcomes it. Can you also do so? That is, you have to tell whether it is even possible to create a rectangle? 
+If yes, then you have to tell the maximum possible area of rectangle.
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,a,c;
+	int i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    c=0;
+	    long int arr[n];
+	   // map<int,int> mp;
+	    long int temp=1;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>arr[i];
+	       // mp[arr[i]]++;
+	    }
+	    sort(arr,arr+n);
+	    for(i=0;i<n-1;i++)
+	    {
+	        if(arr[i] == arr[i+1])
+	        {
+	            a = arr[i] *temp;
+	            temp = arr[i];
+	            i++;
+	            c++;
+	        }
+	    }
+	    if(c>=2)
+	    cout<<a<<endl;
+	    else
+	    cout<<"-1"<<endl;
+	}
+	
+	return 0;
+}
