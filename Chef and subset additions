@@ -1,0 +1,49 @@
+/*Chef is asked to write a program that takes an array AA of length NN and two integers X, YX,Y as input and modifies it as follows:
+
+Choose a random subset of elements of AA (possibly empty)
+Increase all the elements of the chosen subset by XX
+Increase the remaining elements in AA by YY
+You are given NN, XX, YY, AA and the array BB that is returned by Chef's program. Determine whether Chef's program gave the correct output.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,x,y,i,c;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>x>>y;
+	    c=0;
+	    long int a[n],b[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>b[i];
+	    }
+	    for(i=0;i<n;i++)
+	    {
+	        if((b[i] - a[i] == x) || (b[i] - a[i] == y))
+	        {
+	            c++;
+	        }
+	        else
+	        {
+	            cout<<"No\n";
+	            break;
+	        }
+	    }
+	    if(c == n)
+	    {
+	        cout<<"Yes"<<endl;
+	    }
+	    
+	    
+	}
+	return 0;
+}
