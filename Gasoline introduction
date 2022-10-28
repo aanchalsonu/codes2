@@ -1,0 +1,48 @@
+/*
+There are NN cars (numbered 11 through NN) on a circular track with length NN. For each ii (2 \le i \le N2≤i≤N), the ii-th of them is at a distance i-1i−1 
+clockwise from car 11, i.e. car 11 needs to travel a distance i-1i−1 clockwise to reach car ii. Also, for each valid ii, the ii-th car has f_if 
+i litres of gasoline in it initially.
+
+You are driving car 11 in the clockwise direction. To move one unit of distance in this direction, you need to spend 11 litre of gasoline. When you pass 
+another car (even if you'd run out of gasoline exactly at that point), you steal all its gasoline. Once you do not have any gasoline left, you stop.
+
+What is the total clockwise distance travelled by your car?
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,s;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    s=a[0];
+	    long int dist=0;
+	    for(i=1;i<n;i++)
+	    {
+	        if(s>0)
+	        {
+	            dist++;
+	            s = s + a[i]-1;
+	        }
+	        else
+	        break;
+	    }
+	    cout<<(dist+s)<<endl;
+	    
+	    
+	    
+	    
+	   
+	}
+	
+	return 0;
+}
