@@ -1,0 +1,50 @@
+/*The greatest common divisor (GCD) of a sequence is the greatest positive integer which divides each element of this sequence.
+
+You are given a sequence AA of positive integers with size NN. You are allowed to delete up to N-1N−1 elements from this sequence.
+(I.e., you may delete any number of elements, including zero, as long as the resulting sequence is non-empty.)
+
+Please find the minimum number of elements which have to be deleted so that the GCD of the resulting sequence would be equal to 11, or determine that 
+it is impossible.
+*/
+
+#include <iostream>
+using namespace std;
+long int gcd(int m,int n)
+{
+    if(m==0)
+    return n;
+    if(n==0)
+    return m;
+    if(m>n)
+    return gcd(m-n,n);
+    return gcd(m,n-m);
+}
+
+
+int main() {
+	// your code goes here
+	long int t,n,i,r;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    r=0;
+	    long int a[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        r = gcd(r,a[i]);
+	    }
+	    if(r == 1)
+	    {
+	        cout<<0<<endl;
+	    }
+	    else
+	    {
+	        cout<<-1<<endl;
+	    }
+	}
+	
+	
+	return 0;
+}
