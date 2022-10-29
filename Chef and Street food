@@ -1,0 +1,44 @@
+/*
+in Chefland, there is a very famous street where NN types of street food (numbered 11 through NN) are offered. For each valid ii, there are S_iS 
+  stores that offer food of the ii-th type, the price of one piece of food of this type is V_iV 
+  (the same in each of these stores) and each day, P_iP 
+  people come to buy it; each of these people wants to buy one piece of food of the ii-th type.
+
+Chef is planning to open a new store at this street, where he would offer food of one of these NN types. Chef assumes that the people who want to buy the type
+of food he'd offer will split equally among all stores that offer it, and if this is impossible, i.e. the number of these people pp is not divisible by the number 
+of these stores ss, then only \left\lfloor\frac{p}{s}\right\rfloor⌊ 
+ ⌋ people will buy food from Chef.
+
+Chef wants to maximise his daily profit. Help Chef choose which type of food to offer and find the maximum daily profit he can make.
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,r,i,j;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int s[n],p[n],v[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>s[i]>>p[i]>>v[i];
+	    }
+	    r = p[0]/(s[0]+1)*v[0];
+	    for(i=1;i<n;i++)
+	    {
+	        if(p[i]/(s[i]+1)*v[i] > r)
+	        {
+	            r = p[i]/(s[i]+1)*v[i];
+	        }
+	    }
+	    cout<<r<<endl;
+	    
+	}
+	
+	return 0;
+}
