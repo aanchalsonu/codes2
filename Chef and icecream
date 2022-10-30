@@ -1,0 +1,87 @@
+/*
+Chef owns an icecream shop in Chefland named scoORZ. There are only three types of coins in Chefland: Rs. 5, Rs. 10 and Rs. 15. An icecream costs Rs. 5.
+
+There are NN people (numbered 11 through NN) standing in a queue to buy icecream from scoORZ. Each person wants to buy exactly one icecream. For each valid ii, 
+the ii-th person has one coin with value a_ia 
+i
+​
+ . It is only possible for someone to buy an icecream when Chef can give them back their change exactly ― for example, if someone pays
+ with a Rs. 10 coin, Chef needs to have a Rs. 5 coin that he gives to this person as change.
+
+Initially, Chef has no money. He wants to know if he can sell icecream to everyone in the queue, in the given order. Since he is busy eating his own 
+icecream, can you tell him if he can serve all these people?
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,f;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n],five=0,ten=0;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    f=0;
+	    for(i=0;i<n;i++)
+	    {
+	        if(a[0] != 5)
+	        {
+	            cout<<"NO"<<endl;
+	            f=1;
+	            break;
+	        }
+	        else
+	        {
+	            if(a[i] == 5)
+	            {
+	                five++;
+	                
+	            }
+	            if(a[i] == 10)
+	            {
+	               if(five>0)
+	               {
+	                   ten++;
+	                   five--;
+	               }
+	               else
+	               {
+	                   cout<<"NO\n";
+	                   f=1;
+	                   break;
+	               }
+	            }
+	            if(a[i] == 15)
+	            {
+	                if(ten > 0)
+	                {
+	                    ten--;
+	                }
+	                else if(five > 1)
+	                {
+	                    five = five-2;
+	                    ten++;
+	                }
+	                else
+	                {
+	                    cout<<"NO\n";
+	                    f=1;
+	                    break;
+	                }
+	            }
+	        }
+	    }
+	    if(f==0)
+	    {
+	        cout<<"YES\n";
+	    }
+	}
+	
+	return 0;
+}
