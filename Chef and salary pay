@@ -1,0 +1,50 @@
+/*Given the schedule of Chef for 3030 days (A binary string of length 3030 where '0' denotes that Chef was on leave and '1'
+denotes Chef was working on that day). Chef gets X-X− Rs for every day he worked. As working continuously for a long time is hectic so Company 
+introduced the following policy to give a bonus to its employees.
+
+The company will check the longest streak for which an employee has worked and will award Y-Y− Rs for every day of that streak as a bonus. 
+Calculate the salary received by Chef (including the bonus).
+
+Note: Rs represents the currency of Chefland, and if there are two or more longest streaks of the same length, only one is counted for the bonus.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,s,x,y,r,oc,zc,max;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>x>>y;
+	    s=0;
+	    r=0;
+	    oc=0;
+	    max=0;
+	    zc=0;
+	    string str;
+	    cin>>str;
+	    for(i=0;i<30;i++)
+	    {
+	        if(str[i] == '1')
+	        {
+	            oc++;
+	            s++;
+	        }
+	        if(s>max)
+	        {
+	            max =s;
+	        }
+	        if(str[i] == '0')
+	        {
+	            zc++;
+	            s=0;
+	        }
+	    }
+	    r = oc*x + max*y;
+	    cout<<r<<endl;
+	}
+	
+	return 0;
+}
