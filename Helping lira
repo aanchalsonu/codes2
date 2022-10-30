@@ -1,0 +1,54 @@
+/*Lira is a little girl form Bytenicut, a small and cozy village located in the country of Byteland.
+
+ As the village is located on a somewhat hidden and isolated area, little Lira is a bit lonely and she needs to invent new games that she can play for herself.
+
+However, Lira is also very clever, so, she already invented a new game.
+
+She has many stones with her, which she will display on groups of three stones on the ground on a triangle like shape and then, she will select two triangles, 
+one with the smallest area and one with the largest area as the most beautiful ones.
+
+While it's easy for Lira to "estimate" the areas of the triangles by their relative sizes, it's harder for her to actually calculate these areas.
+
+But, it turns out, that Lira is also friends with YOU, an exceptional Mathematics student, and she knew that you would know exactly how to do such verification.
+
+Lira also numbered the triangles from 1 to N, and now she wants to know the indices of the triangles with the smallest and largest area respectively.
+
+It is now up to you, to help Lira and calculate the areas of the triangles and output their numbers.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int n,i,j,a[6],max,maxi,min,mini;
+	cin>>n;
+	long int area[n];
+	max=0;
+	maxi=mini=0;
+// 	min=99999;
+	for(i=0;i<n;i++)
+	{
+	    for(j=0;j<6;j++)
+	    {
+	        cin>>a[j];
+	    }
+	    area[i] = abs(a[0]*(a[3]-a[5])+a[2]*(a[5]-a[1])+a[4]*(a[1]-a[3]));
+	}
+	max = min =area[0];
+	for(i=1;i<n;i++)
+	{
+	    if(area[i]>=max)
+	    {
+	        max = area[i];
+	        maxi=i;
+	    }
+	    if(area[i]<=min)
+	    {
+	        min = area[i];
+	        mini=i;
+	    }
+	}
+	cout<<mini+1<<" "<<maxi+1<<endl;
+	return 0;
+}
