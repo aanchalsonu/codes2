@@ -1,0 +1,50 @@
+/*
+Chef wants to make a purchase. For this, he needs XX gold coins, but he has none at the moment.
+
+Chef has NN fixed deposits, the i^{th}i 
+th
+  of which is worth A_iA 
+ i coins. He wants to open the minimum number of these deposits so that he has at least XX coins.
+
+You have to tell Chef the minimum number of fixed deposits he must open in order to have XX coins, or say that this is impossible.
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,x,i,s,c;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>x;
+	    long int a[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    sort(a,a+n);
+	    s=0;
+	    c=0;
+	    for(i=n-1;i>=0;i--)
+	    {
+	        s = s + a[i];
+	        c++;
+	        if(s >= x)
+	        {
+	            break;
+	        }
+	    }
+	    if(s < x)
+	    {
+	        cout<<-1<<endl;
+	    }
+	    else 
+	    {
+	        cout<<c<<endl;
+	    }
+	}
+	return 0;
+}
