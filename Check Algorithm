@@ -1,0 +1,49 @@
+/*
+One day, Saeed was teaching a string compression algorithm. This algorithm finds all maximal substrings which contains only one character repeated one or 
+more times (a substring is maximal if it we cannot add one character to its left or right without breaking this property) and replaces each such substring 
+by the string "cK", where KK is the length of the substring and cc is the only character it contains. For example, "aabaaa" is compressed to "a2b1a3".
+
+Saeed wanted to check if the students understood the algorithm, so he wrote a string SS on the board and asked the students if the algorithm is effective on SS,
+i.e. if the string created by compressing SS is strictly shorter than SS. Help them answer this question.
+*/
+#include <iostream>
+#include<stdlib.h>
+#include<stdio.h>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,c,j;
+	cin>>t;
+	while(t--)
+	{
+	    string s,res;
+	    cin>>s;
+	    c=1;
+	    j=s.length();
+	    for(i=0;i<j;i++)
+	    {
+	        if(s[i] == s[i+1])
+	        {
+	            c++;
+	        }
+	        else 
+	        {
+	            res.push_back(s[i]);
+	            res += to_string(c);
+	            c=1;
+	        }
+	    }
+	    if(res.size() < j)
+	    {
+	        cout<<"YES\n";
+	    }
+	    else
+	    {
+	        cout<<"NO\n";
+	    }
+	}
+	
+	return 0;
+}
