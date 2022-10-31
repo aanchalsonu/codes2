@@ -1,0 +1,113 @@
+/*In the world of DragonBool there are fierce warriors called Soints. Also there are even fiercer warriors called Sofloats – the mortal enemies of Soints.
+
+The power of each warrior is determined by the amount of chakra he possesses which is some positive integer. Warriors with zero level of chakra are dead warriors :)
+When the fight between Soint with power CI and Sofloat with power CF occurs the warrior with lower power will die and the winner will lose the amount of chakra 
+that his enemy have possessed before the fight. So three cases are possible:
+
+CI > CF. Then Sofloat will die while the new power of Soint will be CI – CF.
+CI < CF. Then Soint will die while the new power of Sofloat will be CF – CI.
+CI = CF. In this special case both warriors die.
+Each warrior (Soint or Sofloat) has his level of skills which is denoted by some positive integer. The fight between two warriors can occur only when these
+warriors are Soint and Sofloat of the same level. In particual, friendly fights are not allowed, i.e., a Soint cannot fight with another Soint and the same 
+holds for Sofloats.
+
+Lets follow the following convention to denote the warriors. A Soint of level L and power C will be denoted as (I, C, L), while Sofloat of level L and power
+C will be denoted as (F, C, L). Consider some examples. If A = (I, 50, 1) fights with B = (F, 20, 1), B dies and A becomes (I, 30, 1). On the other hand,
+(I, 50, 1) cannot fight with (F, 20, 2) as they have different levels.
+
+There is a battle between Soints and Sofloats. There are N Soints and M Sofloats in all. The battle will consist of series of fights. As was mentioned above
+in each fight one Soint and one Sofloat of the same level take part and after the fight the warrior with lower power will die (or both will die if they have 
+the same power). The battle proceeds as long as there exists at least one pair of warriors who can fight. The distribution of warriors by levels satisfies the 
+following condition: for every Soint of level L there exists at least one Sofloat of the same level L and vice-versa. So if for some level L we have at
+least one warrior of this level then there is at least one Soint of level L and at least one Sofloat of level L.
+
+There is a powerful wizard, whose name is SoChef, on the side of Soints. He can increase the amount of chakra of each Soint by any number. SoChef wants 
+the army of Soints to win this battle. But increasing amount of chakra of any Soint by one costs him a lot of his magic power. Hence he wants to minimize
+the total amount of additional chakra he should give to Soints in order for them to win. Note, however, that the win here means that all Sofloats should 
+be dead irregardless of whether any Soint is alive. Also note that the battle can proceed by different scenarios and the SoChef need to distribute
+additional chakra among the Soints in such a way that they will win for any possible battle scenario. Help SoChef and find the minimal amount of additional 
+chakra he should give to Soints in order for them to win.
+*/
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,m,i,c,l;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>m;
+	    long int leveli[100]={0},levelf[100]= {0},chakra=0;
+	    
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>c>>l;
+	        leveli[l-1] += c;
+	    }
+	    for(i=0;i<m;i++)
+	    {
+	        cin>>c>>l;
+	        levelf[l-1] += c;
+	    }
+	    
+	    for(i=0;i<100;i++)
+	    {
+	        chakra += (levelf[i]>leveli[i])?(levelf[i]-leveli[i]):0; 
+	    }
+	    cout<<chakra<<endl;
+	    
+	    
+	    
+	   // long int ci[n],li[n],cf[m],lf[m],mxci=0,lev=0,soint=0,sofloat=0;
+	   // for(i=0;i<n;i++)
+	   // {
+	   //     cin>>ci[i]>>li[i];
+	   //    // if(c[i]>mxci)
+	   //    // {
+	   //    //     mxci = ci[i];
+	   //    //     lev=i;
+	   //    // }
+	   // }
+	   // for(i=0;i<m;i++)
+	   // {
+	   //     cin>>cf[i]>>lf[i];
+	   // }
+	   // for(i=0;i<n;i++)
+	   // {
+	   //     for(j=0;j<m;j++)
+	   //     {
+	   //         if(li[i] == lf[j] && li[i] != 0 && lf[j] != 0 )
+	   //         {
+	   //             if(ci[i]>cf[i])
+	   //             {
+	   //                 ci[i] = ci[i]-cf[j];
+	   //                 lf[j] = 0;
+	   //                 soint = ci[i];
+	   //             }
+	   //             else if(cf[j]>ci[i])
+	   //             {
+	   //                 cf[j] = cf[j] - ci[i];
+	   //                 li[i] =0;
+	   //                 sofloat = cf[j];
+	   //             }
+	   //             else
+	   //             {
+	   //                 cf[j] = ci[i] =0;
+	   //                 lf[j] = li[i] =0;
+	   //             }
+	   //         }
+	   //     }
+	        
+	   // }
+	    
+	   // cout<<sofloat<<endl;
+	    
+	    
+	}
+	
+	return 0;
+}
