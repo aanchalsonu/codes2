@@ -1,0 +1,53 @@
+/*Sarthak and Anuradha are very good friends and are eager to participate in an event called Equinox. It is a game of words. In this game, NN strings S_1,\ldots, S_NS 
+1,…,S 
+N are given. For each string S_iS 
+i , if it starts with one of the letters of the word “EQUINOX”, Sarthak gets AA points and if not, Anuradha gets BB points. The one who has more 
+points at the end of the game wins. If they both the same number of points, the game is a draw..
+
+Print the winner of the game, if any, otherwise print “DRAW”.
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,anu,sar,a,b,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>a>>b;
+	    string arr[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>arr[i];
+	    }
+	    anu=sar=0;
+	    for(i=0;i<n;i++)
+	    {
+	        if(arr[i][0] == 'E' || arr[i][0] == 'Q'|| arr[i][0] == 'U'|| arr[i][0] == 'I'|| arr[i][0] == 'N'|| arr[i][0] == 'O'|| arr[i][0] == 'X')
+	        {
+	            sar = sar +a;
+	        }
+	        else
+	        {
+	            anu = anu + b;
+	        }
+	    }
+	    if(anu > sar)
+	    {
+	        cout<<"ANURADHA\n";
+	    }
+	    else if( sar>anu)
+	    {
+	        cout<<"SARTHAK\n";
+	    }
+	    else if(sar == anu)
+	    {
+	        cout<<"DRAW\n";
+	    }
+	}
+	
+	return 0;
+}
