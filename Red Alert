@@ -1,0 +1,82 @@
+/*Finally a monsoon has come. According to the Meteorological Department, there will be rain in the upcoming NN days in the city. Initially, the water 
+level of the city is zero millimetres. The amount of rain on the ii-th day can be described by an integer A_iA  as follows:
+
+If A_i \gt 0A i >0, the water level of the city increases by A_iA i millimetres on the ii-th day.
+If A_i = 0A i=0, there is no rain on the ii-th day. The water level of the city decreases by DD millimetres on such a day. However, if the 
+water level is less than DD millimetres before the ii-th day, then it becomes zero instead.
+There will be a red alert in the city if the water level becomes strictly greater than HH millimetres on at least one of the NN days. Determine 
+if there will be a red alert.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,d,h,i,s;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>d>>h;
+	    long int a[n];
+	    long int c=0;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    s=0;
+	    for(i=0;i<n;i++)
+	    {
+	        if(a[i]>0)
+	        {
+	            s = s+a[i];
+	            a[i] = s;
+	        }
+	        else if(a[i] ==0)
+	        {
+	            s = s-d;
+	            if(s<0)
+	            {
+	                s =0;
+	            }
+	            a[i] =s;
+	        }
+	        
+	       // s = s + a[i];
+	       // if(s > h)
+	       // {
+	       //     cout<<"YES"<<endl;
+	       //     break;
+	       // }
+	       // if(a[i] == 0)
+	       // {
+	       //     if(s < d)
+	       //     {
+	       //         s =0;
+	       //     }
+	       //     s = s - d;
+	    }
+	       
+	       for(i=0;i<n;i++)
+	       {
+	           if(a[i] > h)
+	           {
+	               c++;
+	           }
+	       }
+	       if(c == 0)
+	       {
+	           cout<<"NO\n";
+	       }
+	       else
+	       {
+	           cout<<"YES\n";
+	       }
+
+	   // if(i==n)
+	   // {
+	   //     cout<<"NO\n";
+	   // }
+	}
+	return 0;
+}
