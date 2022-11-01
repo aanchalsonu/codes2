@@ -1,0 +1,44 @@
+/*
+Alice and Bob are walking on an infinite straight street. Initially, both are at the position X=0X=0 and they start walking in the direction of increasing XX.
+After NN seconds, they stop. Let's denote Alice's speed and Bob's speed during the ii-th of these seconds by A_iA 
+i and B_iB respectively.
+
+Sometimes, Alice and Bob walk together, i.e. with the same speed side by side. Let's define the weird distance as the total distance they walk this way. 
+Find this weird distance.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,d,dta,dtb;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n],b[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>b[i];
+	    }
+	    d=0;
+	    dta=dtb=0;
+	    for(i=0;i<n;i++)
+	    {
+	        if(a[i] == b[i] && dta == dtb )
+	        {
+	            d = d + a[i];
+	        }
+	        dta = dta + a[i];
+	        dtb = dtb+b[i];
+	    }
+	    cout<<d<<endl;
+	}
+	
+	return 0;
+}
