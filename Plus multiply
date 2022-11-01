@@ -1,0 +1,45 @@
+/*
+Chef has a sequence A_1, A_2, \ldots, A_NA 
+
+ . He needs to find the number of pairs (i, j)(i,j) (1 \le i \lt j \le N1≤i<j≤N) such that A_i + A_j = A_i \cdot A_jA 
+
+ . However, he is busy, so he asks for your help.
+ 
+ */
+ 
+ 
+ #include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,j,c;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n],p=0,q=0;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        if(a[i] == 2)
+	        p++;
+	        if(a[i] == 0)
+	        q++;
+	    }
+	    cout<<(p*(p-1)/2)+(q*(q-1))/2<<endl;
+	   // c=0;
+	   // for(i=0;i<n;i++)
+	   // {
+	   //     for(j=i+1;j<n;j++)
+	   //     {
+	   //         if(a[i]+a[j] == a[i]*a[j])
+	   //         {
+	   //             c++;
+	   //         }
+	   //     }
+	   // }
+	   // cout<<c<<endl;
+	}
+	return 0;
+}
