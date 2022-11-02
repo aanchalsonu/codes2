@@ -1,0 +1,40 @@
+/*
+Chef is buying sweet things to prepare for Halloween!
+
+The shop sells both chocolate and candy.
+
+Each bar of chocolate has a tastiness of XX.
+Each piece of candy has a tastiness of YY.
+One packet of chocolate contains 22 bars, while one packet of candy contains 55 pieces.
+
+Chef can only buy one packet of something sweet, and so has to make a decision: which one should he buy in order to maximize the total tastiness of his purchase?
+
+Print Chocolate if the packet of chocolate is tastier, Candy if the packet of candy is tastier, and Either if they have the same tastiness.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,x,y;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>x>>y;
+	    if(x*2 > y*5)
+	    {
+	        cout<<"Chocolate\n";
+	    }
+	    else if(x*2 < y*5)
+	    {
+	        cout<<"Candy\n";
+	    }
+	    else 
+	    {
+	        cout<<"Either\n";
+	    }
+	}
+	return 0;
+}
+
