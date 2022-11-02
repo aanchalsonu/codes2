@@ -1,0 +1,38 @@
+/*
+You are given an integer NN.
+
+Print a permutation PP of [1,2, \ldots, N][1,2,…,N] such that the following condition holds:
+
+For any index i\ (1 \leq i \lt N)i (1≤i<N), P_i \times P_{i+1}P 
+i
+​
+ ×P 
+i+1
+​
+  is not a perfect square.
+If there are multiple correct answers, you may print any of them.
+
+Note: A permutation of [1, 2, \ldots, N][1,2,…,N] is a rearrangement of those numbers.
+
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes 
+	long int t,n,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    for(i=1;i<=n;i++)
+	    {
+	        if(i != i+1)
+	        cout<<i<<" ";
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}
