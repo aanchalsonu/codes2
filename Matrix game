@@ -1,0 +1,42 @@
+/*
+2 players, Cyborg and Geno are playing a game on a matrix. In each turn, the player choses a number from the matrix which is not selected yet and adds
+the number to his sum. In the end, the player with the largest sum wins the game.
+
+Assuming both players play optimally and Cyborg starts the game, predict who will be the winner of the game. Assume that the initial sum is 0 for both the players.
+
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+static bool cmp(int a,int b)
+{
+    return a>b;
+}
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int n,m;
+        cin>>n>>m;
+        vector<int> ar;
+		int c=0;int g=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                int z;
+                cin>>z;
+                ar.push_back(z);
+			}
+    }
+    sort(ar.begin(),ar.end(),cmp);
+    for(int i=0;i<ar.size();i++){
+        if(i&1){
+            g+=ar[i];
+        }
+        else c+=ar[i];
+    }    
+// 		cout<<c<<" "<<g<<endl;
+    if(c>g) cout<<"Cyborg"<<endl;
+    else if(c==g) cout<<"Draw"<<endl;
+}
+}
