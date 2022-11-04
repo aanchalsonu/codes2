@@ -1,0 +1,64 @@
+/*
+You are given a binary string SS of length NN. You can perform the following operation on it:
+
+Pick any non-empty even-length subsequence of the string.
+Suppose the subsequence has length 2k2k. Then, move the first kk characters to the beginning of SS and the other kk to the end of SS (without changing their order).
+For example, suppose S = 01100101110S=01100101110. Here are some moves you can make (the chosen subsequence is marked in red):
+
+0\textcolor{red}{1}10\textcolor{red}{0}101110 \to \textcolor{red}{1}010101110\textcolor{red}{0}01100101110→10101011100
+01\textcolor{red}{10}01\textcolor{red}{0}1\textcolor{red}{1}10 \to \textcolor{red}{10}0101110\textcolor{red}{01}01100101110→10010111001
+011\textcolor{red}{00101110} \to \textcolor{red}{0010}011\textcolor{red}{1110}01100101110→00100111110
+What is the lexicographically smallest string that can be obtained after performing this operation several (possibly, zero) times?
+
+Note: A binary string AA is said to be lexicographically smaller than another binary string BB of the same length if there exists an index ii such that:
+
+A_1 = B_1, A_2 = B_2, \ldots, A_{i-1} = B_{i-1}A 
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,j,co,cz;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    co=0;
+	    cz=0;
+	    if(s == "10")
+	    {
+	        cout<<s<<endl;
+	    }
+	    else
+	    {
+	        for(i=0;i<n;i++)
+	        {
+	            if(s[i] == '0')
+	            {
+	                cz++;
+	            }
+	            else{
+	                co++;
+	            }
+	        }
+	        while(cz>0)
+	    {
+	        cout<<"0";
+	        cz--;
+	    }
+	    while(co>0)
+	    {
+	        cout<<"1";
+	        co--;
+	    }
+	    cout<<endl;
+	    }
+	    
+	}
+	return 0;
+}
