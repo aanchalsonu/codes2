@@ -1,0 +1,40 @@
+/*
+Consider the following 4 \times 44×4 pattern:
+
+ 1  2  4  7
+ 3  5  8 11
+ 6  9 12 14
+10 13 15 16
+You are given an integer NN. Print the N \times NN×N pattern of the same kind (containing integers 11 through N^2N 
+2
+ ).
+ */
+ 
+ 
+ #include <iostream>
+using namespace std;
+
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		int value=0;
+		for(int i=0; i<n; i++){
+			int value2;
+			value2 = value = value+i+1;
+			cout<<value<<" ";
+			for(int j=i; j<n-1; j++){
+				value2 = value2 + j + 1;
+				cout<<value2<<" ";
+			}
+			for(int k=0; k<i; k++){
+				value2 = value2 + (n-1-k);
+				cout<<value2<<" ";
+			}
+			cout<<endl;
+		}
+	}
+}
+ 
