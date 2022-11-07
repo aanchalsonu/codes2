@@ -1,0 +1,35 @@
+/*
+One day, Chef's friend gave him a wrong number WW containing N + 1N+1 digits and said that the actual number AA is the largest possible number that can
+be obtained from deleting exactly one digit of WW. Chef was able to find AA but forgot WW.
+
+Given AA, find the smallest possible number WW of length N + 1N+1 without leading 00's that is consistent with the story above. We can show that there 
+is always at least one such WW consistent with the story.
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,i;
+	cin>>t;
+	while(t--)
+	{
+	    string s;
+	    cin>>s;
+	   // for(i=0;i<n;i++)
+	   // {
+	        if(s[0] == '1')
+	        {
+	            cout<<s[0]<<"0"<<s.substr(1,s.length())<<endl;
+	        }
+	        else
+	        {
+	            cout<<"1"<<s<<endl;
+	        }
+	   // }
+	}
+	
+	return 0;
+}
