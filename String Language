@@ -1,0 +1,82 @@
+/*
+A string is said to be using strong language if it contains at least KK consecutive characters '*'.
+
+You are given a string SS with length NN. Determine whether it uses strong language or not.
+
+Input
+The first line of the input contains a single integer TT denoting the number of test cases. The description of TT test cases follows.
+The first line of each test case contains two space-separated integers NN and KK.
+The second line contains a single string SS with length NN.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,k,i,j,c;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>k;
+	    string s;
+	    cin>>s;
+	    c=0;
+	    j=0;
+	    for(i=0;i<n;i++)
+	    {
+	        if(s[i] == '*')
+	        {
+	            c++;
+	            if(c==k)
+	            {
+	                cout<<"YES\n";
+	                j=1;
+	                break;
+	            }
+	        }
+	        else
+	        {
+	            c=0;
+	        }
+	    }
+	    if(j==0)
+	    {
+	        cout<<"NO\n";
+	    }
+	   // c=0;
+	   // for(i=0;i<n;)
+	   // {
+	   //     if(s[i] == '*')
+	   //     {
+	   //         j=k;
+	   //         i++;
+	   //         c=1;
+	   //         while(j>=0)
+	   //         {
+	   //             if(s[i] == '*')
+	   //             {
+	   //                 i++;
+	   //                 c++;
+	   //             }
+	   //             else
+	   //             break;
+	   //             j--;
+	   //         }
+	   //     }
+	   //     else
+	   //     {
+	   //         i++;
+	   //     }
+	   // }
+	   // if(c==k)
+	   // {
+	   //     cout<<"YES\n";
+	   // }
+	   // else
+	   // {
+	   //     cout<<"NO\n";
+	   // }
+	}
+	return 0;
+}
