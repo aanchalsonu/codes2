@@ -1,0 +1,94 @@
+/*
+You are given an array AA of NN positive integers.
+
+In one operation, you can do the following:
+
+Choose integers ii and jj (1 \le i < j \le N)(1≤i<j≤N), such that A_i = A_jA 
+i
+​
+ =A 
+j
+​
+ ;
+For all kk (i < k < j)(i<k<j), change the value of A_kA 
+k
+​
+  to A_iA 
+i
+​
+ .
+Find out whether AA can have at most 22 distinct values after using any (possibly zero) number of operations.
+
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,j;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n],f=0;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    if(n<=2)
+	    {
+	        cout<<"YES\n";
+	        continue;
+	    }
+	    if(a[0] == a[n-1] || a[1] == a[n-1] || a[0] == a[n-2])
+	    {
+	        cout<<"YES\n";
+	       // continue;
+	    }
+	    else
+	    {
+	        for(i=1;i<=n-3;i++)
+	    {
+	        if(a[i] == a[0])
+	        if(a[i+1] == a[n-1])
+	        {
+	            cout<<"YES\n";
+	            f=1;
+	            break;
+	        }
+	        
+	    }
+	    if(f==0)
+	    {
+	        cout<<"NO\n";
+	    }
+	    }
+	    
+	    // for(i=0;i<n;i++)
+	   // {
+	   //     for(j=i+1;j<n;j++)
+	   //     {
+	   //         if(a[i] == a[j])
+	   //         {
+	   //             f=1;
+	   //             break;
+	   //         }
+	   //     }
+	   //     if(f==1)
+	   //     {
+	   //         break;
+	   //     }
+	   // }
+	   // if(n-(i+j+1) <=2 && i != n)
+	   // {
+	   //     cout<<"YES\n";
+	   // }
+	   // else 
+	   // {
+	   //     cout<<"NO"<<endl;
+	   // }
+	}
+	return 0;
+}
