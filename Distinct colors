@@ -1,0 +1,31 @@
+/*
+There are NN different types of colours numbered from 11 to NN. Chef has A_iA 
+i
+​
+  balls having colour ii, (1\le i \le N)(1≤i≤N).
+
+Chef will arrange some boxes and put each ball in exactly one of those boxes.
+Find the minimum number of boxes Chef needs so that no box contains two balls of same colour.
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    sort(a,a+n);
+	    cout<<a[n-1]<<endl;
+	}
+	return 0;
+}
