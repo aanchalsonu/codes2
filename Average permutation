@@ -1,0 +1,96 @@
+/*
+You are given an integer NN.
+
+Find a permutation P = [P_1, P_2, \ldots, P_N]P=[P 
+1
+​
+ ,P 
+2
+​
+ ,…,P 
+N
+​
+ ] of the integers \{1, 2, \ldots, N\}{1,2,…,N} such that sum of averages of all consecutive triplets is minimized, i.e.
+
+\sum_{i=1}^{N-2} \frac{P_i + P_{i+1} + P_{i+2}}{3}
+i=1
+∑
+N−2
+​
+  
+3
+P 
+i
+​
+ +P 
+i+1
+​
+ +P 
+i+2
+​
+ 
+​
+ 
+is minimized.
+
+If multiple permutations are possible, print any of them.
+
+
+*/
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,x,y;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    for(i=n;i>0;i--)
+	    {
+	        if(i%2 != 0)
+	        {
+	            cout<<i<<" ";
+	        }
+	    }
+	    for(i=1;i<=n;i++)
+	    {
+	        if(i%2 == 0)
+	        {
+	            cout<<i<<" ";
+	        }
+	    }
+	   // long int a[n+1];
+	   // x=n-1;
+	   // if(n==3)
+	   // {
+	   //     y=n;
+	   //     for(i=1;i<=n;i++)
+	   //     {
+	   //         a[i] = y;
+	   //         y--;
+	   //     }
+	   // }
+	   // else
+	   // {
+	   //     for(i=1;i<n && x >0;i++)
+	   // {
+	   //     a[i] = x;
+	   //     x--;
+	   // }
+	   // a[i] = n;
+	   // }
+	   // for(i=1;i<=n;i++)
+	   // {
+	   //     cout<<a[i]<<" ";
+	   // }
+	    cout<<endl;
+	}
+	return 0;
+}
+
+
