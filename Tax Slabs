@@ -1,0 +1,81 @@
+/*n India, every individual is charged with income tax on the total income each year. This tax is applied to specific ranges of income, which are called 
+income tax slabs. The slabs of income tax keep changing from year to year. 
+This fiscal year (2020-21), the tax slabs and their respective tax rates are as follows:
+
+Total income (in rupees)	Tax rate
+up to Rs. 250,000	0%
+from Rs. 250,001 to Rs. 500,000	5%
+from Rs. 500,001 to Rs. 750,000	10%
+from Rs. 750,001 to Rs. 1,000,000	15%
+from Rs. 1,000,001 to Rs. 1,250,000	20%
+from Rs. 1,250,001 to Rs. 1,500,000	25%
+above Rs. 1,500,000	30%
+See the sample explanation for details on how the income tax is calculated.
+
+You are given Chef's total income: NN rupees (Rs.). Find his net income. The net income is calculated by subtracting the total tax (also called tax reduction) 
+from the total income. Note that you do not need to worry about any other kind of tax reductions, only the one described above.
+*/
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,c,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    c=0;
+	    if( n <250000)
+	    {
+	        c = 0;
+	    }
+	    if(n > 250000 && n > 500000  )
+	    {
+	        c = c + (0.05*(500000-250000));
+	    }
+	    else if(n>250000 && n < 500000 )
+	    {
+	        c = c+ (0.05*(n-250000));
+	    }
+	    if(n > 500000 && n > 750000 )
+	    {
+	        c = c + (0.10*(750000-500000));
+	    }
+	    else if(n>500000 && n < 750000 )
+	    {
+	        c = c+ (0.10*(n-500000));
+	    }
+	    if(n > 750000 && n > 1000000  )
+	    {
+	        c = c + (0.15*(1000000-750000));
+	    }
+	    else if(n>750000 && n < 1000000 )
+	    {
+	        c = c+ (0.15*(n-750000));
+	    }
+	    if(n > 1000000 && n > 1250000  )
+	    {
+	        c = c + (0.2*(1250000-1000000));
+	    }
+	    else if(n>1000000 && n < 1250000 )
+	    {
+	        c = c+ (0.2*(n-1000000));
+	    }
+	    if(n > 1250000 && n > 1500000  )
+	    {
+	        c = c + (0.25*(1500000-1250000));
+	    }
+	    else if(n>1250000 && n < 1500000 )
+	    {
+	        c = c+ (0.25*(n-1250000));
+	    }
+	    if(n > 1500000)
+	    {
+	        c = c + (0.3*(n-1500000));
+	    }
+	    cout<<(n-c)<<endl;
+	}
+	return 0;
+}
+
