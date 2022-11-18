@@ -1,0 +1,63 @@
+/*
+Alice and Bob, both have to drink water. But they both don't want to go, so they will play a game to decide who will fetch water for both of them. 
+Alice will choose a number randomly between 1 and N (both inclusive) and Bob will choose a number randomly between 1 and M (both inclusive). Both will
+write their numbers on a slip of paper. If sum of numbers choosen by both is odd, then Alice will go, else Bob will go.
+What is probability that Alice will go?
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,odd1,even1,odd2,even2,c,m,sum,p;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>m;
+	    c=0;
+	    p=(n*m);
+	    if(n%2 == 0)
+	    {
+	        odd1= n/2;
+	        even1 = n/2;
+	    }
+	    else{
+	        odd1 = n/2 +1;
+	        even1 = n/2;
+	    }
+	    if(m%2 == 0)
+	    {
+	        odd2 = m/2;
+	        even2 = m/2;
+	    }
+	    else
+	    {
+	        odd2 = m/2+1;
+	        even2 = m/2;
+	    }
+	    sum = odd1*even2 + even1*odd2;
+	    long int g = __gcd(sum,p);
+	    if(sum == 0)
+	    {
+	        cout<<sum<<"/"<<p<<endl;
+	    }
+	    else
+	    {
+	        cout<<sum/g <<"/"<<p/g<<endl;
+	    }
+	   // for(i=1;i<=n;i++)
+	   // {
+	   //     for(j=1;j<=m;j++)
+	   //     {
+	   //         if((i+j)%2 == 1)
+	   //         {
+	   //             c++;
+	   //         }
+	   //     }
+	   // }
+	   // cout<<c<<"/"<<(n*m)<<endl;
+	}
+	return 0;
+}
