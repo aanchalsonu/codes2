@@ -1,0 +1,54 @@
+/*
+Chef is planning a heist in the reserve bank of Chefland. They are planning to hijack the bank for DD days and print the money.
+The initial rate of printing the currency is PP dollars per day and they increase the production by QQ dollars after every interval of dd days.
+For example, after dd days the rate is P+QP+Q dollars per day, and after 2d2d days the rate is P+2QP+2Q dollars per day, and so on. Output the amount 
+of money they will be able to print in the given period.
+
+###Input
+
+The first line contains an integer TT, the number of test cases. Then the test cases follow.
+Each test case contains a single line of input, four integers D, d, P, QD,d,P,Q.
+###Output For each test case, output in a single line the answer to the problem.
+
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,d,D,p,q,ans,cost=0,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>D>>d>>p>>q;
+	    ans =0;
+	    
+	    n = D/d;
+	    ans = ((n*((2*p)+(n-1)*q))/2)*d;
+	    ans = ans + (D%d)*(p+(n*q));
+	    cout<<ans<<endl;
+	    
+	    
+	    
+	    
+	    
+	   // cost =0;
+	   // long int j=1;
+	   // for(i=1;i<D;)
+	   // {
+	   //     ans = ans + cost*d;
+	   //     cost = (p+j*q);
+	   //     j++;
+	   //     i = i+d;
+	   // }
+	   // ans = ans + cost;
+	   //// if(i==D)
+	   // {
+	   //     ans = ans + (p+q)*j;
+	   // }
+	   // cout<<ans<<endl;
+	}
+	return 0;
+}
