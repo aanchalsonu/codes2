@@ -1,0 +1,60 @@
+/*
+Consider an infinite full binary tree (each node has two children except the leaf nodes) defined as follows. For a node labelled v its left child will be 
+labelled 2*v and its right child will be labelled 2*v+1. The root is labelled as 1.
+
+You are given N queries of the form i j. For each query, you have to print the length of the shortest path between node labelled i and node labelled j.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,j,sum =0,f=0;
+	cin>>t;
+	long int a[t],b[t];
+	for(i=0;i<t;i++)
+	{
+	    cin>>a[i]>>b[i];
+	}
+	for(i=0;i<t;i++)
+	{
+	    if(a[i] == b[i] )
+	    {
+	        cout<<"0\n";
+	    }
+	    else if(a[i]==b[i]/2 || b[i] == a[i]/2)
+	    {
+	        cout<<"1\n";
+	    }
+	    else
+	    {
+	        long int t1=0,t2=0;
+	        f=0;
+	        while(a[i] > 1 || b[i]>1)
+	        {
+	            if(a[i] == b[i])
+	            {
+	                cout<<t1+t2<<endl;
+	                f=1;
+	                break;
+	            }
+	            else if( a[i] > b[i])
+	            {
+	                t1++;
+	                a[i] = a[i]/2;
+	            }
+	            else if(b[i]>a[i])
+	            {
+	                t2++;
+	                b[i] = b[i] /2;
+	            }
+	        }
+	        if(f==0)
+	        {
+	            cout<<t1+t2<<endl;
+	        }
+	    }
+	}
+	return 0;
+}
