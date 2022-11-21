@@ -1,0 +1,52 @@
+/*
+An equation is an equality containing one or more variables. Solving the equation consists of determining which values of the variables make the equality true. 
+In this situation, variables are also known as unknowns and the values which satisfy the equality are known as solutions. An equation differs from an identity 
+in that an equation is not necessarily true for all possible values of the variable.
+
+There are many types of equations, and they are found in all areas of mathematics. For instance, a linear equation is an algebraic equation in which each term is
+either a constant or the product of a constant and (the first power of) a single variable.
+
+In this problem we'll consider quite a special kind of systems of linear equations. To be more specific, you are given a system of N linear equations of the following
+form:
+
+x2 + x3 + ... + xN - 1 + xN = a1
+x1 + x3 + ... + xN - 1 + xN = a2
+...
+x1 + x2 + ... + xN - 2 + xN = aN - 1
+x1 + x2 + ... + xN - 2 + xN - 1 = aN
+In other words, i'th equation of the system consists of the sum of all the variable x1, ..., xN except xi to the left of the equality sign and the constant ai
+to the right of the equality sign.
+
+One can easily prove, that a system of linear equations as described above always have exactly one solution in case N is greater than one. Your task is to find 
+the solution of the system(such a sequence x1, x2, ..., xN, that turns each of the equations into equality). It's guaranteed, that the solution of the system is
+a sequence consisting only of integers from the range [1, 108].
+
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,total,sum,n,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    sum=0;
+	    long int a[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        sum  += a[i];
+	    }
+	    total = sum/(n-1);
+	    for(i=0;i<n;i++)
+	    {
+	        cout<<total-a[i]<<" ";
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}
