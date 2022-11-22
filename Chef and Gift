@@ -1,0 +1,41 @@
+/*
+Today is chef's friend's birthday. He wants to give a gift to his friend. So he was desperately searching for some gift here and there.
+
+Fortunately, he found an array a of size n lying around. The array contains positive integers. Chef's friend likes even numbers very much. So for the gift, 
+chef will choose a consecutive non-empty segment of the array. The segment should contain exactly k even integers. Though it can have any number of odd integers.
+He will then pick that segment and gift it to his friend.
+
+But there is a problem. It might not be always possible for the chef to choose such a segment. Please tell whether it is possible for chef to select some gift or not?
+
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,c,k;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>k;
+	    long int a[n];
+	    c=0;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        if(a[i]%2 ==0)
+	        {
+	            c++;
+	        }
+	    }
+	    if(c <k || (c==n && k==0))
+	    {
+	        cout<<"NO\n";
+	    }
+	    else
+	    cout<<"YES\n";
+	}
+	return 0;
+}
