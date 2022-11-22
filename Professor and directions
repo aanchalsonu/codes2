@@ -1,0 +1,46 @@
+/*
+The Professor is facing the North. Tokyo is in trouble, and she is facing the South. Professor being her guardian angel wants to help her.
+
+So, The Professor will follow some instructions, given as a string SS of length NN, and will turn either left or right according to these instructions.
+He can save Tokyo only if after following a substring of instructions he will face in the same direction that Tokyo is facing.
+
+Will the Professor be able to save Tokyo?
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,i,j,n,f;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    f=0;
+	    for(i=0;i<n;i++)
+	    {
+	        if(s[i] == 'L' && s[i+1] == 'L')
+	        {
+	            f=1;
+	            break;
+	        }
+	        else if(s[i] == 'R' && s[i+1] == 'R')
+	        {
+	            f=1;
+	            break;
+	        }
+	    }
+	   if(f==0)
+	   {
+	       cout<<"NO\n";
+	   }
+	   else
+	   {
+	       cout<<"YES\n";
+	   }
+	}
+	return 0;
+}
