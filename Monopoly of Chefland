@@ -1,0 +1,41 @@
+/*
+
+Chef is the financial incharge of Chefland and one of his duties is identifying if any company has gained a monopolistic advantage in the market.
+
+There are exactly 33 companies in the market each of whose revenues are denoted by R_1R 
+1
+​
+ , R_2R 
+2
+​
+  and R_3R 
+3
+​
+  respectively. A company is said to have a monopolistic advantage if its revenue is strictly greater than the sum of the revenues of its competitors.
+
+Given the revenue of the 33 companies, help Chef determine if any of them has a monopolistic advantage.
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,r1,r2,r3;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>r1>>r2>>r3;
+	    if(r1 > (r2+r3) || r2 > (r1+r3) || r3 > (r1+r2))
+	    {
+	        cout<<"Yes\n";
+	    }
+	    else
+	    {
+	        cout<<"No\n";
+	    }
+	    
+	}
+	return 0;
+}
