@@ -1,0 +1,70 @@
+/*
+
+You are given an array AA of NN integers. You can do the following two types of operations any (possibly zero) number of times:
+
+Pick two indices ii and jj (1 \leq i,j \leq |A|, i \neq j)(1≤i,j≤∣A∣,i=j). Change A_j := A_j + A_iA 
+j
+​
+ :=A 
+j
+​
+ +A 
+i
+​
+  and remove the i^{th}i 
+th
+  element from the array.
+Pick an index ii (1 \leq i \leq |A|)(1≤i≤∣A∣). Split A_iA 
+i
+​
+  into two positive integers XX and YY such that X+Y=A_iX+Y=A 
+i
+​
+ . Remove the i^{th}i 
+th
+  element from the array and append elements XX and YY to the array.
+Find the maximum number of distinct elements present in the array after performing any number of operations of the above two types.
+
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,j,sum,count,curr;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n];
+	    sum=0;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        sum = sum + a[i];
+	    }
+	    count=1;
+	    curr=0;
+	    while(1)
+	    {
+	        if(curr<sum)
+	        {
+	            curr += count;
+	            count++;
+	        }
+	        else if(curr == sum)
+	        {
+	            cout<<count-1<<endl;
+	            break;
+	        }
+	        else
+	        {
+	            cout<<count-2<<endl;
+	            break;
+	        }
+	    }
+	}
+	return 0;
+}
