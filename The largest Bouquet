@@ -1,0 +1,70 @@
+/*
+It's autumn now, the time of the leaf fall.
+
+Sergey likes to collect fallen leaves in autumn. In his city, he can find fallen leaves of maple, oak and poplar. These leaves can be of three different colors:
+green, yellow or red.
+
+Sergey has collected some leaves of each type and color. Now he wants to create the biggest nice bouquet from them. He considers the bouquet nice iff all the leaves
+in it are either from the same type of tree or of the same color (or both). Moreover, he doesn't want to create a bouquet with even number of leaves in it, since this
+kind of bouquets are considered to attract bad luck. However, if it's impossible to make any nice bouquet, he won't do anything, thus, obtaining a bouquet with zero 
+leaves.
+
+Please help Sergey to find the maximal number of leaves he can have in a nice bouquet, which satisfies all the above mentioned requirements.
+
+Please note that Sergey doesn't have to use all the leaves of the same color or of the same type. For example, if he has 20 maple leaves, he can still create a
+bouquet of 19 leaves.
+
+*/
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+	// your code goes here
+	long int t,i,j,s;
+	cin>>t;
+	while(t--)
+	{
+	    long int m[3]={0},o[3]={0},p[3]= {0},sm=0,so=0,sp=0,sg=0,sr=0,sy=0,j=0;
+	    for(i=0;i<3;i++)
+	    {
+	        cin>>m[i];
+	        sm = sm +m[i];
+	    }
+	    j = max(j,sm);
+	    for(i=0;i<3;i++)
+	    {
+	        cin>>o[i];
+	        so= so+o[i];
+	    }
+	    j = max(j,so);
+	    for(i=0;i<3;i++)
+	    {
+	        cin>>p[i];
+	        sp = sp+p[i];
+	    }
+	    j = max(j,sp);
+	    sg = m[0]+o[0]+p[0];
+	    sr = m[2]+o[2]+p[2];
+	    sy = m[1]+o[1]+p[1];
+	    j = max(j,sg);
+	    j = max(j,sr);
+	    j = max(j,sy);
+	    
+	   // j = max(sm,so,sp,sg,sr,sy);
+	    if(j%2 == 1)
+	    {
+	        cout<<j<<endl;
+	    }
+	    else if(j%2 == 0 && j !=0 )
+	    {
+	        cout<<j-1<<endl;
+	    }
+	    else
+	    {
+	        cout<<"0\n";
+	    }
+	}
+	return 0;
+}
