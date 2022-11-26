@@ -1,0 +1,76 @@
+/*
+There are NN people participating in a race. The N^{th}N 
+th
+  participant is your friend, so you want him to win. You are not a man of ethics, so you decided to inject some units of a Performance Enhancement Drug (don't ask
+  where that came from) in your friend's body.
+
+From the charts, you came to know the speed of every player. Formally, for a player ii, his speed is denoted by S_iS 
+i
+​
+ .
+The change in speed with one unit of the drug is KK units. Note that KK can be negative, which means the drug has more side effects than benefits.
+Of course, there will be a drug test before the race, so your friend will be caught if the number of units of the drug in his blood is greater than or equal to LL.
+You need to determine whether you can help your friend to win the race (with or without drugs), without getting caught.
+
+Note: A player wins the race if he has the maximum speed among all the participants. If there are more than one people with a maximal speed, they tie at first
+place, and no one wins!
+*/
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,i,j,n,k,l,x;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>k>>l;
+	    long int a[n],mn=0,f;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	       // mn = max(mn,a[i]);
+	    }
+	    f = a[n-1];
+	    if(n==1)
+	    {
+	        cout<<"Yes\n";
+	    }
+	    else
+	    {
+	        f = f + (l-1)*k;
+	        sort(a,a+n);
+	        if(f > a[n-1])
+	        {
+	            cout<<"Yes\n";
+	        }
+	        else
+	        {
+	            cout<<"No\n";
+	        }
+	    }
+	   // if(k <0 || mn == a[n-1])
+	   // {
+	   //     cout<<"No\n";
+	   // }
+	   // else
+	   // {
+	   //     a[n-1] = a[n-1] + k;
+	   //     x = a[n-1];
+	   //     sort(a,a+n);
+	   //     if(x == a[n-1] && a[n-1] != a[n-2] && (x-k)<= l)
+	   //     {
+	   //         cout<<"Yes\n";
+	   //     }
+	   //     else
+	   //     {
+	   //         cout<<"No\n";
+	   //     }
+	   // }
+	}
+	return 0;
+}
+
+
