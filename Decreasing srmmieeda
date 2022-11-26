@@ -1,0 +1,30 @@
+/*
+You are given two integers LL and RR. Find the smallest non-negative integer NN such that N \,\%\, L \gt N \,\%\, (L + 1) \gt \ldots \gt N \,\%\, (R - 1)
+\gt N \,\%\, R \,.N%L>N%(L+1)>…>N%(R−1)>N%R.
+
+Here, \%% is the modulo operator, so A \,\%\, BA%B is the remainder of AA after division by BB. For example, 11 \,\%\, 3 = 211%3=2.
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,l,r,s;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>l>>r;
+	    s = (r/2);
+	    if(s<l)
+	    {
+	        cout<<r<<endl;
+	    }
+	    else
+	    {
+	        cout<<"-1"<<endl;
+	    }
+	}
+	return 0;
+}
