@@ -1,0 +1,82 @@
+/*
+You are given two integers NN and XX. Output an array AA of length NN such that:
+
+-1000 \le A_i \le 1000−1000≤A 
+i
+​
+ ≤1000 for all 1 \le i \le N1≤i≤N.
+All A_iA 
+i
+​
+  are distinct.
+\texttt{mean}(A) = Xmean(A)=X.
+If there are multiple answers, print any. It is guaranteed that under the given constraints at least one array satisfying the given conditions exists.
+
+As a reminder, the mean of an array BB of size MM is defined as: \texttt{mean}(B) = \dfrac{\sum_{i = 1}^{M} B_i}{M}mean(B)= 
+M
+∑ 
+i=1
+M
+​
+ B 
+i
+​
+ 
+​
+ .
+
+For example, \texttt{mean}([3, 1, 4, 8]) = \frac{3 + 1 + 4 + 8}{4} = \frac{16}{4} = 4mean([3,1,4,8])= 
+4
+3+1+4+8
+​
+ = 
+4
+16
+​
+ =4.
+ 
+ */
+ 
+ 
+ #include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,i,x,n,j;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>x;
+	    j=1;
+	    long int a[n];
+	    for(i=0;i<n;i=i+2)
+	    {
+	        if(i != n-1)
+	        {
+	            a[i] = x+j;
+	            a[i+1] = x-j;
+	            j++;
+	        }
+	        else
+	        {
+	            a[i] = x;
+	        }
+	    }
+	    
+	   // long int sum = n*x;
+	   // long int a[n],sum2=0;
+	   // for(i=0;i<n-1;i++)
+	   // {
+	   //     a[i] = i+1;
+	   //     sum2 = sum2+a[i];
+	   // }
+	   // a[n-1] = sum-sum2;
+	    for(i=0;i<n;i++)
+	    {
+	        cout<<a[i]<<" ";
+	    }
+	    cout<<endl;
+	}
+	return 0;
+}
