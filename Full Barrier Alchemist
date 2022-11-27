@@ -1,0 +1,60 @@
+/*
+Edward Elric is chasing after Scar. To stop Edward, Scar creates NN barriers in the way, numbered from 11 to NN. Each barrier Scar created is either one of the 
+following two types.
+
+Type 1 barrier - This barrier starts from a height XX above the ground and extends till the sky.
+Type 2 barrier - This barrier starts from the ground and extends up to height XX above the ground.
+
+The height of Edward is HH units and he has an alchemic life force of LL units. Moreover, he can duck by Y_{1}Y 
+1
+​
+  units and jump by height Y_{2}Y 
+2
+​
+  units (as explained in the figures). He starts crossing barriers in sequence, starting from barrier 11 till the barrier NN. Whenever he can't pass a barrier by 
+  ducking or jumping (considered passed even when the barrier just touches him), he uses Alchemy to break the barrier. However, this costs him a single unit of his
+  alchemic life force.
+
+If after breaking a barrier no life force is left, Edward gets completely exhausted, unable to pass that barrier.
+How many barriers can Edward cross?
+
+And remember never to call him a pipsqueak if his height is too short!
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,h,y1,y2,l,count,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>h>>y1>>y2>>l;
+	    long int t[n],x[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>t[i]>>x[i];
+	    }
+	    count=0;
+	    for(i=0;i<n;i++)
+	    {
+	        if(t[i] == 1)
+	        {
+	            if((h-y1)>x[i])
+	            l--;
+	        }
+	        else
+	        {
+	            if(y2<x[i])
+	            l--;
+	        }
+	        if(l==0)
+	        break;
+	        count++;
+	    }
+	    cout<<count<<endl;
+	}
+	return 0;
+}
