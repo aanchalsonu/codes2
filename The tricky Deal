@@ -1,0 +1,59 @@
+/*
+One of Chef's friends offered him a deal: during DD days, they are going to exchange money. For each ii (1 \le i \le D1≤i≤D), on the ii-th day, Chef's friend would 
+give Chef AA rupees, while Chef would give his friend 2^{i-1}2 
+i−1
+  rupees (11 rupee on day 11, 22 rupees on day 22, 44 rupees on day 33, and so on). Chef's profit from the deal is the total number of rupees he received from his
+  friend minus the total number of rupees he gave his friend.
+
+Chef decided to ask for your advice before accepting the deal. You want to help him by telling him two numbers D_1D 
+1
+​
+  and D_2D 
+2
+​
+ , where D_1D 
+1
+​
+  is the maximum value of DD such that Chef should accept the deal, i.e. his profit from the deal is positive if D = D_1D=D 
+1
+​
+ , and D_2D 
+2
+​
+  is the value of DD that leads to the maximum possible profit for Chef. If there are multiple values of DD that lead to the maximum profit, D_2D 
+2
+​
+  is the smallest of these values.
+  */
+  
+  #include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,i,j,cur,d1,d2,a,profit;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>a;
+	    profit =0;
+	    i = 1;
+	    while(profit>=0)
+	    {
+	        cur = a-pow(2,i-1);
+	        profit = profit + cur;
+	        if(profit >0)
+	        {
+	            d1 = i;
+	        }
+	        if(cur > 0)
+	        {
+	            d2 = i;
+	        }
+	        i++;
+	    }
+	    cout<<d1<<" "<<d2<<endl;
+	}
+	return 0;
+}
