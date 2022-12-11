@@ -1,0 +1,86 @@
+/*
+Andrii is good in Math, but not in Programming. He is asking you to solve following problem: Given an integer number N and two sets of integer A 
+and B. Let set A contain all numbers from 1 to N and set B contain all numbers from N + 1 to 2N. Multiset C contains all sums a + b such that a belongs
+to A and b belongs to B. Note that multiset may contain several elements with the same values. For example, if N equals to three, then A = {1, 2, 3},
+B = {4, 5, 6} and C = {5, 6, 6, 7, 7, 7, 8, 8, 9}. Andrii has M queries about multiset C. Every query is defined by a single integer q. Andrii wants to
+know the number of times q is contained in C. For example, number 6 is contained two times, 1 is not contained in C at all. Please, help Andrii to answer
+all the queries.
+
+
+*/
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int n,m,q,x,a,b,maxa;
+	cin>>n>>m;
+	a = n+2;
+	x = 2*n+1;
+	b = 3*n;
+	maxa = n;
+	while(m--)
+	{
+	    cin>>q;
+	    if(q<a)
+	    {
+	        cout<<0<<endl;
+	    }
+	    else if(q<x)
+	    {
+	        cout<<maxa-(x-q)<<endl;
+	    }
+	    else if(q>x)
+	    {
+	        cout<<maxa-(q-x)<<endl;
+	    }
+	    else if(q==x)
+	    {
+	        cout<<maxa<<endl;
+	    }
+	    else if(q>b)
+	    {
+	        cout<<0<<endl;
+	    }
+	}
+	
+	
+	
+	
+	
+// 	long int a[n],b[n],res[10000];
+// 	for(i=1;i<=n;i++)
+// 	{
+// 	    a[i] = i;
+// 	}
+// 	for(j=0;i<=(2*n);i++,j++)
+// 	{
+// 	    b[j] = i;
+// 	}
+// 	for(i=0;i<=n;i++)
+// 	{
+// 	    for(k=0;k<j;k++)
+// 	    {
+// 	        res[l++] = a[i]+b[j]; 
+// 	    }
+// 	}
+// 	sort(res,res+(n+j));
+// 	while(m--)
+// 	{
+// 	    cin>>x;
+// 	   // cout<<search(res,x)<<endl;
+// 	   int c=0
+//         for(int k=0;k<(n+i+j);k++)
+//         {
+//             if(res[k] == x)
+//             c++;
+//         }
+//         cout<<c<<endl;
+// 	}
+
+	return 0;
+}
+
