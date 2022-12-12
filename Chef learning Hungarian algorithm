@@ -1,0 +1,65 @@
+/*
+Chef is studying computer science. Tomorrow, he has an exam on algorithms and data structures. One of the algorithms he is required to study is the Hungarian 
+algorithm (you do not have to know this algorithm to solve this problem).
+
+In the Hungarian algorithm, you start with a matrix of positive integers with NN rows (numbered 11 through NN) and NN columns (numbered 11 through NN). 
+The algorithm proceeds in steps.
+
+In the first step, for each row of the matrix, you should find the smallest element in this row (let's denote it by AA) and subtract AA from each element
+of the matrix in this row.
+
+In the second step, for each column of the matrix, you should find the smallest element in this column (let's denote it by AA) and subtract AA from each 
+element in this column. The remaining steps of the algorithm are not relevant in this problem.
+
+Currently, Chef is practicing implementation of the first two steps of the algorithm. He wants you to check if he is doing these two steps correctly or not.
+You are given a matrix with NN rows and NN columns; let's denote the element of this matrix in the ii-th row and jj-th column by a_{i, j}a 
+i,j
+​
+ . Determine if this matrix can be the result of applying the first two steps of the Hungarian algorithm on some matrix.
+ 
+ 
+ */
+ 
+ #include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,i,j,n,c;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n][n],row[n]={0},col[n]={0},k=0,l=0;
+	    for(i=0;i<n;i++)
+	    {
+	        for(j=0;j<n;j++)
+	        {
+	            cin>>a[i][j];
+	            if(a[i][j]==0)
+	            {
+	                row[i] = 1;
+	                col[j] = 1;
+	            }
+	        }
+	    }
+	    c=0;
+	    for(i=0;i<n;i++)
+	    {
+	        if(row[i]==0 || col[i] == 0)
+	        {
+	            c=1;
+	            break;
+	        }
+	    }
+	    if(c==0)
+	    {
+	        cout<<"YES\n";
+	    }
+	    else
+	    {
+	        cout<<"NO\n";
+	    }
+	}
+	return 0;
+}
