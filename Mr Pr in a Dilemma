@@ -1,0 +1,65 @@
+/*
+Mr. Pr and Ms. Ad are at aa and bb respectively on an infinite number line. Mr. Pr wants to meet Ms. Ad.
+
+Mr. Pr can choose to move cc or dd units in 1 second. If Mr. Pr moves cc units then Ms. Ad will move dd units and vice versa. (Both of them always moved 
+in positive x-direction)
+
+You have to determine if Mr. Pr can meet with Ms. Ad after some integral amount of time, given that Mr. Pr chooses optimally. Note that meeting after a
+fractional amount of time does not count.
+
+###Input:
+
+First line will contain TT, number of testcases. Then the testcases follow.
+Each testcase contains four space separated integers, aa, bb, cc, and dd.
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,a,b,c,d,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>a>>b>>c>>d;
+	    
+	    if(a==b && c==d)
+	    {
+	        cout<<"YES\n";
+	    }
+	    else if(a!=b && c==d)
+	    {
+	        cout<<"NO\n";
+	    }
+	    else if((abs(a-b)%abs(c-d)) != 0)
+	    {
+	        cout<<"NO\n";
+	    }
+	    else
+	    {
+	        cout<<"YES\n";
+	    }
+	    
+	    
+	   // if(abs(a-b) == c || abs(a-b) == d )
+	   // {
+	   //     cout<<"YES"<<endl;
+	   // }
+	   // else{
+	   //     cout<<"NO"<<endl;
+	   // }
+	   // if(a%c ==0 && b%d == 0)
+	   // {
+	   //     cout<<"YES\n";
+	   // }
+	   // else
+	   // {
+	   //     cout<<"NO\n";
+	   // }
+	}
+	
+	return 0;
+}
