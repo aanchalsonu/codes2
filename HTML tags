@@ -1,0 +1,93 @@
+/*
+In addition to CP, Chef recently developed an interest in Web Development and started learning HTML. Now he wants to create his own HTML Code Editor. As a subproblem, 
+he wants to check if a typed HTML closing tag has correct syntax or not.
+
+A closing HTML tag must:
+
+Start with ""
+End with ">"
+Have only lower-case alpha-numeric characters as its body (between "" and ">"). That is, each character of the body should either be a digit or a lower-case
+English letter.
+Have a non-empty body.
+Help Chef by printing "Success" if the tag is fine. If not, print "Error".
+
+*/
+
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,i,j;
+	cin>>t;
+	while(t--)
+	{
+	    string s;
+	    cin>>s;
+	    j=0;
+	    if(s.length() < 4)
+	    {
+	        cout<<"Error\n";
+	    }
+	    else
+	    {
+	        if(s[0] != '<' || s[1] != '/' || s[s.length()-1] != '>')
+	    {
+	        cout<<"Error\n";
+	    }
+	    else
+	    {
+	        
+	        if(s[0] == '<' && s[1] == '/' && s[s.length()-1] == '>')
+	        {
+	            for(i=2;i<s.length()-1;i++)
+	            {
+	                if((int)s[i] < 48 || (int)s[i] > 57 &&  (int)s[i] < 97 || (int)s[i] >122)
+	                {
+	                    j=1;
+	                    break;
+	                }
+	            }
+	        }
+	        
+	        if(j==0)
+	        {
+	            cout<<"Success\n";
+	        }
+	        else
+	        {
+	            cout<<"Error\n";
+	        }
+	       // if(s[1] == '/')
+	       // {
+	       //     for(i=2;i<s.length();i++)
+	       //     {
+	       //         if(isalnum(s[i]) || islower(s[i]))
+	       //         {
+	       //             j=0;
+	       //             continue;
+	       //         }
+	       //         else
+	       //         {
+	       //             j=1;
+	       //             break;
+	       //         }
+	       //     }
+	       // }
+	       // if(j==1)
+	       // {
+	       //     cout<<"Error\n";
+	       // }
+	       // else
+	       // {
+	       //     cout<<"Success\n";
+	       // }
+	    }
+	    }
+	}
+	
+	return 0;
+}
