@@ -1,0 +1,78 @@
+/*
+Shefin gives you a string SS and you have to find a non-empty string PP such that:
+
+PP is a substring of SS.
+No non-empty substring of PP is a prefix of SS.
+No non-empty substring of PP is a suffix of SS.
+For all such possible strings, find the length of the longest string satisfying all the conditions. If no such string is possible, print -1−1.
+
+A string AA is a substring of a string BB if AA can be obtained from BB by deleting several (possibly zero) characters from the beginning and several
+(possibly zero) characters from the end.
+A prefix of a string AA, is a substring of AA that occurs at the beginning of AA. For example, "code" is a prefix of "codechef", but "ode" is not.
+A suffix of a string AA, is a substring of AA that occurs at the end of AA. For example, "chef" is a suffix of "codechef", but "he" is not.
+*/
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,i,c,n,res;
+	cin>>t;
+	while(t--)
+	{
+	    string s;
+	    c=0;
+	    res=0;
+	    cin>>s;
+	    n = s.length();
+	    for(i=1;i<n;i++)
+	    {
+	        if(s[i] != s[0] && s[i] != s[n-1])
+	        {
+	            c++;
+	        }
+	        else
+	        {
+	            res = max(res,c);
+	            c=0;
+	        }
+	    }
+	    if(res == 0)
+	    {
+	        cout<<"-1"<<endl;
+	    }
+	    else{
+	        cout<<res<<endl;
+	    }
+	    
+	    
+	    
+	   // for(i=0;i<(n/2);)
+	   // {
+	   //     for(j=n/2; j<n ;)
+	   //     {
+	   //         if(s[i] == s[j])
+	   //         {
+	   //             c++;
+	   //             i++;
+	   //         }
+	   //         j++;
+	   //     }
+	   //     i++;
+	   // }
+	   // if(c >= n-1)
+	   // {
+	   //     cout<<"-1"<<endl;
+	   //     continue;
+	   // }
+	   // if(n%2 == 0)
+	   // cout<<(n-(2*c))<<endl;
+	   // else
+	   // cout<<(n-(2*c)+1)<<endl;
+	}
+	return 0;
+}
