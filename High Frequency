@@ -1,0 +1,82 @@
+/*
+Chef has an array AA of length NN.
+
+Let F(A)F(A) denote the maximum frequency of any element present in the array.
+
+For example:
+
+If A = [1, 2, 3, 2, 2, 1]A=[1,2,3,2,2,1], then F(A) = 3F(A)=3 since element 22 has the highest frequency = 3=3.
+If A = [1, 2, 3, 3, 2, 1]A=[1,2,3,3,2,1], then F(A) = 2F(A)=2 since highest frequency of any element is 22.
+Chef can perform the following operation at most once:
+
+Choose any subsequence SS of the array such that every element of SS is the same, say xx. Then, choose an integer yy and replace every element 
+in this subsequence with yy.
+For example, let A = [1, 2, 2, 1, 2, 2]A=[1,2,2,1,2,2]. A few examples of the operation that Chef can perform are:
+
+[1, \textcolor{red}{2, 2}, 1, 2, 2] \to [1, \textcolor{blue}{5, 5}, 1, 2, 2][1,2,2,1,2,2]→[1,5,5,1,2,2]
+[1, \textcolor{red}{2}, 2, 1, \textcolor{red}{2, 2}] \to [1, \textcolor{blue}{19}, 2, 1, \textcolor{blue}{19, 19}][1,2,2,1,2,2]→[1,19,2,1,19,19]
+[\textcolor{red}{1}, 2, 2, 1, 2, 2] \to [\textcolor{blue}{2}, 2, 2, 1, 2, 2][1,2,2,1,2,2]→[2,2,2,1,2,2]
+Determine the minimum possible value of F(A)F(A) Chef can get by performing the given operation at most once.
+
+Input Format
+The first line of input will contain a single integer TT, denoting the number of test cases.
+Each test case consists of two lines of input.
+The first line of each test case contains a single integer NN denoting the length of array AA.
+The second line contains NN space-separated integers denoting the array AA.
+
+*/
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,j;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    int mn=9999,mx=0;
+	    long int a[n];
+	    map<int,int> mp;
+	    std::vector<int>r ;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        mp[a[i]]++;
+	    }
+	    j=0;
+	    for(auto i : mp)
+	    {
+	        r.push_back(i.second);
+	       // mn = min(mn,i.second);
+	       // mx = max(mx,i.second);
+	    }
+	    sort(r.begin(),r.end());
+	    j = r.size();
+	    mx = (r[j-1]+1)/2;
+	    mn = r[j-2];
+	    cout<<max(mx,mn)<<endl;
+	   // if(mn<(mx/2))
+	   // {
+	   //     cout<<mn<<endl;
+	   // }
+	   // else if(mn == mx)
+	   // {
+	   //     if(mp.size() == 1)
+	   //     {
+	   //         cout<<n-(mx/2)<<endl;
+	   //     }
+	   //     else
+	   //     cout<<mn<<endl;
+	   // }
+	   // else
+	   // {
+	   //     cout<<(mx/2)<<endl;
+	   // }
+	}
+	
+	return 0;
+}
