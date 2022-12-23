@@ -1,0 +1,57 @@
+/*
+Chef has to work on a project for the next NN hours. He is given a work plan to do this, which is given to you as a binary string SS of length NN. S_i = 1S 
+i
+​
+ =1 if Chef has to work on the project during the ii-th hour, and S_i = 0S 
+i
+​
+ =0 if Chef is free during the ii-th hour.
+
+Chef would like to use some of his free time to take naps. He needs a minimum of KK consecutive hours of free time to take a nap. What is the maximum 
+number of naps that Chef can take during the next NN hours?
+
+Note that it is allowed for one nap to immediately follow another, i.e, Chef can wake up from one nap and then immediately take another one (if he has
+enough free time to do so), and these will be counted as different naps.
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,j,r,k,f;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>k;
+	    r=0;
+	    string s;
+	    cin>>s;
+	    n = s.length();
+	    j=k;
+	    f=0;
+	    for(i=0;i<n;)
+	    {
+	        while(s[i] == '0' && j>0 && i<n)
+	        {
+	            j--;
+	            f=1;
+	            i++;
+	        }
+	        if(f==0)
+	        {
+	            i++;
+	        }
+	        if(j==0)
+	        {
+	            r++;
+	           // f=0;
+	        }
+	        j=k;
+	        f=0;
+	    }
+	    cout<<r<<endl;
+	}
+	return 0;
+}
