@@ -1,0 +1,98 @@
+/*
+Vasya has ordered a pizza delivery. The pizza can be considered a perfect circle. There were nn premade cuts in the pizza when it was delivered. Each cut is a straight segment connecting the center of the pizza with its boundary.
+
+Let OO be the center of the pizza, P_iP 
+i
+​
+  be the endpoint of the ii-th cut lying on the boundary, and RR be the point of the boundary straight to the right of OO. Then the counterclockwise-measured angle \angle ROP_i∠ROP 
+i
+​
+  is equal to a_ia 
+i
+​
+  degrees, where a_ia 
+i
+​
+  is an integer between 00 and 359359. Note that angles between 00 and 180180 angles correspond to P_iP 
+i
+​
+  in the top half of the pizza, while angles between 180180 and 360360 angles correspond to the bottom half.
+
+Vasya may cut his pizza a few more times, and the new cuts still have to be straight segments starting at the center. He wants to make the pizza separated
+into several equal slices, with each slice being a circular sector with no cuts inside of it. How many new cuts Vasya will have to make?
+
+###Input:
+
+The first line of input contains TT , i.e number of test cases per file.
+
+The first line of each test case contains a single integer n-n− the numbers of premade cuts (2 \leq n \leq 3602≤n≤360).
+
+The second lines contains nn integers a_1, \ldots, a_n-a 
+1
+​
+ ,…,a 
+n
+​
+ − angles of the cuts 1, \ldots, n1,…,n respectively (0 \leq a_1 < \ldots, a_{n - 1} < 3600≤a 
+1
+​
+ <…,a 
+n−1
+​
+ <360).
+
+###Output: Print a single integer-− the smallest number of additional cuts Vasya has to make so that the pizza is divided into several equal slices.
+*/
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,j,r,dif,x;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n],d[n];
+	    r=0;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    for(i=0;i<n-1;i++)
+	    {
+	        d[i] = abs(a[i+1] - a[i]);
+	    }
+	    d[n-1] = abs((360-a[n-1])+a[0]);
+	    r = d[0];
+	    for(i=1;i<n;i++)
+	    {
+	        r = __gcd(r,d[i]);
+	    }
+	    r = (360/r);
+	    cout<<r-n<<endl;
+	   // x=a[1]-a[0];
+	   // dif=x;
+	   // for(i=1;i<n;i++)
+	   // {
+	   //    if(a[i]-a[i-1] != x)
+	   //    {
+	   //        r++;
+	   //        x = x+a[i];
+	   //    }
+	   //    dif = dif+a[i];
+	   // }
+	   // while(dif <= 359)
+	   // {
+	   //     r++;
+	   //     dif = dif + x;
+	   // }
+	   // cout<<r<<endl;
+	}
+	
+	
+	return 0;
+}
