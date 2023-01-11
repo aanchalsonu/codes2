@@ -1,0 +1,59 @@
+/*
+Chef has an array AA of length NN.
+
+Chef wants to append a non-negative integer XX to the array AA such that the bitwise OR of the entire array becomes = Y=Y i.e. (A_1 \ | \ A_2 \ | \ \ldots
+\ | \ A_N \ | \ X) = Y(A 
+1
+​
+  ∣ A 
+2
+​
+  ∣ … ∣ A 
+N
+​
+  ∣ X)=Y. (Here, |∣ denotes the bitwise OR operation)
+
+Determine the minimum possible value of XX. If no possible value of XX exists, output -1−1.
+*/
+
+#include <iostream>
+using namespace std;
+long int OR(long int a[],long int n)
+{
+    long int ans = a[0];
+    for (int i = 1; i < n; ++i)
+         ans |= a[i];   
+ 
+    return ans;
+}
+int main() {
+	// your code goes here
+	long int t,n,i,j,ans,y,x;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>y;
+	    long int a[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    x = sizeof(a)/sizeof(a[0]);
+	    ans = OR(a,x);
+	    for(i=0;i<=y;i++)
+	    {
+	        if((ans | i) == y)
+	        {
+	            cout<<i<<endl;
+	            break;
+	        }
+	    }
+	    if(i>y)
+	    {
+	        cout<<-1<<endl;
+	    }
+	    
+	}
+	
+	return 0;
+}
