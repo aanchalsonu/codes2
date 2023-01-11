@@ -1,0 +1,35 @@
+/*
+Chef calls a number lucky if it contains the digit 77 at least once.
+
+Given a number XX, determine if it is a lucky number or not.
+*/
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int n,t,x,f;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    f=0;
+	    while(n!=0)
+	    {
+	        x = n%10;
+	        if(x==7)
+	        {
+	            f=1;
+	            cout<<"YES"<<endl;
+	            break;
+	        }
+	        n = n/10;
+	    }
+	    if(f==0)
+	    {
+	        cout<<"NO"<<endl;
+	    }
+	}
+	return 0;
+}
