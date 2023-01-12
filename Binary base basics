@@ -1,0 +1,55 @@
+/*
+You are given a binary string SS and an integer KK. In one operation, you can pick any bit and flip it, i.e turn 00 to 11 or 11 to 00. Can you make the string 
+SS a palindrome using exactly KK operations?
+
+Print YES if this is possible, and NO if it is not.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,i,j,n,k;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>k;
+	    string s;
+	    cin>>s;
+	    if(n==1)
+	    {
+	        cout<<"YES\n";
+	    }
+	    else
+	    {
+	        j=0;
+	    for(i=0;i<n/2;i++)
+	    {
+	        if(s[i] != s[n-i-1])
+	        {
+	            j++;
+	        }
+	    }
+	    if(j<=k)
+	    {
+	        if(n%2 == 0 && (k-j)%2==0)
+	        {
+	            cout<<"YES\n";
+	        }
+	        else if(n%2 )
+	        {
+	            cout<<"YES\n";
+	        }
+	        else
+	        cout<<"NO\n";
+	        
+	    }
+	    else
+	    cout<<"NO\n";
+	    }
+	}
+	
+	return 0;
+}
