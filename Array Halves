@@ -1,0 +1,143 @@
+/*
+Chef has a permutation 
+�
+P of length 
+2
+⋅
+�
+2⋅N. He can perform the following operation on 
+�
+P:
+
+Select an index 
+�
+i 
+(
+1
+≤
+�
+<
+2
+⋅
+�
+)
+(1≤i<2⋅N) and swap 
+�
+�
+P 
+i
+​
+  and 
+�
+�
++
+1
+P 
+i+1
+​
+ .
+Chef would call the permutation 
+�
+P good, if the maximum element of the first half of 
+�
+P is less than the minimum element of the second half of 
+�
+P.
+Formally 
+max
+⁡
+(
+1
+≤
+�
+≤
+�
+)
+�
+�
+<
+min
+⁡
+(
+�
+<
+�
+≤
+2
+⋅
+�
+)
+�
+�
+(1≤i≤N)
+max
+​
+ P 
+i
+​
+ < 
+(N<i≤2⋅N)
+min
+​
+ P 
+i
+​
+ .
+
+Find the minimum number of operations Chef needs to apply to make 
+�
+P good.
+
+Note: A permutation of length 
+�
+N is an array where every integer from 
+1
+1 to 
+�
+N occurs exactly once.
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,j,r,k;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[2*n];
+	    r=0;
+	    j=0;
+	    for(i=0;i<2*n;i++)
+	    {
+	        cin>>a[i];
+	        if(a[i]>n)
+	        {
+	            r = r + (n-i+j);
+	            j++;
+	        }
+	    }
+	   // r=0;
+	   // k=0;
+	   // for(i=0,j=n;i<(n);i++,j++)
+	   // {
+	   //     if(a[i] > n)
+	   //     {
+	   //         r = r+(n-i+k);
+	   //         k++;
+	   //     }
+	        
+	        
+	        
+	   //    // if(a[i]-a[j] >0)
+	   //    // {
+	   //    //     r = r+(a[i]-a[j]);
+	   //    // }
+	   // }
+	    cout<<r<<endl;
+	}
+	return 0;
+}
