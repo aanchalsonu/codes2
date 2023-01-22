@@ -1,0 +1,106 @@
+/*
+You are standing near a very strange machine. If you put C cents in the machine, the remaining money in your purse will transform in an unusual way. If you have
+A dollars and B cents remaining in your purse after depositing the C cents, then after the transformation you will have B dollars and A cents. You can repeat
+this procedure as many times as you want unless you don't have enough money for the machine. If at any point C > B and A > 0, then the machine will allow you 
+to break one of the A dollars into 100 cents so you can place C cents in the machine. The machine will not allow you to exchange a dollar for 100 cents if B >= C.
+
+Of course, you want to do this to maximize your profit. For example if C=69 and you have 9 dollars and 77 cents then after you put 69 cents in the machine you
+will have 8 dollars and 9 cents (9.77 --> 9.08 --> 8.09). But I should warn you that you can't cheat. If you try to throw away 9 cents before the transformation
+(in order to obtain 99 dollars and 8 cents after), the machine will sense you are cheating and take away all of your money. You need to know how many times you
+should do this transformation in order to make a maximum profit. Since you are very busy man, you want to obtain the maximum possible profit in the minimum
+amount of time.
+
+
+*/
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,i,temp,r,a,b,c,count,maxi;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>a>>b>>c;
+	    vector<int> v;
+	   // v.push_back(a*100+b);
+	   // max=INT_MIN;
+	   // i=0;
+	   // while(!(a==0 && b<c) && i<=10000)
+	   // {
+	   //     if(b>=c)
+	   //     {
+	   //         temp = a;
+	   //         a = b-c;
+	   //         b = temp;
+	   //     }
+	   //     else
+	   //     {
+	   //         temp = a;
+	   //         a = 100*b-c;
+	   //         b = temp;
+	   //     }
+	   //     i++;
+	   //     v.push_back(a*100+b);
+	   // }
+	   
+	   v.push_back(a*100+b);
+	    int i=0;
+	    while (!(a==0 && b<c) && i<=1000){
+	        
+	        i++;
+	        if (b>=c) {
+	            int temp=a;
+	            a=b-c;
+	            b=temp;
+	        }
+	        else {
+	            int temp=a;
+	            a=100+b-c;
+	            b=temp-1;
+	        }
+	       int q=a*100+b;
+	       v.push_back(q) ;
+	    }
+	    int maxi =v[0];
+	    int str=0;
+	    for (int i=1; i<v.size(); i++){
+	        if (maxi< v[i]){
+	            maxi = v[i];
+	            str=i ;
+	        }
+	    }
+	    cout << str << endl;
+	    
+	   // count=0;
+	   // k=0;
+	   // while(a>0)
+	   // {
+	   //     if(b>=c)
+	   //     {
+	   //         b = b-c;
+	   //     }
+	   //     else
+	   //     {
+	   //         a = a-1;
+	   //         b = b+100;
+	   //         b = b-c;
+	   //     }
+	   //     if(a>max)
+	   //     {
+	   //         max=a;
+	   //         count=k;
+	   //     }
+	   //     k++;
+	   //     j=a;
+	   //     a=b;
+	   //     b=j;
+	   // }
+	   // cout<<count<<endl;
+	}
+	return 0;
+}
