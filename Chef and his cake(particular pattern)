@@ -1,0 +1,89 @@
+/*
+Chef’s girlfriend's birthday is near, so he wants to surprise her by making a special cake for her. Chef knows that his girlfriend likes cherries on the cake,
+
+so he puts cherries on the top of the cake, but he was not satisfied. Therefore, he decided to replace some of the cherries to make a beautiful pattern. However,
+Chef has a lot of other work to do so he decided to ask for your help.
+
+The cherries are of two colors red and green. Now Chef wants the cherries to be placed in such a way that each cherry of one color must be adjacent to only 
+cherries of the other color, two cherries are adjacent if they share a side. Now Chef has asked for your help in making that pattern on the cake.
+
+You can replace any cherry of given color with the other color. But there is a cost for each replacement: if you replace a red cherry with a green one, the 
+cost is 5 units and if you replace a green cherry with a red one, the cost is 3 units.
+
+Help your friend Chef by making the cake special with minimum cost.
+*/
+
+
+/*
+EXplanation
+
+
+we consider cherries to be in order only if they follow this particular order
+RGRGR
+GRGRG
+RGRGR
+GRGRG
+ where this is considered to be a matrix of adjacent R and G's
+Our main aim is to get our given matrix in this particular pattern.
+ We can do so my first counting number of G and R's at even and odd Places and keep track of these variables by running the for loop given from line 25 to 38.
+now we have count of egreen,ogreen,ered,ored 
+Calculate (egreen*3+ored*5) and (ered*5+ogreen*3)
+the minimum of above two is the required answer.
+
+As in the test case 2 
+we have
+RRG
+GGR
+this can be done by either changing R and G's at (0,1)(0,2)(1,1)(1,2) or only (0,0)(1,0) which is minimum.
+
+
+*/
+
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,m,i,j,ered,ored,egreen,ogreen;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>m>>n;
+	    char a[m][n];
+	    for(i=0;i<m;i++)
+	    {
+	        for(j=0;j<n;j++)
+	        {
+	            cin>>a[i][j];
+	        }
+	    }
+	    ered=0;
+	    ored=0;
+	    egreen=0;
+	    ogreen=0;
+	    for(i=0;i<m;i++)
+	    {
+	        for(j=0;j<n;j++)
+	        {
+	            if((i+j)%2 == 0 && a[i][j] == 'R')
+	            ered++;
+	            else if((i+j)%2 != 0 && a[i][j] == 'R')
+	            ored++;
+	            else if((i+j)%2 == 0 && a[i][j] == 'G')
+	            egreen++;
+	            else if((i+j)%2 !=0 && a[i][j] == 'G')
+	            ogreen++;
+	        }
+	    }
+	    long int ans1=0,ans2=0;
+	    ans1 = ered*5  + ogreen*3;
+	    ans2 = ored*5+egreen*3;
+	    cout<<min(ans1,ans2)<<endl;
+	    
+	}
+	return 0;
+}
