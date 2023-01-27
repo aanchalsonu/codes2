@@ -1,0 +1,178 @@
+/*
+Given two integers 
+�
+A and 
+�
+B.
+
+Let 
+�
+P denote a sequence of 
+�
+N prime numbers such that the sum of the sequence is 
+�
+A.
+Let 
+�
+Q denote a sequence of 
+�
+M prime numbers such that the sum of the sequence is 
+�
+B.
+Let 
+�
+X denote the maximum absolute difference between 
+�
+�
+P 
+i
+​
+  and 
+�
+�
+Q 
+j
+​
+  among all valid pairs 
+(
+�
+,
+�
+)
+(i,j) such that 
+(
+1
+≤
+�
+≤
+�
+)
+(1≤i≤N) and 
+(
+1
+≤
+�
+≤
+�
+)
+(1≤j≤M). Find the minimum possible value of 
+�
+X over all possible sequences 
+�
+P and 
+�
+Q.
+
+More formally, for all possible sequences 
+�
+P and 
+�
+Q, find the minimum value of 
+max
+(
+∣
+�
+�
+−
+�
+�
+∣
+)
+max(∣P 
+i
+​
+ −Q 
+j
+​
+ ∣), where 
+(
+1
+≤
+�
+≤
+�
+)
+(1≤i≤N) and 
+(
+1
+≤
+�
+≤
+�
+)
+(1≤j≤M).
+
+Print 
+−
+1
+−1 if any one of the sequences cannot be formed.
+
+Note that, 
+∣
+�
+∣
+∣X∣ denotes the absolute value of a number 
+�
+X. For example, 
+∣
+−
+4
+∣
+=
+4
+∣−4∣=4 and 
+∣
+7
+∣
+=
+7
+∣7∣=7.
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+long int gcd(long int a,long int b)
+{
+    if(a==0)
+    return b;
+    if(b==0)
+    return a;
+    if(a==b)
+    return a;
+    if(a>b)
+    return gcd(a-b,b);
+    else return gcd(a,b-a);
+}
+int main() {
+	// your code goes here
+	long int t,a,b,ans;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>a>>b;
+	    
+	    if(min(a,b) <=1)
+	    {
+	        cout<<-1<<endl;
+	        continue;
+	    }
+	    if(gcd(a,b) > 1)
+	    cout<<0<<endl;
+	    else
+	    cout<<1<<endl;
+	    
+	    
+	   // if(b<a)
+	   // {
+	   //     cout<<abs(a-b)<<endl;
+	   // }
+	   // else
+	   // {
+	   //     b = b/2;
+	   //     cout<<abs(b-a)<<endl;
+	   // }
+	}
+	
+	return 0;
+}
