@@ -1,0 +1,69 @@
+/*Triangle classification is an important problem in modern mathematics. Mathematicians have developed many criteria according to which a triangle can be classified.
+In this problem, you will be asked to classify some triangles according to their sides and angles.
+
+According to their measure, angles may be:
+
+Acute — an angle that is less than 90 degrees
+Right — a 90-degrees angle
+Obtuse — an angle that is greater than 90 degrees
+According to their sides, triangles may be:
+
+Scalene — all sides are different
+Isosceles — exactly two sides are equal
+According to their angles, triangles may be:
+
+Acute — all angles are acute
+Right — one angle is right
+Obtuse — one angle is obtuse
+Triangles with three equal sides (equilateral triangles) will not appear in the test data.
+
+The triangles formed by three collinear points are not considered in this problem. In order to classify a triangle, you should use only the adjactives
+from the statement. There is no triangle which could be described in two different ways according to the classification characteristics considered above.
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,i,j,n,subtask,x1,y1,x2,y2,x3,y3;
+	
+	cin>>subtask;
+	cin>>t;
+	while(t--)
+	{
+	   // bool acute=false,obt=false,rig=false;
+	    cin>>x1>>y1>>x2>>y2>>x3>>y3;
+	    long int d1 = pow((x2-x1),2)+pow((y2-y1),2);
+	    long int d2 = pow((x3-x2),2)+pow((y3-y2),2);
+	    long int d3 = pow((x1-x3),2)+pow((y1-y3),2);
+	    
+	    string sol="";
+	    if(d1==d2 || d2==d3 || d3==d1)
+	    {
+	        sol += "Isosceles";
+	    }
+	    else
+	    {
+	        sol += "Scalene";
+	    }
+	    if(subtask == 2)
+	    {
+	        if(d1 == d2+d3 || d2 == d3+d1 || d3 == d1+d2 )
+	        {
+	            sol += " right";
+	        }
+	        else if(d1 < d2+d3 || d2 < d1+d3 || d3 < d1+d2)
+	        {
+	            sol += " acute";
+	        }
+	        else
+	        sol += " obtuse";
+	    }
+	    cout<<sol<<" triangle"<<endl;
+
+	}
+	return 0;
+}
