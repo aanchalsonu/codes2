@@ -1,0 +1,124 @@
+/*
+Consider a sequence 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+A 
+1
+​
+ ,A 
+2
+​
+ ,…,A 
+N
+​
+ , where initially, 
+�
+�
+=
+�
+A 
+i
+​
+ =i for each valid 
+�
+i. You may perform any number of operations on this sequence (including zero). In one operation, you should choose two valid indices 
+�
+i and 
+�
+j, compute the greatest common divisor of 
+�
+�
+A 
+i
+​
+  and 
+�
+�
+A 
+j
+​
+  (let's denote it by 
+�
+g), and change both 
+�
+�
+A 
+i
+​
+  and 
+�
+�
+A 
+j
+​
+  to 
+�
+g.
+
+You are given a sequence 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+B 
+1
+​
+ ,B 
+2
+​
+ ,…,B 
+N
+​
+ . Is it possible to obtain this sequence, i.e. change 
+�
+A to 
+�
+B, using the given operations?
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,i,j;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int b[n];
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>b[i];
+	    }
+	    for(i=0;i<n;i++)
+	    {
+	        if(b[i] != (i+1) && ((i+1)%b[i])!=0)
+	        {
+	            cout<<"NO\n";
+	            break;
+	        }
+	    }
+	    if(i==n)
+	    {
+	        cout<<"YES\n";
+	    }
+	}
+	return 0;
+}
