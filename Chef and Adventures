@@ -1,0 +1,70 @@
+/*
+Mysterious Chefland... Recently, Chef realised that Discuss, the educational system of Chefland, is out of date. Therefore, he is trying to find ways to 
+update the infrastructure in the country. One possible way is to move all materials from Discuss to Discourse.
+
+Chef will have access to Discourse if his knowledge and power become exactly equal to 
+�
+N and 
+�
+M respectively. Initially, he has power 
+1
+1 and knowledge 
+1
+1.
+
+Chef can perform actions of the following types to improve his skills:
+
+solve a problem — increase his knowledge by 
+�
+X
+do a push-up — increase his power by 
+�
+Y
+install ShareChat to keep in touch with friends — increase both knowledge and power by 
+1
+1
+Chef can only install ShareChat at most once. The remaining actions may be performed any number of times and the actions may be performed in any order.
+
+Help Chef find out whether it is possible to move from Discuss to Discourse.
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,x,y,n,m;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>m>>x>>y;
+	    
+	    if((n-1)%x == 0 && (m-1)%y ==0)
+	    cout<<"Chefirnemo\n";
+	    else if(n==1 || m==1)
+	    cout<<"Pofik\n";
+	    else if((n-2)%x ==0 && (m-2)%y ==0)
+	    cout<<"Chefirnemo\n";
+	    else
+	    cout<<"Pofik\n";
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	   // long int a=1,b=1;
+	   // if(__gcd(n,x) == 1 && n==m && __gcd(m,y) >= m)
+	   // cout<<"Chefirnemo\n";
+	   // else if(__gcd(n,x) == 1 && __gcd(m,y) == 1 && n>m)
+	   // cout<<"Chefirnemo\n";
+	   // else
+	   // cout<<"Pofik\n";
+	    
+	}
+	return 0;
+}
