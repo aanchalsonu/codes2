@@ -1,0 +1,154 @@
+/*
+Ryan is a boy from a small town, who has been given a task by his father. He has 
+�
+N wooden planks, numbered from 
+1
+1 to 
+�
+N, which are colored either black or white.
+
+His task is to color all planks the same color! But there is some magic in the winds of his small town. Whenever he colors the 
+�
+�
+ℎ
+i 
+th
+  ( plank which has the color 
+�
+�
+S 
+i
+​
+  ) to a color 
+�
+P then following events happen:
+
+if 
+2
+≤
+�
+≤
+�
+2≤i≤N and 
+�
+�
+=
+�
+�
+−
+1
+S 
+i
+​
+ =S 
+i−1
+​
+ , then color of 
+(
+�
+−
+1
+)
+�
+ℎ
+(i−1) 
+th
+  plank changes to 
+�
+P.
+if 
+1
+≤
+�
+≤
+�
+−
+1
+1≤i≤N−1 and 
+�
+�
+=
+�
+�
++
+1
+S 
+i
+​
+ =S 
+i+1
+​
+ , then color of 
+(
+�
++
+1
+)
+�
+ℎ
+(i+1) 
+th
+  plank changes to 
+�
+P.
+Now this process continues for the newly colored planks also. If none of the neighbors have same color, then nothing happens to the neighbors.
+
+Suppose Ryan has planks which have their coloring : 
+�
+�
+�
+�
+�
+�
+BBWWWB If Ryan colors the fourth plank( whose color is 
+�
+W ) to color 
+�
+B, then the finally the planks would be colored as following:
+
+�
+�
+�
+�
+�
+�
+BBBBBB
+
+Ryan can choose any one of the 
+�
+N planks and change its color as many times as he wants. Determine the minimum number of times Ryan has to paint a plank such that all planks get the 
+same color at the end.
+*/
+
+
+#include <iostream>
+using namespace std;
+
+
+int main() {
+	// your code goes here
+	
+	long int t,n,i,cnt;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    cnt=0;
+	    for(int i=0;i<n-1;i++)
+	    {
+	        if(s[i] != s[i+1])
+	        cnt++;
+	    }
+	    if(cnt%2 == 0)
+	    cout<<cnt/2<<endl;
+	    else
+	    cout<<(cnt+1)/2<<endl;
+	}
+	return 0;
+}
+
+
+
+
