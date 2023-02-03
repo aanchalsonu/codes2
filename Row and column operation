@@ -1,0 +1,65 @@
+/*
+You are given an N × N grid initially filled by zeros. Let the rows and columns of the grid be numbered from 1 to N, inclusive. There are two types of operations
+can be applied to the grid:
+
+RowAdd R X: all numbers in the row R should be increased by X.
+ColAdd C X: all numbers in the column C should be increased by X.
+Now after performing the sequence of such operations you need to find the maximum element in the grid.
+
+Input
+The first line of the input contains two space separated integers N and Q denoting the size of the grid and the number of performed operations respectively.
+Each of the following Q lines describe an operation in the format described above.
+
+Output
+Output a single line containing the maximum number at the grid after performing all the operations.
+
+
+
+explanation 
+Take inputs according to query given. if its row entry put the value into 'r' vector, similarly for column put it into 'c' vectoe. 
+now find maximum amoung r and c cout the sum of both.
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int n,q,x,mr,mc,rc=0;
+	cin>>n>>q;
+    // map<int,int>r,c;
+    vector<int> r(n,0);
+    vector<int> c(n,0);
+	while(q--)
+	{
+	    string s;
+	    cin>>s>>rc>>x;
+	    if(s[0] == 'R')
+	    {
+	        r[rc-1] += x;
+	    }
+	    else
+	    {
+	        c[rc-1] += x;
+	    }
+	    
+	}
+	
+	
+	mr = *max_element(r.begin(),r.end());
+	mc = *max_element(c.begin(),c.end());
+	cout<<mr+mc<<endl;
+	
+	
+	
+	
+	
+	
+// 	for(i=0;i<n;i++)
+// 	{
+// 	    ans[i] = r[i]+c[i];
+// 	}
+// 	sort(ans,ans+n);
+// 	cout<<ans[n-1]<<endl;
+	return 0;
+}
+*/
