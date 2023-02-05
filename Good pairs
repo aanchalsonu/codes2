@@ -1,0 +1,179 @@
+/*You are given arrays 
+�
+A and 
+�
+B of length 
+�
+N each. Determine the number of good pairs.
+
+A pair 
+(
+�
+,
+�
+)
+(i,j) 
+(
+1
+≤
+�
+,
+�
+≤
+�
+)
+(1≤i,j≤N) is said to be good if all of the following conditions are satisfied:
+
+�
+<
+�
+;
+i<j;
+�
+�
+=
+�
+�
+;
+A 
+i
+​
+ =B 
+j
+​
+ ;
+�
+�
+=
+�
+�
+;
+A 
+j
+​
+ =B 
+i
+​
+ ;
+Input Format
+First line will contain 
+�
+T, the number of test cases. Then the test cases follow.
+Description of each test case:
+
+First line contains an integer 
+�
+N - denoting the length of the arrays.
+Second line contains 
+�
+N space-separated integers 
+�
+1
+,
+�
+2
+,
+…
+�
+�
+A 
+1
+​
+ ,A 
+2
+​
+ ,…A 
+N
+​
+  - denoting the array 
+�
+A.
+Third line contains 
+�
+N space-separated integers 
+�
+1
+,
+�
+2
+,
+…
+�
+�
+B 
+1
+​
+ ,B 
+2
+​
+ ,…B 
+N
+​
+  - denoting the array 
+�
+B.
+*/
+
+
+
+
+
+
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	
+	long int t,n,i,j,ans=0,f=0;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n],b[n];
+	   // map<int,int> mp1;
+	   // map<int,int> mp2;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	       // mp1[a[i]]++;
+	    }
+	    for(j=0;j<n;j++)
+	    {
+	        cin>>b[j];
+	    }
+	    ans=0;
+	    map<pair<int,int>,int> mp;
+	    
+	    for(i=0;i<n;i++)
+	    mp[{a[i],b[i]}]++;
+	    
+	    for(i=0;i<n;i++)
+	    {
+	        ans += mp[{b[i],a[i]}];
+	        if(b[i] == a[i])
+	        ans--;
+	    }
+	    
+	    cout<<ans/2<<endl;
+	  
+	   // for(i=0;i<n;i++)
+	   // {
+	   //     for(j=n-1;j>i;j--)
+	   //     {
+	   //         if(b[j] == a[i])
+	   //         ans++;
+	   //     }
+	   // }
+	    
+	   // cout<<ans<<endl;
+	}
+
+	
+	
+	return 0;
+}
