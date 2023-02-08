@@ -1,0 +1,147 @@
+/*
+Zenyk and Marichka are playing a game taking turns alternatively. They have 
+�
+N piles of stones. In the 
+�
+�
+ℎ
+i 
+th
+  pile, there are 
+�
+�
+A 
+i
+​
+  stones initially.
+
+Marichka goes first, and removes any non-zero number of stones from any pile.
+After that, in one move, a player can take any number of stones from any pile, but not less than the number of stones taken by the opponent in the previous move.
+
+The player who cannot make a move loses. If both players play optimally, find the winner of the game.
+
+Input Format
+The first line of input will contain a single integer 
+�
+T, denoting the number of test cases.
+
+The first line of each tets case contains single integer 
+�
+N — the number of piles.
+
+The second line of each test case contains 
+�
+N space-separated integers 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+A 
+1
+​
+ ,A 
+2
+​
+ ,…,A 
+N
+​
+  — the numbers of stones in piles initially.
+
+Output Format
+For each test case, output a new line containing:
+
+Marichka if Marichka wins.
+Zenyk if Zenyk wins.
+Note that you may print each character in lowercase or uppercase. For example, the strings Zenyk, ZENYK, zenyk, and zEnYK are considered identical.
+*/
+
+
+
+
+
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,i,db;
+	cin>>t;
+	while(t--)
+	{
+	     db=1;
+	    cin>>n;
+	    int a[n];
+	    map<int, int> mp;
+	    for(i=0;i<n;i++){
+	        cin>>a[i];
+	        mp[a[i]]++;
+	    }
+	    for(i=n-1;i>=0;i--){
+	        if(mp[a[i]]%2){
+	            cout<<"Marichka";
+	            db=0;
+	            break;
+	        }
+	    }
+	    if(db){
+	        cout<<"Zenyk";
+	    }
+	    cout<<endl;
+	   // c=0;
+	   // maxi = -1;
+	   // if(n==1)
+	   // {
+	   //     cout<<"Marichka\n";
+	   // }
+	   // else
+	   // {
+	   //     for(i=0;i<n;i++)
+	   //     {
+    // 	        cin>>a[i];
+    // 	        mp[a[i]]++;
+    // 	       // if(a[i] > maxi)
+    // 	       // {
+    // 	       //     maxi = a[i];
+    // 	       //     c=1;
+    // 	       // }
+    // 	       // else if(a[i] == maxi)
+    // 	       // c++;
+	   //     }
+	        
+	        
+	   //    for(i=n-2;i>=0;i--)
+	   //    {
+	   //        if(mp[i]%2)
+	   //        {
+	   //            cout<<"Marichka\n";
+	   //            f=1;
+	   //            break;
+	   //        }
+	   //    }
+	        
+	        
+	   //     if(f==0)
+	   //     {
+	   //         cout<<"Zenyk\n";
+	   //     }
+	        
+	        
+	        
+	       // if(c%2 == 0)
+    	   // cout<<"Zenyk\n";
+    	   // else
+    	   // cout<<"Marichka\n";
+	   // }
+	}
+	return 0;
+}
