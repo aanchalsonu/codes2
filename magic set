@@ -1,0 +1,115 @@
+/*
+Katya has a sequence of integers 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+a 
+1
+​
+ ,a 
+2
+​
+ ,…,a 
+n
+​
+  and an integer 
+�
+m.
+
+She defines a good sequence of integers as a non-empty sequence such that the sum of the elements in each of its non-empty subsequences is divisible by 
+�
+m.
+
+Katya wants to know the number of good subsequences of the sequence 
+�
+a. Can you help her?
+
+Input
+The first line of the input contains a single integer 
+�
+T denoting the number of test cases. The description of 
+�
+T test cases follows.
+The first line of each test case contains two space-separated integers 
+�
+n and 
+�
+m.
+The second line contains 
+�
+n space-separated integers 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+a 
+1
+​
+ ,a 
+2
+​
+ ,…,a 
+n
+​
+ .
+Output
+For each test case, print a single line containing one integer — the number of good subsequences.
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include<bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,m,i,count;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>m;
+	    long int a[n];
+	    count=0;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        if(a[i]%m ==0)
+	        count++;
+	    }
+	    int ans = pow(2,count);
+	    cout<<ans-1<<endl;
+	}
+	
+	return 0;
+}
+
+
+
+
+
+
