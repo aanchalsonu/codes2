@@ -1,0 +1,36 @@
+/*
+Chef has three dogs sitting at the vertices of an equilateral triangle. The length of each side of the triangle equals to s meters. Chef gives the 
+command "Start!" and each dog starts to run with constant speed v meters per second. At each moment, each dog is running towards the dog just right to him 
+(in counter-clockwise direction). Therefore, their trajectories are forming some spirals that converging to one point as illustrated below.
+
+How long does it takes dogs to meet each other after the command "Start!"?
+
+Input
+The first line of the input contains an integer T denoting the number of test cases. The description of T test cases follows.
+
+The only line of each test case contains two space-separated integers s and v.
+
+Output
+For each test case, output a single line containing a real number corresponding to the answer of the problem. The answer will be considered correct 
+if its absolute or relative error does not exceed 10-6.
+
+
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	double t,s,v;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>s>>v;
+	    double ans = (2*s)/(3*v);
+	    cout<<fixed<<setprecision(6)<<ans<<endl;
+	}
+	return 0;
+}
