@@ -1,0 +1,125 @@
+/*
+Given a binary matrix mat of size n * m, find out the maximum size square sub-matrix with all 1s.
+
+Example 1:
+
+Input: n = 2, m = 2
+mat = {{1, 1}, 
+       {1, 1}}
+Output: 2
+Explaination: The maximum size of the square
+sub-matrix is 2. The matrix itself is the 
+maximum sized sub-matrix in this case.
+Example 2:
+
+Input: n = 2, m = 2
+mat = {{0, 0}, 
+       {0, 0}}
+Output: 0
+Explaination: There is no 1 in the matrix.
+*/
+
+//{ Driver Code Starts
+// Initial Template for C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+// User function Template for C++
+
+class Solution{
+public:
+
+    int solve(vector<vector<int>> mat,int i,int j,int &maxi)
+    {
+        //base case
+        if(i>=mat.size() || j>=mat[0].size())
+        return 0;
+        
+        //there are 3 parts 
+        // 1.bottom
+        // 2.right
+        // 3.diagonal
+        
+        int right = solve(mat,i,j+1,maxi);
+        int diagonal = solve(mat,i+1,j+1,maxi);
+        int bottom = solve(mat,i+1,j,maxi);
+        
+        
+        if(mat[i][j] == 1)
+        {
+            int ans = 1 + min(right,min(bottom,diagonal));
+            maxi = max(maxi,ans);
+            return ans;
+        }
+        else
+        return 0;
+        
+    }
+    
+    //solve by memorization
+    
+    int solveMem(vector<vector<int>> & mat,int i,int j,int &maxi,vector<vector<int>> & dp)
+    {
+        //base case
+        if(i>=mat.size() || j>=mat[0].size())
+        return 0;
+        
+        //there are 3 parts 
+        // 1.bottom
+        // 2.right
+        // 3.diagonal
+        
+        if(dp[i][j] != -1)
+        return dp[i][j];
+        
+        int right = solveMem(mat,i,j+1,maxi,dp);
+        int diagonal = solveMem(mat,i+1,j+1,maxi,dp);
+        int bottom = solveMem(mat,i+1,j,maxi,dp);
+        
+        
+        if(mat[i][j] == 1)
+        {
+            dp[i][j] = 1 + min(right,min(bottom,diagonal));
+            maxi = max(maxi,dp[i][j]);
+            return dp[i][j];
+        }
+        else
+        return dp[i][j]=0;
+        
+    }
+
+
+    int maxSquare(int n, int m, vector<vector<int>> mat){
+        // recursive approach
+        int maxi = 0;
+        // solve(mat,0,0,maxi);
+        // return maxi;
+        
+        vector<vector<int>> dp(n,vector<int>(m,-1));
+        solveMem(mat,0,0,maxi,dp);
+        return maxi;
+        
+        
+    }
+};
+
+//{ Driver Code Starts.
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n, m;
+        cin>>n>>m;
+        vector<vector<int>> mat(n, vector<int>(m, 0));
+        for(int i = 0;i < n*m;i++)
+            cin>>mat[i/m][i%m];
+        
+        Solution ob;
+        cout<<ob.maxSquare(n, m, mat)<<"\n";
+    }
+    return 0;
+}
+// } Driver Code Ends
