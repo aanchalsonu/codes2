@@ -1,0 +1,123 @@
+/*
+You are given a binary string 
+�
+S of length 
+�
+N. Your task is to check if there exists a substring of 
+�
+S which is the binary representation of a prime number.
+
+Formally, check if there exist integers 
+�
+L and 
+�
+R such that 
+1
+≤
+�
+≤
+�
+≤
+�
+1≤L≤R≤N, and the substring 
+�
+�
+�
+�
++
+1
+�
+�
++
+2
+…
+�
+�
+S 
+L
+​
+ S 
+L+1
+​
+ S 
+L+2
+​
+ …S 
+R
+​
+ , when treated as a binary integer, is prime.
+
+Print "Yes" if such a substring exists, and "No" if it doesn't.
+
+Input Format
+The first line of input contains a single integer 
+�
+T, denoting the number of test cases. The description of 
+�
+T test cases follows.
+Each testcase consists of a single line of input, containing a binary string 
+�
+S.
+Output Format
+For each test case, output a single line containing one string — "Yes" or "No", the answer to the problem.
+
+You may print each character of the answer in uppercase or lowercase (for example, the strings "yEs", "yes", "Yes" and "YES" will all be treated as identical).
+*/
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,i,oc;
+	cin>>t;
+	while(t--)
+	{
+	    string s;
+	    cin>>s;
+	    n = s.length();
+	    oc=0;
+	    for(i=0;i<n;i++)
+	    {
+	        if((s[i] == '1' && s[i+1] == '0') || (s[i] == '1' && s[i+1] == '1'))
+	        {
+	            cout<<"Yes\n";
+	            oc=1;
+	            break;
+	        }
+	    }
+	    if(oc==0)
+	    cout<<"No\n";
+
+	   // if(s[n-1] == '1' && n!=1)
+	   // {
+	   //     for(i=0;i<n;i++)
+	   //     {
+	   //         if(s[i] == '1' )
+	   //         oc++;
+	   //     }
+	   //     if(oc>0)
+	   //     cout<<"Yes\n";
+	   //     else
+	   //     cout<<"No\n";
+	   // }
+	   // else
+	   // cout<<"No\n";
+	    
+	    
+	}
+	
+	return 0;
+}
+
+
+
+
+
+
+
+
+
