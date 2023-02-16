@@ -1,0 +1,52 @@
+/*
+Chef likes problems related to numbers a lot. He is generally quite good at solving these kinds of problems, but today he got stuck at one number theory problem, 
+and so he asks your help to solve it.
+
+Given a positive integer N, find out how many positive integers X satisfy the equation X + S(X) + S(S(X)) = N, where S(X) denoting sum of digits of X in decimal 
+(base 10) representation.
+
+Input
+The only line of the input contains one integer number - N.
+
+Output
+Output single integer in a line denoting the count of number of positive integers X satisfying the above given equation.
+
+*/
+
+#include <iostream>
+using namespace std;
+
+
+long int get_sum(int n)
+{
+    long int sum=0,r;
+    while(n!=0)
+    {
+        r = n%10;
+        sum += r;
+        n /=10;
+    }
+    return sum;
+}
+
+int main() {
+	// your code goes here
+	
+	long int n,i,j,ans,s,f,rest;
+	cin>>n;
+	ans=0;
+	for(i=1;i<=81;i++)
+	{
+	    f=i;
+	    s = get_sum(i);
+	    rest = n -(s+f);
+	    if(rest>0)
+	    {
+	        if(get_sum(rest) == i)
+	        ans++;
+	    }
+	    
+	}
+	cout<<ans<<endl;
+	return 0;
+}
