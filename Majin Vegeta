@@ -1,0 +1,191 @@
+/*
+Babidi has summoned Majin Vegeta. He orders him to kill Supreme Kai. But Vegeta wants to get out of his control.
+
+Babidi has laid out a trap. Vegeta is standing at the 
+�
+�
+ℎ
+nth level of mind control. In order to defeat Babidi's trap, he needs to reach 
+�
+�
+ℎ
+mth level. The levels are continuous increasing integers. At each increment of level, 
+�
+�
+ℎ
+nth to 
+(
+�
++
+1
+)
+�
+ℎ
+(n+1)th level, for example, the energy used is - number of distinct prime factors of 
+�
+n.
+
+Vegeta needs your help in order to figure out how much total minimum energy he needs to defeat Babidi's trap. The total energy is the sum
+of energy used at each increment of a level.In the calculation of energy, 
+�
+n and 
+�
+m are inclusive.
+
+###Input:
+
+The first line of the input contains a single integer 
+�
+T denoting the number of test cases. The description of 
+�
+T test cases follow.
+The first and only line of each test case contains the two integers 
+�
+n and 
+�
+m, separated by a single space.
+###Output: For each test case, print a single line containing one integer denoting the energy needed by Vegeta to escape Babidi's mind control 
+and continue his battle with Kakarot.
+
+*/
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+#define N 1000000
+
+void prime(ll a[]){
+    for(int i=2;i<=N;i++)
+    {
+        if(a[i] == 0)
+        {
+            for(int j = i;j <= N;j = j+i)
+            {
+                a[j]++;
+            }
+        }
+    }
+}
+int main() {
+	// your code goes here
+	ll t;
+	cin>>t;
+    ll a[N] = {0};
+    prime(a);
+	while(t--)
+	{
+	    ll n,m;
+	    cin>>n>>m;
+	    ll count = 0;
+	    for(int i=n;i<m;i++)
+	    {
+	        count += a[i];
+	    }
+	    cout<<count<<endl;
+	    
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// void prime(long int a[])
+// {
+//     int i,j;
+//     for(i=2;i<=100000;i++)
+//     {
+//         if(a[i] == 0)
+//         for(j=i;j<=100000;j= j+i)
+//         {
+//             a[j]++;
+//         }
+//     }
+// }
+
+// int main()
+// {
+//     long int t,n,m,ans;
+//     long int a[100000]={0};
+//     prime(a);
+//     cin>>t;
+//     while(t--)
+//     {
+//         cin>>n>>m;
+//         ans=0;
+//         for(int i=n;i<m;i++)
+//         {
+//             ans = ans + a[i];
+//         }
+//         cout<<ans<<endl;
+//     }
+//     return 0;
+// }
+
+
+
+
+
+
+
+
+
+
+// long int primefactors(long int n)
+// {
+//     long int count=0;
+//     long int i,f;
+//     f=0;
+//     //for even numbers
+//     while(n%2 == 0)
+//     {
+//         f=1;
+//         n = n/2;
+//     }
+//     if(f==1)
+//     count++;
+//     //for odd part
+//     for(i=3;i<=sqrt(n);i=i+2)
+//     {
+//         while(n%i == 0)
+//         {
+//             n = n/i;
+//             count++;
+//         }
+//     }
+    
+//     if(count==0)
+//     return 1;
+    
+//     return count;
+// }
+// int main() {
+// 	// your code goes here
+	
+// 	long int t,n,i,m,ans;
+// 	cin>>t;
+// 	while(t--)
+// 	{
+// 	    cin>>n>>m;
+// 	    ans=0;
+// 	    for(i=n;i<=m;i++)
+// 	    {
+// 	        ans = ans + primefactors(i);
+// 	    }
+// 	    cout<<ans<<endl;
+// 	}
+	
+	
+// 	return 0;
+// }
