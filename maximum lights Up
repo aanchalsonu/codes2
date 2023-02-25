@@ -1,0 +1,71 @@
+/*
+Chef has allocated himself a budget of 
+�
+P rupees to buy Diwali crackers. There are only 
+3
+3 types of crackers available in the market and each type of cracker can be bought any number of times.
+
+Fuljhari, where each costs 
+�
+a rupees
+Anar, where each costs 
+�
+b rupees
+Chakri, where each costs 
+�
+c rupees
+The crackers have the following interesting properties:-
+
+A Fuljhari can be lit on its own
+To light an Anar, you will need 
+�
+x Fuljharis
+To light a Chakri, you will need 
+�
+y Fuljharis
+What's the maximum total of Anars and Chakris that Chef can light up with his given budget.
+
+Input Format
+First line of input will contain 
+�
+T, the number of test cases. Then the test cases follow.
+Each test case contains of a single line of input, six integers 
+�
+P, 
+�
+a, 
+�
+b, 
+�
+c, 
+�
+x and 
+�
+y.
+Output Format
+For each test case, output in a single line the maximum total of Anars and Chakris Chef can light up.
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,a,b,c,x,y,m,p;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>p>>a>>b>>c>>x>>y;
+	    if(((a*x)+b)<((y*a)+c))
+	    {
+	        cout<<p/((x*a)+b)<<endl;
+	    }
+	    else
+	    {
+	        cout<<p/((y*a)+c)<<endl;
+	    }
+	}
+	return 0;
+}
