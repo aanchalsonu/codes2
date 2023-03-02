@@ -1,0 +1,50 @@
+/*
+3:33
+
+It's possible for all the digits displayed on a digital clock in the hours:minutes format to be identical. The time shown above (3:33) is
+an example of such a situation. Other examples are 2:2 and 1:11. Note that the digits of 33:33 are identical, but it is not a valid time on a usual digital clock.
+
+The above example was for a usual 24-hour format digital clock. Let's consider a more general clock, where an hour lasts M minutes and a day 
+lasts H hours (therefore, the clock can show any number of hours between 0 and H-1, inclusive, and any number of minutes between 0 and M-1, 
+inclusive). Both the hours and the minutes are shown without leading zeroes in decimal notation and their separator (e.g., ':') doesn't matter.
+
+Can you tell how many minutes during a day will the digital clock have identical digits displayed on it?
+
+Input
+The first line of the input contains an integer T - the number of test cases.
+Each of the next T lines contains two space-separated integers H and M for one test case.
+Output
+For each test case, output a single line corresponding to the answer of the problem.
+*/
+
+
+#include<bits/stdc++.h>
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,h,m,ans,i,j;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>h>>m;
+	    
+	    h =h-1;
+	    m = m-1;
+	    ans=1;
+	    for(i=1;i<10;i++)
+	    {
+	        int x = log10(9*h/i+1);
+	        int y = log10(9*m/i+1);
+	        ans += (x*y);
+	    }
+	    cout<<ans<<endl;
+	}
+	
+	
+	
+	
+	return 0;
+}
