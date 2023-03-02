@@ -1,0 +1,143 @@
+/*
+JJ challenges the Chef to construct an array 
+�
+A of length 
+�
+N such that the following conditions hold:
+
+�
+�
+A 
+i
+​
+  divides 
+�
+�
++
+1
+A 
+i+1
+​
+  when 
+�
+i is odd and 
+1
+≤
+�
+≤
+�
+−
+1
+1≤i≤N−1
+�
+�
+A 
+i
+​
+  does not divide 
+�
+�
++
+1
+A 
+i+1
+​
+  when 
+�
+i is even and 
+1
+≤
+�
+≤
+�
+−
+1
+1≤i≤N−1
+1
+≤
+�
+�
+≤
+2
+⋅
+�
+1≤A 
+i
+​
+ ≤2⋅N
+All 
+�
+�
+A 
+i
+​
+  are pairwise distinct
+Can you help Chef complete JJ's challenge?
+
+If multiple arrays satisfying the above conditions exist print any one of them.
+
+It is guaranteed that under the given constraints, at least one array satisfying the above conditions exists.
+
+Input Format
+The first line will contain 
+�
+T - the number of test cases. Then the test cases follow.
+The first and only line of each test case contains an integer 
+�
+N - the length of the array 
+�
+A to be constructed.
+Output Format
+For each test case, output a single line containing 
+�
+N space-separated integers, denoting the elements of the array 
+�
+A you constructed.
+
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n];
+	    
+	    int o=1;
+	    int e = 2;
+	    for(i=0;i<n;i++)
+	    {
+	        if(i%2 == 0)
+	        {
+	            a[i] = i+1;
+	           // a[i] = e;
+	           // a[i+1] = e*(e+2);
+	           // e = e +2;
+	           // i=i+2;
+	        }
+	        else
+	        {
+	            a[i] = 2*a[i-1];
+	           // a[i] = o;
+	           // a[i+1] = o*(o+2);
+	           // o = o+2;
+	           // i = i+2;
+	        }
+	    }
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	        cout<<a[i]<<" ";
+	    }
+	    cout<<endl;
+	}
+	
+	return 0;
+}
