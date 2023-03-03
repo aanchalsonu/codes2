@@ -1,0 +1,135 @@
+/*
+You are given a string S constisting of uppercase Latin letters. Is it possible to reorder the characters in this string to get a string with prefix 
+"LTIME" and suffix "EMITL"?
+
+We remind you that a prefix of a string is any substring which contains its first character, while a suffix of a string is substring containing its last character.
+
+Input
+The first line contains a single integer T, denoting the number of testcases. The descriptions of T test cases follow.
+
+The first and only line of the test case description has one non-empty string S consisting of uppercase Latin letters only.
+
+Output
+For each testcase output a single line containing the string "YES" (without quotes) if it's possible to reorder the characters to get the required prefix and suffix,
+or "NO" (without quotes) otherwise.
+
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,i,n,count;
+	cin>>t;
+	while(t--)
+	{
+	    
+	    
+	    int l=2,t=2,d=2,m=2,e=2,n=0;
+	    string s;cin>>s;
+	    for(int i=0;i<s.length();i++){
+	        if(s[i]=='L'){
+	            l--;
+	        }
+	        else if(s[i]=='T'){
+	            t--;
+	        }
+	        else if(s[i]=='I'){
+	            d--;
+	        }
+	        else if(s[i]=='M'){
+	            m--;
+	        }
+	        else if(s[i]=='E'){
+	            e--;
+	        }
+	        if(l<=0 && t<=0 && d<=0 && m<=0 && e<=0){
+	        cout<<"YES\n";
+	        n=1;
+	        break;
+	    }
+	    }
+	    
+	    if(n==0 && s.length()==9 && l<=0 && t<=0 && d<=0 && m<=0 && e==1)cout<<"YES\n";
+	    else if(n==0)cout<<"NO\n";
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	   // string s;
+	   // cin>>s;
+	   // n = 0;
+	   // int l=2,t=2,i=2,m=2,e=2;
+	    
+	   // for(i=0;i<s.length();i++)
+	   // {
+	   //     if(s[i] == 'L')
+	   //     l--;
+	   //     else if(s[i] == 'T')
+	   //     t--;
+	   //     else if(s[i] == 'I')
+	   //     i--;
+	   //     else if(s[i] == 'M')
+	   //     m--;
+	   //     else if(s[i] == 'E')
+	   //     e--;
+	        
+	   //     if(l<=0 && t<=0 && i<=0 && m<=0 && e<=0 )
+	   //     {
+	   //         n=1;
+	   //         cout<<"YES\n";
+	   //         break;
+	   //     }
+	   // }
+	    
+	    
+	   // if(n==0 && s.length() == 9 && l<=0 && t<=0 && i<=0 && m<=0 && e==1)
+	   // {
+	   //     cout<<"YES\n";
+	   // }
+	   // else if(n==0)
+	   // {
+	   //     cout<<"NO\n";
+	   // }
+	    
+	    
+	   // map<char,int> mp;
+	   // for(i=0;i<n;i++)
+	   // {
+	   //     mp[s[i]]++;
+	   // }
+	   // count=0;
+	   // for(auto i : mp)
+	   // {
+	   //     if(i.first == 'L' || i.first == 'T' || i.first == 'I' || i.first == 'M'
+	   //     || i.first == 'E')
+	   //     {
+	   //         if(i.second >=2)
+	   //         {
+	   //             count++;
+	   //         }
+	   //         else if(i.second >= 1 && i.first == 'E')
+	   //         {
+	   //             count++;
+	   //         }
+	   //     }
+	        
+	   // }
+	   // if(count >= 4 )
+	   // {
+	   //     cout<<"YES"<<endl;
+	   // }
+	   // else
+	   // {
+	   //     cout<<"NO"<<endl;
+	   // }
+	    
+	}
+	return 0;
+}
