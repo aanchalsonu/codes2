@@ -1,0 +1,117 @@
+/*
+Chef has received a challenge for which he needs your help.
+
+Given 
+�
+N, find a permutation 
+�
+P of numbers 
+(
+)
+(1,2,…,N) such that:
+
+
+ 
+​
+ ⊕P 
+i+1
+​
+ =P 
+i+2
+​
+  , where (1≤i≤N−2). Here 
+⊕
+⊕ denotes the bitwise XOR operation.
+If multiple such permutations exist, print any. If no such permutation exists, print 
+−
+1
+−1.
+
+
+
+Input Format
+First line will contain 
+�
+T, number of test cases. Then the test cases follow.
+Each test case contains of a single integer as input, 
+�
+N - the length of the required permutation.
+Output Format
+For each test case, output in a new line, 
+�
+N space-separated integers, denoting a permutation satisfying the condition.
+If multiple such permutations exist, print any. If no such permutation exists, print 
+−
+1
+−1.
+
+*/
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t,n,i,j;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    int a[n];
+	    if(n<4)
+	    {
+	        cout<<"-1\n";
+	        continue;
+	    }
+	    else if(n==4)
+	    {
+	        j=1;
+	        int l=4;
+	        while(j<=2)
+	        {
+	            cout<<j++<<" ";
+	        }
+	        while(l>2)
+	        {
+	            cout<<l--<<" ";
+	        }
+	       // cout<<endl;
+	    }
+	    else
+	    {
+	        cout<<3<<" "<<4<<" "<<2<<" "<<1<<" ";
+	        i=5;
+	        while(i<n)
+	        {
+	            cout<<i++<<" ";
+	        }
+	        cout<<n;
+	        cout<<endl;
+	    }
+	    
+	    
+	    
+	    
+	   // for(i=0,j=4;i<4;i++,j--)
+	   // {
+	   //     a[i] = j;
+	   // }
+	   // for(i = 4;i<n;i++)
+	   // {
+	   //     a[i] = i;
+	   // }
+	   // for(i=0;i<n;i++)
+	   // {
+	   //     cout<<a[i]<<" ";
+	   // }
+	   // cout<<endl;
+	}
+	
+	return 0;
+}
+
+
+
+
+
