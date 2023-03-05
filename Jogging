@@ -1,0 +1,89 @@
+/*
+Alice jogs everyday to keep herself fit and active. She noticed that she burns 
+�
+X calories when jogging the first kilometer, and for 
+�
+>
+1
+K>1, jogging the 
+�
+�
+ℎ
+K 
+th
+  kilometer burns calories equivalent to the total number of calories burned while jogging the first 
+�
+−
+1
+K−1 kilometers.
+
+What is the total number of calories that Alice burns after jogging for 
+�
+N kilometers? The answer can be very large, so report it modulo 
+1
+0
+9
++
+7
+10 
+9
+ +7 (
+1000000007
+1000000007).
+
+Input Format
+The first line of input will contain an integer 
+�
+T — the number of test cases. The description of 
+�
+T test cases follows.
+The first and only line of each test case contains two space-separated integers 
+�
+N and 
+�
+X, as described in the problem statement.
+Output Format
+For each test case, output on a new line the total number of calories that Alice burns after jogging for 
+�
+N kilometers, modulo 
+1
+0
+9
++
+7
+10 
+9
+ +7.
+
+
+*/#include <iostream>
+#define MOD 1000000007
+using namespace std;
+
+long long solve(long long n)
+{
+    long long ans=1, x=2;
+    
+    while(n>0){
+        
+        if (n & 1)
+            ans = (ans * x) % MOD;
+        
+        n = n>>1;
+        x = (x * x) % MOD;
+    }
+    
+    return ans;
+}
+
+int main() {
+	// your code goes here
+	long long t,n,x,ans;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>x;
+	    cout<<(x*solve(n-1))%1000000007<<endl;
+	}
+	return 0;
+}
