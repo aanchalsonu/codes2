@@ -1,0 +1,157 @@
+/*
+Naveej is from a tribe that speaks some weird language - their alphabet consists of 
+�
+N distinct characters. He has an array 
+�
+=
+[
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+]
+A=[A 
+1
+​
+ ,A 
+2
+​
+ ,…,A 
+N
+​
+ ], where 
+�
+�
+A 
+i
+​
+  denotes the number of occurrences of the 
+�
+i-th character with him.
+
+He wants to make a palindromic string using all the characters he has (every character he has must be used in this string).
+
+In order to make this possible, he can perform the following operation:
+
+Select an 
+�
+i 
+(
+1
+≤
+�
+≤
+�
+)
+(1≤i≤N) and convert all occurrences of 
+�
+i-th alphabet to any other alphabet of his choice.
+Note that Naveej just wants to be able to make any palindrome, as long as every character is used. For example, if 
+�
+=
+2
+N=2 and 
+�
+=
+[
+2
+,
+2
+]
+A=[2,2] and we consider the characters to be 
+�
+a and 
+�
+b, he can make both 
+�
+�
+�
+�
+abba and 
+�
+�
+�
+�
+baab, but 
+�
+�
+�
+aba is not allowed because it uses only 
+3
+3 characters.
+
+Find the minimum number of operations required such that Naveej can make a palindromic string using all the characters he has. It can be proven that there always exists at least one sequence of operations allowing for the formation of a palindrome.
+
+Input Format
+The first line of input contains a single integer 
+�
+T denoting the number of test cases. The description of 
+�
+T test cases follows.
+The first line of each test case contains a single integer 
+�
+N - the size of the alphabet.
+The second line contains 
+�
+N space-separated integers: 
+�
+1
+,
+�
+2
+,
+.
+.
+.
+,
+�
+�
+A 
+1
+​
+ ,A 
+2
+​
+ ,...,A 
+N
+​
+ , where 
+�
+�
+A 
+i
+​
+  is the number of occurrences of the 
+�
+i-th character with Naveej.
+Output Format
+For each test case, output a single line containing one integer - the minimum number of operations required so that Naveej can make a palindromic string using all the characters he has.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,odd=0,a,i;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    odd=0;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a;
+	        if(a%2)
+	        odd++;
+	    }
+	    cout<<odd/2<<endl;
+	}
+	return 0;
+}
