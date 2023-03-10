@@ -1,0 +1,81 @@
+/*
+Shlok and Sachin are good friends. Shlok wanted to test Sachin, so he wrote down a string 
+�
+S with length 
+�
+N and one character 
+�
+X. He wants Sachin to find the number of different substrings of 
+�
+S which contain the character 
+�
+X at least once. Sachin is busy with his girlfriend, so he needs you to find the answer.
+
+Two substrings of 
+�
+S are considered different if their positions in 
+�
+S are different.
+
+Input
+The first line of the input contains a single integer 
+�
+T denoting the number of test cases. The description of 
+�
+T test cases follows.
+The first line of each test case contains a single integer 
+�
+N.
+The second line contains a string 
+�
+S with length 
+�
+N, followed by a space and a character 
+�
+X.
+Output
+For each test case, print a single line containing one integer — the number of substrings of 
+�
+S that contain 
+�
+X.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,i,j,sum,f;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    string s;
+	    char x;
+	    cin>>s>>x;
+	    f=0;
+	    sum=0;
+	    for(i=0;i<n;i++)
+	    {
+	        if(s[i] != x)
+	        {
+	            f++;
+	        }
+	        else
+	        {
+	            sum += (f*(f+1))/2;
+	            f=0;
+	        }
+	    }
+	    if(f>0)
+	    {
+	        sum += (f*(f+1))/2;
+	    }
+	    long long o = (n*(n+1))/2;
+	    cout<<o-sum<<endl;
+	}
+
+	return 0;
+}
