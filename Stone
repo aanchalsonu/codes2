@@ -1,0 +1,60 @@
+/*
+
+Roman has no idea, why this problem is called Stone. He also has no idea on how to solve the followong problem: given array of N integers A and a 
+number K. During a turn the maximal value over all Ai is chosen, let's call it MAX. Then Ai = MAX - Ai is done for every 1 <= i <= N. Help Roman to 
+find out how will the array look like after K turns.
+
+Input
+The numbers N and K are given in the first line of an input. Then N integers are given in the second line which denote the array A.
+
+Output
+Output N numbers on a single line. It should be the array A after K turns.
+
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int k,n,i,j,maxi;
+	cin>>n>>k;
+	long int a[n];
+	maxi=0;
+	
+	for(i=0;i<n;i++)
+	{
+	    cin>>a[i];
+	}
+	if(k==0)
+	k=0;
+	else if(k%2==0)
+	{
+	    k=2;
+	}
+	else if(k%2 !=0)
+	{
+	    k=1;
+	}
+	while(k--)
+	{
+	    for(i=0;i<n;i++)
+	    {
+	        if(a[i] > maxi)
+	        maxi= a[i];
+	    }
+	    for(i=0;i<n;i++)
+	    {
+	        a[i] = maxi-a[i];
+	    }
+	}
+	
+	for(i=0;i<n;i++)
+	{
+	    cout<<a[i]<<" ";
+	}
+	cout<<endl;
+	return 0;
+}
