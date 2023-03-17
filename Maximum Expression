@@ -1,0 +1,98 @@
+/*
+You are given a string 
+�
+S of length 
+�
+N, consisting of the digits 0-9 and the characters '+' and '-'. 
+�
+S represents a valid mathematical expression.
+
+Rearrange the characters of 
+�
+S to form a valid mathematical expression such that the result obtained upon evaluating it is maximum.
+
+If there are multiple possible answers, you may print any of them.
+
+Note: A string 
+�
+S of length 
+�
+N is said to be a valid mathematical expression if the following hold:
+
+The first character of 
+�
+S is not + or -.
+The last character of 
+�
+S is not + or -.
+Any + or - in 
+�
+S must not be adjacent to another + or -.
+In particular, numbers are allowed to have leading zeros, and adding/subtracting zero is fine.
+
+Input Format
+The first line of input will contain a single integer 
+�
+T, denoting the number of test cases.
+Each test case consists of 
+2
+2 lines of input.
+The first line of each test case contains a single integer 
+�
+N, denoting the size of the string.
+The second line of each test case contains the string 
+�
+S.
+Output Format
+For each test case, output on a new line the rearranged string giving the maximum value upon evaluation. If there are multiple possible answers, you
+may print any of them.
+
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	long int t,n,i,j;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    string op,num;
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	        if(s[i]<='9' && s[i] >='0')
+	        {
+	            num.push_back(s[i]);
+	        }
+	        else
+	        op.push_back(s[i]);
+	    }
+	    sort(num.rbegin(),num.rend());
+	    sort(op.begin(),op.end());
+	    int x = op.size();
+	    int j=0;
+	    for(int i=0;i<num.size();i++)
+	    {
+	        cout<<num[i];
+	        if(i >=(num.size()-op.size()) -1)
+	        {
+	            cout<<op[j];
+	            j++;
+	        }
+	        
+	    }
+	    cout<<endl;
+	    
+	    
+	}
+	
+	
+	return 0;
+}
+
