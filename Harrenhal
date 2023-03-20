@@ -1,0 +1,54 @@
+/*
+
+Harrenhal is the largest castle in the Seven Kingdoms and is the seat of House Whent in the Riverlands, on the north shore of the Gods Eye lake.
+Since the War of Conquest, however, it has become a dark and ruinous place.
+
+(c) A Wiki of Ice and Fire
+
+harrenhal.jpg
+
+Now Harrenhal is too dangerous since it's a nice place for bandits to hide, or even for rebels to start planning overthrowing of the king. So, 
+the current Lord of the Seven Kingdoms has decided, that it's time to completely ruin the castle. For that puposes, he's planning to send some military troops.
+
+In this problem we assume, that Harrenhal can be described as a string H, which consists only of symbols 'a' and 'b'. Harrenhal is completely ruined if 
+and only if the length of H is equal to zero.
+
+So, how to make H empty? Send a military troop! When a military troop of the king reach the castle, they delete some palindromic subsequence S of H. 
+For example, let H = 'abbabaab'. Then the current military troop can choose S = 'ababa'(Let's make symbols of S bold in H: 'abbabaab'). After deleting 
+S, H will be equal to 'bab'. Military troops are free to choose any possible palindromic subsequence of H.
+
+Your task is pretty simple: determine the minimal number of military troops, that the Lord of the Seven Kingdoms has to send in order to ruin Harrenhal.
+
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,i,f,j;
+	cin>>t;
+	while(t--)
+	{
+	    string s;
+	    f=0;
+	    cin>>s;
+	    n = s.length()-1;
+	    for(i=0,j=n;i<=n/2 && j>= n/2;i++,j--)
+	    {
+	        if(s[i] != s[j])
+	        {
+	            f=1;
+	            break;
+	        }
+	    }
+	    if(f)
+	    cout<<2<<endl;
+	    else
+	    cout<<1<<endl;
+	}
+	
+	return 0;
+}
