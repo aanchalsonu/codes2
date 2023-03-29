@@ -1,0 +1,60 @@
+/*
+
+Chef is a very big fan of Eren Yeager.
+
+In the last season of Attack on Titan, there were 
+�
+N episodes numbered from 
+1
+1 to 
+�
+N.
+Each even indexed episode was 
+�
+A minutes long and each odd indexed episode was 
+�
+B minutes long.
+
+Calculate the total duration (in minutes) of the last season.
+
+Input Format
+The first line of input contains a single integer 
+�
+T, the number of test cases.
+The first and only line of each test case contains three integers 
+�
+N, 
+�
+,
+A, and 
+�
+B, the number of episodes and the durations of each even-indexed and odd-indexed episodes respectively in minutes.
+Output Format
+For each test case, print a single integer on a new line, the total duration of the last season in minutes.
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,i,a,b,total;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>a>>b;
+	    total=0;
+	    if(n== 1)
+	    total += b;
+	    else
+	    {
+	        total += (n/2)*a + (n/2)*b;
+	        if(n%2 == 1)
+	        total += b;
+	    }
+	    cout<<total<<endl;
+	}
+	return 0;
+}
