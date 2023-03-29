@@ -1,0 +1,146 @@
+
+/*
+Given a array of N strings, find the longest common prefix among all strings present in the array.
+
+
+Example 1:
+
+Input:
+N = 4
+arr[] = {geeksforgeeks, geeks, geek,
+         geezer}
+Output: gee
+Explanation: "gee" is the longest common
+prefix in all the given strings.
+Example 2:
+
+Input: 
+N = 2
+arr[] = {hello, world}
+Output: -1
+Explanation: There's no common prefix
+in the given strings.
+
+
+*/
+
+//{ Driver Code Starts
+//Initial template for C++
+
+#include<bits/stdc++.h>
+using namespace std;
+
+// } Driver Code Ends
+//User function template for C++
+
+class Solution{
+  public:
+    
+    string longestCommonPrefix (string arr[], int n)
+    {
+        // your code here
+        
+        string ans="";
+        int i,m,mini= INT_MAX,j;
+        m = arr[0].length();
+        //first find thr minimum length of the string from the given array of strings
+        /* phela sab se chota string dhundo aur phir uska length he minimum length hoga, uss string ko store karlo ek string mai  */
+        
+        string s;
+        for(i=0;i<n;i++)
+        {
+            int x = arr[i].length();
+            if(x < mini)
+            {
+                mini = x;
+                s = arr[i];
+            }
+        }
+        
+        /* Ab usss string ke har ek character ko baake sabhi strings ka characters ka saath match karlo one by one , aur count ko increase kardo agar vo character 
+        sabhi strings mai present hai , aur agar vo kishe bhi string mai nahi tho break kardo aur bahar aajo kyuke ke length he akhri substring possible hai 
+        */
+        
+        
+        int count=0;
+        //count for choosing substring from the minimum length string s
+        
+        //Now traverse the array for minimum length string and check the other strings from
+        // starting
+        
+        //for minimum length stirng s 
+        for(i=0;i<mini;i++)
+        {
+            //for all other strings
+            bool flag = false;
+            for(j=0;j<n;j++)
+            {
+                if(arr[j][i] != s[i])
+                {
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag)
+            break;
+            else
+            count++;
+        }
+        
+        //now count has the length of common prefix substring from the string s 
+        // so part the string s into its substring of length count and return it
+        
+        /* count ko check karo aur substring count ke length ko return kardo aur agar count he zero hai matlab kuch bhi match nahi hua hai, return kardo -1 */
+        
+        
+        if(count == 0)
+        return "-1";
+        else
+        {
+            string ans = s.substr(0,count);
+            return ans;
+        }
+        
+        
+        
+        // for(i=0;i<m;i++)
+        // {
+        //     char ch = arr[0][i];
+        //     bool flag = true;
+        //     for(int j=1;j<n;j++)
+        //     {
+        //         if(arr[j][i] != ch)
+        //         {
+        //             flag = false;
+        //             break;
+        //         }
+        //     }
+        //     if(flag == false)
+        //         break;
+        //     else
+        //         ans.push_back(ch);
+        // }
+        // return ans;
+    }
+};
+
+//{ Driver Code Starts.
+int main()
+{
+    int t; cin >> t;
+    while (t--)
+    {
+        int n; cin >> n;
+        string arr[n];
+        for (int i = 0; i < n; ++i)
+            cin >> arr[i];
+        
+        Solution ob;
+        cout << ob.longestCommonPrefix (arr, n) << endl;
+    }
+}
+
+// Contributed By: Pranay Bansal
+
+// } Driver Code Ends
+
