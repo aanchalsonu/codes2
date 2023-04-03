@@ -1,0 +1,44 @@
+/*
+
+You are given an integer 
+�
+N. Consider the sequence containing the integers 
+1
+,
+2
+,
+…
+,
+�
+1,2,…,N in increasing order (each exactly once). Find the length of the longest subarray in this sequence such that the bitwise AND of all elements in the
+subarray is positive.
+
+Input Format
+The first line contains 
+�
+T denoting the number of test cases. Then the test cases follow.
+Each test case contains a single integer 
+�
+N on a single line.
+
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	int t,i;
+	long int n;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    int bits = floor(log2(n))+1;
+	    int ans = max(n-pow(2,bits-1)+1 , pow(2,bits-2));
+	    cout<<ans<<endl;
+	}
+	return 0;
+}
