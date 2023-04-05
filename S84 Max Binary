@@ -1,0 +1,127 @@
+/*
+Chef has a binary strings 
+�
+S of length 
+�
+N, and an integer 
+�
+K.
+Hitesh wants to maximize the decimal representation of 
+�
+S using 
+�
+K operations of the following type:
+
+Type 
+1
+1: Insert 
+0
+0 at any position in the string.
+Type 
+2
+2: Change any 
+0
+0 to 
+1
+1.
+Help Hitesh find the modified string with maximum possible decimal representation after performing at most 
+�
+K operations.
+
+Note that the decimal representation of a binary string refers to the numeric value it represents when converted to the decimal number system. For instance, the decimal representation of 
+101
+101 will be 
+5
+5 
+(
+2
+2
++
+2
+0
+)
+(2 
+2
+ +2 
+0
+ ), and that of 
+000110
+000110 will be 
+6
+6 
+(
+2
+2
++
+2
+1
+)
+(2 
+2
+ +2 
+1
+ )
+
+Input Format
+First line will contain 
+�
+T, number of test cases. Then the test cases follow.
+The first line of each test case contains two integers 
+�
+N and 
+�
+K.
+The second line contains the string 
+�
+S.
+Output Format
+For each test case, output on a new line, the modified string with maximum possible decimal representation after performing at most 
+�
+K operations.
+
+*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n,k;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>k;
+	    string s;
+	    cin>>s;
+	    if(s[0] == '0')
+	    {
+	        s[0] = '1';
+	        k--;
+	    }
+	    while(k--)
+	    {
+	        s += '0';
+	    }
+	    cout<<s<<endl;
+	    
+	    
+	    
+	    
+	   // for(int i=0;i<k;i++)
+	   // {
+	   //     if(s[0] == '0')
+	   //     {
+	   //         s[0] = '1';
+	   //     }
+	   //     else
+	   //     {
+	   //         s = s + '0';
+	   //     }
+	   // }
+	   // cout<<s<<endl;
+	}
+	
+	return 0;
+}
