@@ -1,0 +1,106 @@
+/*
+
+You have become good friends with Chef. Right now, Chef is busy in the kitchen, so he asked you to solve a problem for him.
+
+Consider a list of integers 
+�
+L. Initially, 
+�
+L contains the integers 
+1
+1 through 
+�
+N, each of them exactly once (but it may contain multiple copies of some integers later). The order of elements in 
+�
+L is not important. You should perform the following operation 
+�
+−
+1
+N−1 times:
+
+Choose two elements of the list, let's denote them by 
+�
+X and 
+�
+Y. These two elements may be equal.
+Erase the chosen elements from 
+�
+L.
+Append the number 
+�
++
+�
++
+�
+⋅
+�
+X+Y+X⋅Y to 
+�
+L.
+At the end, 
+�
+L contains exactly one integer. Find the maximum possible value of this integer. Since the answer may be large, compute it modulo 
+1
+,
+000
+,
+000
+,
+007
+1,000,000,007 (
+1
+0
+9
++
+7
+10 
+9
+ +7).
+ 
+ */
+ 
+ #include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n;
+	cin>>t;
+	long long a[100000000]={0};
+	    
+	for(int i=1;i<100000001;i++)
+	{
+	    a[i] = (a[i-1]+i + (i*a[i-1]))%(1000000007);
+	}
+	while(t--)
+	{
+	    cin>>n;
+	    cout<<a[n]<<endl;
+	    
+	    
+	   // for(int i=1;i<=n;i++)
+	   // {
+	   //     a[i] = i;
+	   // }
+	    
+	   // while(n>1)
+	   // {
+	   //     int x = a[0] ;
+	   //     int y = a[n-1];
+	   //     int z = x + y + (x*y);
+	   //     int i;
+	   //     for(i=0;i<n-2;i++)
+	   //     {
+	   //         a[i] = a[i+1];
+	   //     }
+	   //     a[i] = z;
+	   //     n = sizeof(a);
+	   // }
+	   // cout<<a[0]<<endl;
+	}
+	
+	
+	return 0;
+}
+//Can also be seen that the answer is factorial of n+1 minus 1 so first calculate fatorial of N+1 and then cout the value -1 
