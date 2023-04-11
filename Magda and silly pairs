@@ -1,0 +1,224 @@
+/*
+Chef and his friend Magda have 
+2
+�
+2N mutual friends: 
+�
+N of these friends are chefs and the other 
+�
+N are chefettes. The chefs are numbered 
+1
+1 through 
+�
+N and the chefettes are (independently) also numbered 
+1
+1 through 
+�
+N. Since Magda wants their friends to be as happy as possible and to preserve traditional family values, she wants to pair them up in such a way that each chef is paired with exactly one chefette and each chefette with exactly one chef.
+
+The chefs have heights 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+A 
+1
+​
+ ,A 
+2
+​
+ ,…,A 
+N
+​
+  and the chefettes have heights 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+B 
+1
+​
+ ,B 
+2
+​
+ ,…,B 
+N
+​
+ . For each valid 
+�
+,
+�
+i,j, if the 
+�
+i-th chef and the 
+�
+j-th chefette are paired, they will have exactly one child with height 
+⌊
+�
+�
++
+�
+�
+2
+⌋
+⌊ 
+2
+A 
+i
+​
+ +B 
+j
+​
+ 
+​
+ ⌋. Magda wants to pair up the chefs and chefettes in such a way that the sum of heights of all their children (
+�
+N children in total) is maximum possible. Please help her do that.
+
+Input
+The first line of the input contains a single integer 
+�
+T denoting the number of test cases. The description of 
+�
+T test cases follows.
+The first line of each test case contains a single integer 
+�
+N.
+The second line contains 
+�
+N space-separated integers 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+A 
+1
+​
+ ,A 
+2
+​
+ ,…,A 
+N
+​
+ .
+The third line contains 
+�
+N space-separated integers 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+B 
+1
+​
+ ,B 
+2
+​
+ ,…,B 
+N
+​
+ .
+ */
+ 
+ #include <iostream>
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	
+	long int t,n;
+	cin>>t;
+	while(t--)
+	{
+	    ll n; cin>>n;
+        vector<ll>a(n),b(n);
+        ll sum = 0;
+        ll even_a=0, even_b=0;
+        ll odd_a=0, odd_b = 0;
+        ll total_mismatched = 0, ans = 0;
+        for(int i=0; i<n; i++){
+            cin>>a[i];
+            sum+=a[i];
+            if(a[i]%2==0) even_a++;
+            else odd_a++;
+        }
+        for(int i=0; i<n; i++) {
+            cin>>b[i];
+            sum+=b[i];
+            if(b[i]%2==0) even_b++;
+            else odd_b++;
+        }
+        // cout<<sum<<endl;
+        // cout<<even_a<<" "<<even_b<<endl;
+        // cout<<odd_a<<" "<<odd_b<<endl;
+        total_mismatched = n -(min(even_a,even_b) + min(odd_a, odd_b));
+        ans = sum - total_mismatched;
+        cout<<ans/2<<endl;
+        
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	   // cin>>n;
+	   // int sum=0;
+	   // long int a[n],b[n];
+	   // int ea=0,oa=0,eb=0,ob=0;
+	    
+	    
+	   // for(int i=0;i<n;i++)
+	   // {
+	   //     cin>>a[i];
+	   //     sum += a[i];
+	   //     if(a[i]%2 == 0)
+	   //     ea++;
+	   //     else
+	   //     oa++;
+	   // }
+	    
+	   // for(int i=0;i<n;i++)
+	   // {
+	   //     cin>>b[i];
+	   //     sum += b[i];
+	   //     if(b[i]%2 == 0)
+	   //     eb++;
+	   //     else
+	   //     ob++;
+	   // }
+	    
+	   // int mismatch = n-(min(ea,eb)+min(oa,ob));
+	   // int ans  = sum - mismatch;
+	   // cout<<ans/2<<endl;
+	}
+	
+	return 0;
+}
