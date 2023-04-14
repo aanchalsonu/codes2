@@ -1,0 +1,152 @@
+/*
+There is a ritual that some monks of Byteland perform every century as a sign of respect and worship towards BOOL, the God of Byteland.
+
+All the monks train for many years in order to accomplish an extremely hard task, that is the one of accessing the sacred temple of Byteland, 
+where only the best of the bests monks are allowed to enter and worship their god, BOOL.
+
+The training the monks perform, usually consists of several physically and intellectually challenging tasks, trained and perfected over the course of
+many years, so that one of them can be eligible for the ultimate task that is a combination of both physical effort as well as mental effort.
+
+This final task is the actual possibility of trying to access the sacred temple of Byteland, that is located on the top of a very high mountain, where 
+reckless storms and heavy rains usually occur.
+
+The access to this mountain is done by climbing an enourmous set of stairs that spiral around the mountain until it ends on the top of the mountain where
+the sacred temple door is located.
+
+The door can only be opened by unlocking it. To unlock the door, the monk only sees a hole in it, a lever, and he also spots a very large amount of little
+round stones on the ground, and he understands that the only way to open the door is to place an exact pre-determined amount of stones trough that hole, so 
+that when the number is correct, he will push the lever down, and the door will open. If this number is incorrect, the lever will be locked by the incorrect
+stones and a whole new century must pass so that the storms can erode the stones and a new monk can be selected for the task.
+
+This year, YOU were the one selected to climb the huge set of stairs, and you are extremely well prepared... You have done your training very well and you are
+also aware of two very important facts that will be key for your success... The favourite number base on Byteland is base 2, and Gods favourite number is the 
+largest number on this base. You also know that the number of stones you need to place on the door hole is related to the way everyone climbs the stairs and
+with the number of stairs itself.
+
+As the monks take several supplies for the demanding trip, they can only climb either one or two steps at a time. You understood that the number of stones you
+need to place on the door is closely related with the way you climb the stairs. Suppose the number of stairs you need to climb is N. Also, let the number of 
+ways you have of climbing those N stairs be M. Now, the number of stones required is equal to the number of 1's in the base-2 representation of (M modulo 1000000007).
+
+You won't fail, as you are extremely well ready, but you have made everyone on your town extremely excited with your journey, so, given the number N of steps
+you are to climb and a guess, G, from the people of your village, you need to see if they are correct or not.
+
+More formally, given a number N of steps to climb and a guess G from your village, you need to check if guess G is accordingly to your correct calculations. 
+They are correct if you manage to enter the temple using their guess, or incorrect otherwise. You should output the string “CORRECT” if they are correct, or
+“INCORRECT” if they are incorrect. (Quotes for clarity only). Please read the section "Output Explanation" for some clarification on the example cases.
+
+Input
+The first line of each official test case file will contain an integer T, that stands for the number of test cases on that specific test case file. 
+The next T lines contain two-space separated integers, N and G, respectively, the number of steps the monk needs to climb and the guess from the village's
+population.
+
+*/
+
+#include <iostream>
+
+static constexpr unsigned popcount(unsigned v) {
+	unsigned r = 0;
+	for(; v; ++r)
+		v &= v - 1;
+	return r;
+}
+
+static_assert(popcount(0) == 0, "");
+static_assert(popcount(1) == 1, "");
+static_assert(popcount(7) == 3, "");
+static_assert(popcount(16) == 1, "");
+
+static constexpr unsigned M = 1000000007;
+static constexpr unsigned maxN = 1000000;
+static unsigned fib[maxN + 1];
+
+static void init() {
+	fib[0] = 1;
+	fib[1] = 1;
+	for(unsigned i = 2; i != maxN + 1; ++i)
+		fib[i] = (fib[i - 1] + fib[i - 2]) % M;
+}
+
+static auto testcase(unsigned N, unsigned G) {
+	return popcount(fib[N]) == G;
+}
+
+static void testcase() {
+	unsigned N, G;
+	std::cin >> N >> G;
+	std::cout << (testcase(N, G) ? "CORRECT\n" : "INCORRECT\n");
+}
+
+int main() {
+	std::ios_base::sync_with_stdio(false);
+	std::cin.tie(nullptr);
+	init();
+	unsigned T;
+	std::cin >> T;
+	while(T--)
+		testcase();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #include<bits/stdc++.h>
+// #include <iostream>
+// using namespace std;
+// #define mod 1000000007
+
+// long int f[1000000]={0};
+// void fib(int n)
+// {
+//     f[0] = 0;
+//     f[1] = 1;
+//     for(int i=2;i<1000000;i++)
+//     {
+//         f[i] = (f[i-1]+f[i-2])%mod;
+//     }
+// }
+
+// int main() {
+// 	// your code goes here
+	
+// 	long int t,n,g;
+// 	cin>>t;
+// 	while(t--)
+// 	{
+// 	    cin>>n>>g;
+// 	    if(__builtin_popcount(f[n]) == g)
+// 	    cout<<"CORRECT\n";
+// 	    else
+// 	    cout<<"INCORRECT\n";
+	    
+// 	}
+// 	return 0;
+// }
+
+
+Output
+Output will contain the string "CORRECT" or "INCORRECT" on a single line, as explained above on the problem statement.
