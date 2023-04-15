@@ -1,0 +1,84 @@
+/*
+
+Chef Avi likes the number 
+�
+K. Given a list of 
+�
+N integers, help him find the sum of all distinct numbers repeating exactly 
+�
+K times. Each of those numbers should be considered only once in the sum, not 
+�
+K times.
+
+Input Format
+First line will contain 
+�
+T, number of testcases. Then the testcases follow.
+Each testcase contains two lines:
+The first line contains two space-separated integers 
+�
+,
+�
+N,K.
+The second line contains 
+�
+N space-separated integers.
+Output Format
+For each testcase, print the sum of all numbers occurring exactly 
+�
+K times. If there is no such number, print -1 instead.
+
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	
+	long int t,n,k;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n>>k;
+	    long int a[n],i,sum=0;
+	    bool flag=false;
+	    unordered_map<int,int> mp;
+	    for(i=0;i<n;i++)
+	    cin>>a[i];
+	    
+	    for(i=0;i<n;i++)
+	    {
+	        mp[a[i]]++;
+	    }
+	    
+	    for(auto itr : mp)
+	    {
+	        if(itr.second == k)
+	        {
+	            sum = sum + itr.first;
+	            if(itr.first == 0)
+	            {
+	                //corner case where the element itself can be zero which occurs k times
+	                flag = true;
+	            }
+	        }
+	        
+	    }
+	    if(sum==0 && flag == true)
+	    cout<<0<<endl;
+	    else if(sum >0 && flag == false)
+	    cout<<sum<<endl;
+	    else
+	    cout<<-1<<endl;
+	    
+	}
+	
+	
+	
+	
+	
+	return 0;
+}
