@@ -1,0 +1,142 @@
+/*
+An array is called lovely if the sum of absolute differences of each adjacent pair of elements is odd; formally, the array 
+�
+S of size 
+�
+m is lovely if 
+∑
+�
+=
+1
+�
+−
+1
+∑ 
+i=1
+m−1
+​
+  
+∣
+�
+�
+−
+�
+�
++
+1
+∣
+∣S 
+i
+​
+ −S 
+i+1
+​
+ ∣ is odd.
+
+You are given an array 
+�
+A of 
+�
+N integers. You need to reorder the array in any manner such that the array becomes lovely. If there is no reordering operation that makes the array lovely, output -1.
+
+Input Format
+The first line contains an integer 
+�
+T denoting the number of test cases. The 
+�
+T test cases then follow.
+The first line of each test case contains an integer 
+�
+N.
+The second line of each test case contains 
+�
+N space-separated integers 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+A 
+1
+​
+ ,A 
+2
+​
+ ,…,A 
+N
+​
+ .
+Output Format
+For each test case, print a single line containing 
+�
+N integers denoting the modified array which is lovely, or -1 if it is not possible.
+
+*/
+
+/* THE IDEA HERE IS IF THERE IS ATLEAST ONE EVEN AND ONE ODD NUMBER THEN THE ABSOLUTE DIFFERENCE IS ODD
+SO FIRST FIND ALL THE ODD NUMBERS AND THEN EVEN NUMBERS AND DISPLAY THEM 
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t,n;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>n;
+	    long int a[n];
+	    int i;
+	    vector<int> odd,even;
+	    for(i=0;i<n;i++)
+	    {
+	        cin>>a[i];
+	        if(a[i] %2 == 0)
+	        even.push_back(a[i]);
+	        else
+	        odd.push_back(a[i]);
+	    }
+	    int m = odd.size();
+	    int p = even.size();
+	    
+	    if(min(m,p) == 0)
+	    {
+	        cout<<-1<<endl;
+	    }
+	    else
+	    {
+	        
+	        for(auto o : odd)
+	        {
+	            cout<<o<<" ";
+	        }
+	        for(auto e : even)
+	        {
+	            cout<<e<<" ";
+	        }
+	        
+	        
+	       // n = max(m,p);
+	       // for(i=0;i<n;i++)
+	       // {
+	       //     cout<<odd[i]<<" "<<even[i]<<" ";
+	       // }
+	        cout<<endl;
+	    }
+	    
+	    
+	    
+	   
+	}
+
+	return 0;
+}
