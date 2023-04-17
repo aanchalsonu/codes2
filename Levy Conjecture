@@ -1,0 +1,137 @@
+/*
+
+Levy's conjecture, named after Hyman Levy, states that all odd integers greater than 5 can be represented as the sum of an odd prime number and 
+an even semiprime. To put it algebraically, 2n + 1 = p + 2q always has a solution in primes p and q (not necessary to be distinct) for n > 2. (Source: Wikipedia)
+
+In this problem, given a positive integer N (not necessary to be odd integer greater than 5). Your task is to calculate how many distinct ordered 
+pairs (p, q) such that N = p + 2q, where p and q are primes.
+
+Input
+The first line of input contains an integer T, denoting the number of test cases. Then T test cases follow.
+
+Each test case consists of exactly one line containing an integer N.
+*/
+
+
+// #include <iostream>
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// int isprime(int n)
+// {
+//     if (n <= 1)
+//         return 0;
+ 
+//     // Check from 2 to square root of n
+//     for (int i = 2; i <= sqrt(n); i++)
+//         if (n % i == 0)
+//             return 0;
+ 
+//     return 1;
+// }
+
+
+
+// int main() {
+// 	// your code goes 
+	
+// 	long int t,n;
+// 	cin>>t;
+// 	while(t--)
+// 	{
+// 	    cin>>n;
+// 	    int i;
+// 	    long int count=0;
+// 	    if(n<5)
+// 	    {
+// 	        cout<<0<<endl;
+// 	    }
+// 	    else
+// 	    {
+// 	        for(i=2;i<n;i++)
+// 	        {
+// 	            if(isprime(i))
+// 	            {
+// 	                int x = (n-i)/2 ;
+// 	                if(isprime(x) && (n-i)%2 == 0)
+// 	                count++;
+// 	            }
+// 	        }
+// 	        cout<<count<<endl;
+// 	    }
+// 	}
+	
+	
+	
+	
+	
+	
+// 	return 0;
+// }
+
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+
+vector<bool> sieve_era(ll n)
+{
+    vector<bool>isprime(n+1,true);
+    isprime[0]=isprime[1]=false;
+    for (int p = 2; p * p <= n; p++) 
+    {
+        if(isprime[p] == true) 
+        {
+            for(int i = p * p; i <= n; i += p)
+                isprime[i] = false;
+        }
+    }
+    return isprime;
+}
+
+int main() 
+{
+    vector<bool>isprime=sieve_era(10000);
+	vector<ll>prime;
+	prime.push_back(2);
+	for(int i=3;i<=10000;i+=2)
+	{
+	    if(isprime[i]==true)
+	        prime.push_back(i);
+	}
+	ll t,n,i,j,k;
+	cin >> t;
+	while(t--)
+	{
+	    cin >> n;
+	    ll ans=0ll;
+	    i=0;
+	    while((i<(prime.size())) && (prime[i]<n))
+	    {
+	        ll p=prime[i];
+	        ll q2=(n-p);
+	       // cout << p << " " << q2 << "\n";
+	       // if((p>=n) || (q2/2)<=1)
+	       //     break;
+	        if((q2%2==0)&&(isprime[q2/2]))
+	        {
+	            ++ans;
+	        }
+	        ++i;
+	    }
+	    cout << ans << "\n";
+	}
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
