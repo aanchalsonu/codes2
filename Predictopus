@@ -1,0 +1,50 @@
+/*
+
+Chef Datta likes betting in Indian Premier League very much.
+
+He has 10000 rupees. Today the match is between team A and team B. The winning probability of team A is PA, and hence winning 
+probability of team B is PB = 1 − PA.
+Datta is free to bet any integral amount of money on any of the two teams as long as the total amount of money bet is at most 10000 rupees.
+Help him know the expected amount of money he will
+eventually have if today he places his bet(s) optimally.
+
+Rules of the game:
+If team X with winning probability PX actually wins and someone bets M rupees on this team, he will gain (2*(1−PX)) * M rupees.
+
+If team X with winning probability PX actually loses and someone bets N rupees on this team, he will just lose N rupees.
+
+Input
+First line contains single integer T, the number of testcases. Then T lines follow, each line contains PA the probability that team A wins.
+
+Output
+For each test case output single line containing the expected amount of money Datta will eventually have today if he places his bet(s) optimally. 
+Your answer will be accepted if the absolute error is less than 10−6.
+
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t;
+	long double a;
+	cin>>t;
+	while(t--)
+	{
+	    cin>>a;
+	    long double b = 1-a;
+	    long double ans=0;
+	    if(a >= 0.5)
+	    ans += 2*a*b*10000 + a*10000;
+	    else
+	    ans += 2*a*b*10000 + b*10000;
+	    
+	    cout<<fixed<<setprecision(6)<<ans<<endl;
+	    
+	}
+		
+	return 0;
+}
