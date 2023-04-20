@@ -1,0 +1,205 @@
+/*
+
+Finally, progress reached the Madoka family and she decided to play with her little sister in the sensational game Space Arrays.
+
+The rules of the game are as follows:
+
+Initially, a sequence 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+a 
+1
+​
+ ,a 
+2
+​
+ ,…,a 
+N
+​
+  is given.
+The players alternate turns.
+In each turn, the current player must choose an index 
+�
+i and increment 
+�
+�
+a 
+i
+​
+ , i.e. change 
+�
+�
+a 
+i
+​
+  to 
+�
+�
++
+1
+a 
+i
+​
+ +1.
+Afterwards, if there is no permutation 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+p 
+1
+​
+ ,p 
+2
+​
+ ,…,p 
+N
+​
+  of the integers 
+1
+1 through 
+�
+N such that 
+�
+�
+≤
+�
+�
+a 
+i
+​
+ ≤p 
+i
+​
+  holds for each valid 
+�
+i, the current player loses.
+Otherwise, the game continues with the next turn.
+Madoka is asking you to help her ― tell her if the first player (the player that plays in the first turn) or second player wins this game if both play optimally.
+
+Input
+The first line of the input contains a single integer 
+�
+T denoting the number of test cases. The description of 
+�
+T test cases follows.
+The first line of each test case contains a single integer 
+�
+N.
+The second line contains 
+�
+N space-separated integers 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+a 
+1
+​
+ ,a 
+2
+​
+ ,…,a 
+N
+​
+ .
+Output
+For each test case, print a single line containing the string "First" if the first player wins or "Second" if the second player wins (without quotes).
+
+*/
+
+
+// #include <iostream>
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+// 	// your code goes here
+	
+// 	long int t;
+// 	cin>>t;
+// 	while(t--)
+// 	{
+// 	    long int n;
+// 	    cin>>n;
+// 	    long int a[n],count=0;
+// 	    unordered_map<int,int>mp;
+// 	    for(int i=0;i<n;i++)
+// 	    {
+// 	        cin>>a[i];
+// 	        mp[a[i]]++;
+// 	        if(mp[a[i]] > 1)
+// 	        count++;
+// 	    }
+	    
+// 	    if(count==1 && n >3)
+// 	    cout<<"First\n";
+// 	    else if(count > 1)
+// 	    cout<<"Second"<<endl;
+// 	    else
+// 	    cout<<"Second"<<endl;
+	    
+// 	}
+	
+// 	return 0;
+// }
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+	long long int kaushal;
+	cin>>kaushal;
+	while(kaushal--)
+	{
+	    long long int n;
+	    cin>>n;
+	    long long int arr[n];
+	    for(int i=0;i<n;i++)
+	    { 
+	        cin>>arr[i];
+	    }
+	    
+	    sort(arr, arr + n);
+	    long long int sum=0;
+	    int f=0;
+	    for(int i=0;i<n;i++)
+	    {  if((i+1)-arr[i]<0)
+	          {f=1;
+	              break;}
+	        sum+=(i+1)-arr[i];
+	        
+	    }
+	   if(f==1)
+	   {
+	       cout<<"Second"<<endl;
+	   }
+	    
+	   else if(sum%2==0)
+	    cout<<"Second"<<endl;
+	    else
+	    cout<<"First"<<endl;
+	}
+	return 0;
+}
