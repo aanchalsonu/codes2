@@ -1,0 +1,126 @@
+/*
+Zlatan and Ramos are playing a game on a binary string 
+�
+S of length 
+�
+N.
+Zlatan and Ramos make alternating moves with Zlatan going first.
+
+In one move, a player will:
+
+Select an index 
+�
+i 
+(
+1
+≤
+�
+<
+�
+)
+(1≤i<N) such that 
+�
+�
+≠
+�
+�
++
+1
+S 
+i
+​
+ =S 
+i+1
+​
+  and delete both 
+�
+�
+S 
+i
+​
+  and 
+�
+�
++
+1
+S 
+i+1
+​
+  from the string 
+�
+S. Note that 
+�
+N gets reduced by 
+2
+2 when both characters are deleted. If a player cannot select any such index 
+�
+i, he loses the game.
+Determine the winner of the game if both players play optimally.
+
+Input Format
+The first line of input will contain a single integer 
+�
+T, denoting the number of test cases.
+Each test case consists of multiple lines of input.
+The first line of each test case contains an integer 
+�
+N — the length of the binary string.
+The next line contains a binary string 
+�
+S of length 
+�
+N.
+Output Format
+For each test case, if Zlatan will win the game, output Zlatan. Otherwise, output Ramos.
+
+You can output each letter of the string in uppercase or lowercase. For example, Ramos, ramos, RAMOS, and rAmOS are all considered same.
+
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    int i,count=0,j;
+	    for(i=0;i<n;i++)
+	    {
+	        
+	        //Count the number of 1's in the string and find the minimum of number of zeros and number of ones
+	        
+	        
+	        if(s[i] == '1')
+	        count++;
+	        
+	        
+	        // if((s[i] == '0' && s[i+1] == '1') || (s[i] == '1' && s[i+1] =='0'))
+	       // {
+	       //     count++;
+	       //     i=i+2;
+	       // }
+	       // else
+	       // i++;
+	    }
+	    
+	    //now find minimum of number of zeros and number of ones
+
+	    j = min(count,n-count);
+	    
+	    if(j%2 != 0)
+	    cout<<"Zlatan\n";
+	    else
+	    cout<<"Ramos\n";
+	}
+	
+	return 0;
+}
