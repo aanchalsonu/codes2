@@ -1,0 +1,53 @@
+/*
+Chef and his best friend Aleksa are into mathematical games these days. Today, they have some ( ≥ 0 ) black cells represented as B, and a 
+white cell represented as W, lying randomly in a straight line. They have decided to play with these cells. In a move, a player chooses some
+( > 0 ) black cells lying on any one side of the white cell and remove them. It should be noted that a player is not allowed to choose black 
+cells from both side of the given white cell. Both the players alternate their moves, and play optimally. The player who is unable to move in 
+his respective turn will lose the game.
+
+Aleksa, being a girl, has a habit of playing first. But Chef is fairly smart himself, and will not play the game if he is going to lose it.
+Therefore, he wants to know the winner beforehand. Can you tell him who is going to win the game for the given configuration of cells?
+
+Input
+First line of input contains a single integer T denoting the number of test cases. First and the only line of each test case contains a string S 
+consisting of the characters 'B' and 'W', denoting black and white cells, respectively.
+
+Output
+For each test case, output "Chef" if chef wins the game for the given configuration. Else print "Aleksa". (quotes for clarity only).
+
+-*/
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t;
+	cin>>t;
+	while(t--)
+	{
+	    int wc=0,bc=0;
+	    string s;
+	    cin>>s;
+	    bool flag=true;
+	    
+	    for(int i=0;i<s.length();i++)
+	    {
+	        if(s[i] == 'B' && flag)
+	        bc++;
+	        if(s[i] == 'W' && flag)
+	        flag = false;
+	        if (s[i] == 'B' && !flag)
+            wc++; 
+	    }
+	    
+	    if(bc != wc)
+	    cout<<"Aleksa\n";
+	    else
+	    cout<<"Chef\n";
+	    
+	}
+	return 0;
+}
