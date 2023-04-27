@@ -1,0 +1,114 @@
+/*
+
+Chef has decided to start a new firm called PatentChef. However, he's stuck with some big legal issues. Their firm has received offers from a 
+lot of companies, so Chef told his friend Junior Chef to look over some patent cases and solve them as quickly as he can.
+
+Junior Chef is very smart and has an eye for every little detail. He quickly found a case and went ahead to solve it. The patent case is as follows:
+
+There are N patents to be filed for a company. Chef’s firm has the first M months of the year 2018 to finish this task. (The months in a year are
+numbered 1 through 12.) Chef's firm has K workers (including Junior Chef) available to work on this case. Each worker can prepare exactly one patent per month.
+
+Junior Chef assigns work to workers starting from the first month of the year. He can have any workers work on this case on any month provided that 
+they're chosen according to the following conditions:
+
+Each worker can only work on this patent case for at most one month.
+Each worker has to work either on an even month or an odd month of the year. You are given a string S with length K and the following meaning: for 
+each valid i, if the i-th character of S is E, worker i has to work on an even month; if it's O, this worker has to work on an odd month.
+At most X workers can work on this patent case each month.
+Determine whether Chef’s firm and Junior Chef can finish this patent case in time.
+
+*/
+
+// #include <iostream>
+// #include <string>
+
+// using namespace std;
+
+// int main() {
+// 	int T;
+// 	cin>>T;
+	
+// 	while(T--)
+// 	{
+// 	    int N, M, X, K;
+// 	    cin>>N>>M>>X>>K;
+// 	    string S;
+// 	    cin>>S;
+// 	    if(M==0 || X==0)
+// 	    {
+// 	        cout<<"no"<<endl;
+// 	        continue;
+// 	    }
+// 	    int n_E = 0;
+// 	    int n_O = 0;
+// 	    int n_tcases = 0;
+	    
+// 	    for( auto c : S)
+// 	    {
+// 	        if(c=='E')
+// 	        {
+// 	            n_E++;
+// 	        }
+// 	        else
+// 	        {
+// 	            n_O++;
+// 	        }
+// 	    }
+	    
+// 	    for(int i=0;i<M/2;i++)
+// 	    {
+// 	        int n_mcases = min(n_O,X);
+// 	        n_tcases+=n_mcases;
+// 	        if(n_tcases>=N)
+// 	        {
+// 	            cout<<"yes"<<endl;
+// 	            break;
+// 	        }
+// 	        n_O-=n_mcases;
+// 	        n_mcases = min(n_E,X);
+// 	        n_tcases+=n_mcases;
+// 	        if(n_tcases>=N)
+// 	        {
+// 	            cout<<"yes"<<endl;
+// 	            break;
+// 	        }
+// 	        n_E-=n_mcases;
+// 	    }
+// 	    if(n_tcases<N)
+// 	    {
+// 	        if(M%2==1)
+// 	        {
+// 	            int n_mcases = min(n_O,X);
+//     	        n_tcases+=n_mcases;
+//     	        if(n_tcases>=N)
+//     	        {
+//     	            cout<<"yes"<<endl;
+//     	            continue;
+//     	        }
+// 	        }
+// 	        cout<<"no"<<endl;
+// 	    }
+	    
+// 	}
+// 	return 0;
+// }
+
+
+
+#include <algorithm>
+#include <iostream>
+using namespace std;
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, m, x, k;
+    cin >> n >> m >> x >> k;
+    string s;
+    cin >> s;
+    int e = count(s.begin(), s.end(), 'E');
+    int o = s.size() - e;
+    int sum = min(m / 2 * x, e) + min((m + 1) / 2 * x, o);
+    cout << (sum >= n ? "yes\n" : "no\n");
+  }
+}
