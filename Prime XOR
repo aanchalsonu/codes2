@@ -1,0 +1,129 @@
+/*
+
+
+For 
+3
+3 distinct prime integers 
+�
+,
+�
+,
+A,B, and 
+�
+C 
+(
+1
+<
+�
+,
+�
+,
+�
+<
+2
+30
+)
+(1<A,B,C<2 
+30
+ ), we define positive integers 
+�
+,
+�
+,
+X,Y, and 
+�
+Z as:
+�
+=
+�
+⊕
+�
+,
+�
+=
+�
+⊕
+�
+,
+X=A⊕B,Y=B⊕C, and 
+�
+=
+�
+⊕
+�
+Z=C⊕A, where 
+⊕
+⊕ denotes the bitwise XOR operation.
+
+Given only two integers 
+�
+X and 
+�
+Y and the fact that at least one integer amongst 
+�
+,
+�
+,
+X,Y, and 
+�
+Z is odd, find the values of 
+�
+,
+�
+,
+A,B, and 
+�
+C.
+
+Note:
+
+You need to print the integers 
+�
+,
+�
+,
+A,B, and 
+�
+C in ascending order.
+It is guaranteed in the input that a unique answer exists.
+*/
+
+#include<bits/stdc++.h>
+#include <iostream>
+#define int long long 
+using namespace std;
+
+int32_t main() {
+	// your code goes here
+	
+	int tc;
+	cin>>tc;
+	while(tc--){
+	    int x,y;
+	    cin>>x>>y;
+	    
+	    if( y%2==0){   //x==odd and y==even    
+	        int a=2;
+	        int b=x^a;
+	        int c=y^b;
+	        cout<<a<<" "<<min(b,c)<<" "<<max(b,c)<<endl;
+	    }
+	    else if(x%2==0 ){
+	        int c=2;
+	        int b=y^c;
+	        int a=x^b;
+	        cout<<c<<" "<<min(a,b)<<" "<<max(a,b)<<endl;
+	        
+	    }
+	    else { ///z==even
+	        int b=2;
+	        
+	        int c=y^b;
+	        int a=x^b;
+	        cout<<b<<" "<<min(a,c)<<" "<<max(a,c)<<endl;
+	    }
+	    
+	}
+	
+	return 0;
+}
