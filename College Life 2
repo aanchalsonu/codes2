@@ -1,0 +1,331 @@
+/*
+
+Chef has just started watching Game of Thrones, and he wants to first calculate the exact time (in minutes) that it'll take him to complete the series.
+
+The series has 
+�
+S seasons, and the 
+�
+�
+ℎ
+i 
+th
+  season has 
+�
+�
+E 
+i
+​
+  episodes, each of which are 
+�
+�
+,
+1
+,
+�
+�
+,
+2
+,
+…
+,
+�
+�
+,
+�
+�
+L 
+i,1
+​
+ ,L 
+i,2
+​
+ ,…,L 
+i,E 
+i
+​
+ 
+​
+  minutes long. Note that these 
+�
+�
+,
+�
+L 
+i,j
+​
+  include the duration of the beginning intro song in each episode. The streaming service that he uses, allows Chef to skip the intro song. The intro song changes slightly each season, and so he wants to watch the intro song in the first episode of each season, but he'll skip it in all other episodes of that season (yes, we know, a sacrilege!). You know that the intro song lasts for 
+�
+�
+Q 
+i
+​
+  minutes in the 
+�
+�
+ℎ
+i 
+th
+  season.
+
+Find the total time in minutes, that he has to watch.
+
+###Input:
+
+First line will contain a single integer, 
+�
+T, denoting the number of testcases. Then the testcases follow.
+The first line of each testcase will contain a single integer 
+�
+S, denoting the total number of seasons.
+The second line contains 
+�
+S space separated integers, 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+Q 
+1
+​
+ ,Q 
+2
+​
+ ,…,Q 
+S
+​
+ , where 
+�
+�
+Q 
+i
+​
+  denotes the duration of the intro song in the 
+�
+�
+ℎ
+i 
+th
+  season.
+The 
+�
+�
+ℎ
+i 
+th
+  of the next 
+�
+S lines contains 
+�
+�
++
+1
+E 
+i
+​
+ +1 space separated integers, where the first integer is 
+�
+�
+E 
+i
+​
+ , denoting the number of episodes in the 
+�
+�
+ℎ
+i 
+th
+  season. That is followed by the duration of each of the 
+�
+�
+E 
+i
+​
+  episodes, 
+�
+�
+,
+1
+,
+�
+�
+,
+2
+,
+…
+,
+�
+�
+,
+�
+�
+L 
+i,1
+​
+ ,L 
+i,2
+​
+ ,…,L 
+i,E 
+i
+​
+ 
+​
+ .
+###Output: For each testcase, output the answer in a single line.
+*/
+
+// #include <iostream>
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+// 	// your code goes here
+	
+// 	long int s,t;
+// 	cin>>t;
+// 	while(t--)
+// 	{
+// 	    cin>>s;
+// 	    vector<int> v(s);
+	    
+// 	    for(int j=0;j<s;j++)
+// 	    {
+// 	        cin>>v[j];
+// 	    }
+	    
+// 	    int count=0,n;
+	    
+// 	    for(int i=0;i<s;i++)
+// 	    {
+// 	        cin>>n;
+// 	        vector<int> a(n);
+// 	        for(int j=0;j<n;j++)
+// 	        {
+// 	            cin>>a[j];
+// 	            if(j==0)
+// 	            count += a[j];
+// 	            else
+// 	            count  = count + a[j] - v[j];
+// 	        }
+	        
+// 	    }
+// 	    cout<<count<<endl;
+// 	}
+	
+	
+	
+	
+	
+	
+	
+	
+// 	return 0;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+<3 love it and enjoy it <3  
+                     ~9autham
+                     #HopesAlive!!
+<3 Code  
+*/
+#include <algorithm>
+#include <bits/stdc++.h>
+#include <unordered_map>
+#include <unordered_set>
+using namespace std;
+#define MOD (int)10000000007
+#define all(a) a.begin(),a.end()
+#define for0(i, n) for (int i = 0; i < n; i++)
+#define for1(i, n) for (int i = 1; i <= n; i++)
+#define loop(i,a,b) for (int i = a; i < b; i++)
+#define rarr(i,a,b) for(int i=a;i>b;i--)
+#define forrev(i,n) for(int i=n-1;i>=0;i--)
+#define tc(t) int t; cin >> t; while (t--)
+#define int long long 
+#define ll long long
+#define prec(n) fixed<<setprecision(n)
+#define pii pair<int, int>
+#define vi vector < int >
+#define vl vector < ll >
+#define vpl vector <pair <ll , ll > >
+#define vb vector<bool>
+#define vs vector<string>
+#define vpi vector <pair <int , int > >
+#define pll pair<ll, ll>
+#define mii map<int,int>
+#define msi map<string,int>
+#define sint set<int>
+#define sstr set<string>
+#define pb(x) push_back(x)
+#define ss second
+#define ff first
+#define mp(a,b) make_pair(a,b)
+#define endl '\n'
+#define Yes cout<<"Yes"<<"\n";
+#define No  cout<<"No"<<"\n";
+#define YES cout<<"YES"<<"\n";
+#define NO  cout<<"NO"<<"\n";
+#define in(x) cin>>x;
+#define in2(x,y) cin>>x>>y;
+#define in3(x,y,z) cin>>x>>y>>z;
+#define in4(x,y,z,a) cin>>x>>y>>z>>a;
+#define transform(sl) transform(sl.begin(), sl.end(), sl.begin(), ::tolower);
+int gcd(int a,int b) { if (a == 0) return b; return gcd(b%a, a);}
+int max(int a,int b){if(a>b) return a; else return b;}
+int min(int a,int b){if(a<b) return a; else return b;} 
+bool isPowerOfTwo(int x) 
+{ /* First x in the below expression is for the case when x is 0 */
+  return x && (!(x&(x-1))); 
+} 
+bool isPrime(int N){ if(N<=1) return false; for(int i=2;i*i<=N;++i){if(N%i==0) return false;}return true;}
+void solve(){
+
+}
+int32_t main() {
+    // ios_base::sync_with_stdio(0);
+    // cin.tie(0);
+    // solve();
+    tc(t){
+        int s;
+        cin>>s;
+        vi v(s);
+        for0(i,s){
+            cin>>v[i];
+        }
+        int cnt=0;
+        for0(i,s){
+            int n;
+            cin>>n;
+            vi ve(n);
+            for0(j,n){
+                cin>>ve[j];
+                if(j==0){
+                    cnt=cnt+ve[j];
+                }
+                else{
+                    cnt=cnt+ve[j]-v[i];
+                }
+            }
+        }
+        cout<<cnt<<endl;
+    }
+    return 0;
+}
