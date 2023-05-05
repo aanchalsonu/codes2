@@ -1,0 +1,192 @@
+/*
+
+You are given a strictly increasing sequence of integers 
+�
+1
+,
+�
+2
+,
+…
+,
+�
+�
+A 
+1
+​
+ ,A 
+2
+​
+ ,…,A 
+N
+​
+ . Your task is to compress this sequence.
+
+The compressed form of this sequence is a sequence of ranges separated by commas (characters ','). A range is either an integer or a pair of integers separated by three dots (the string "..."). When each range a...b in the compressed form is decompressed into the subsequence 
+(
+�
+,
+�
++
+1
+,
+…
+,
+�
+)
+(a,a+1,…,b), we should obtain the (comma-separated) sequence 
+�
+A again.
+
+For each maximal contiguous subsequence 
+(
+�
+,
+�
++
+1
+,
+…
+,
+�
+)
+(a,a+1,…,b) of 
+�
+A such that 
+�
+≥
+�
++
+2
+b≥a+2, the compressed form of 
+�
+A must contain the range a...b; if 
+�
+≤
+�
++
+1
+b≤a+1, such a sequence should not be compressed into a range. A contiguous subsequence is maximal if it cannot be extended by at least one element of 
+�
+A next to it. It can be proved that the compressed form of any sequence is unique (i.e. well-defined).
+
+*/
+
+
+/*
+<3 love it and enjoy it <3  
+                     ~9autham
+                     #HopesAlive!!
+<3 Code  
+*/
+#include <algorithm>
+#include <bits/stdc++.h>
+#include <unordered_map>
+#include <unordered_set>
+using namespace std;
+#define MOD (int)1000000007
+#define all(a) a.begin(),a.end()
+#define for0(i, n) for (int i = 0; i < n; i++)
+#define for1(i, n) for (int i = 1; i <= n; i++)
+#define loop(i,a,b) for (int i = a; i < b; i++)
+#define rarr(i,a,b) for(int i=a;i>b;i--)
+#define forrev(i,n) for(int i=n-1;i>=0;i--)
+#define tc(t) int t; cin >> t; while (t--)
+#define int long long 
+#define ll long long
+#define prec(n) fixed<<setprecision(n)
+#define pii pair<int, int>
+#define vi vector < int >
+#define vl vector < ll >
+#define vpl vector <pair <ll , ll > >
+#define vb vector<bool>
+#define vs vector<string>
+#define vpi vector <pair <int , int > >
+#define pll pair<ll, ll>
+#define mii map<int,int>
+#define msi map<string,int>
+#define sint set<int>
+#define sstr set<string>
+#define pb(x) push_back(x)
+#define ss second
+#define ff first
+#define mp(a,b) make_pair(a,b)
+#define endl '\n'
+#define Yes cout<<"Yes"<<"\n";
+#define No  cout<<"No"<<"\n";
+#define YES cout<<"YES"<<"\n";
+#define NO  cout<<"NO"<<"\n";
+#define in(x) cin>>x;
+#define in2(x,y) cin>>x>>y;
+#define in3(x,y,z) cin>>x>>y>>z;
+#define in4(x,y,z,a) cin>>x>>y>>z>>a;
+#define transform(sl) transform(sl.begin(), sl.end(), sl.begin(), ::tolower);
+int gcd(int a,int b) { if (a == 0) return b; return gcd(b%a, a);}
+int lcm(int a,int b){return (a*b)/gcd(a,b);}
+int power(int a, int n){int res= 1;while (n){if(n&1)res=(res*a)%MOD;n >>= 1;a=(a*a)%MOD;}return res;}
+int minv(int a) { return power(a, MOD - 2); }
+int mod(int n) { return (n % MOD + MOD) % MOD; }
+int modM(int n, int m) { return ((ll)(n % MOD) * (m % MOD)) % MOD; }
+int modA(int n, int m) { return ((ll)(n % MOD) + (m % MOD)) % MOD; }
+int modS(int n, int m) { return (((ll)(n % MOD) - (m % MOD)) + MOD) % MOD; }
+int modD(int n, int m) { return ((ll)(n % MOD) * (minv(m) % MOD)) % MOD; }
+int max(int a,int b){if(a>b) return a; else return b;}
+int min(int a,int b){if(a<b) return a; else return b;} 
+bool isPowerOfTwo(int x) 
+{ /* First x in the below expression is for the case when x is 0 */
+  return x && (!(x&(x-1))); 
+} 
+bool isPrime(int N){ if(N<=1) return false; for(int i=2;i*i<=N;++i){if(N%i==0) return false;}return true;}
+void solve(){
+
+}
+int32_t main() {
+    // ios_base::sync_with_stdio(0);
+    // cin.tie(0);
+    // solve();
+    tc(t){
+        int n;
+        cin>>n;
+        vi v(n);
+        for0(i,n){
+          cin>>v[i];
+        }
+        int first=v[0];
+        int last=v[0];
+        if(n==1){
+          cout<<first<<endl;
+          continue;
+        }
+        for(int i=1;i<n;i++){
+          if(last+1==v[i]){
+            last++;
+          }
+          else{
+            int cnt=last-first+1;
+            if(cnt==1){
+              cout<<first<<",";
+            }
+            else if(cnt==2){
+              cout<<first<<","<<last<<",";
+            }
+            else{
+              cout<<first<<"..."<<last<<",";
+            }
+            last=v[i];
+            first=v[i];
+          }
+        }
+        int cnt=last-first+1;
+            if(cnt==1){
+              cout<<first;
+            }
+            else if(cnt==2){
+              cout<<first<<","<<last;
+            }
+            else{
+              cout<<first<<"..."<<last;
+            }
+        cout<<endl;
+    }
+    return 0;
+}
