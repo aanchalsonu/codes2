@@ -1,0 +1,183 @@
+Recently Chef become very much interested in perfect squares. We all know Chef and his weird interests. Anyways Chef will be soon writing his masters
+thesis on perfect squares revealing what-not-known properties of perfect squares.
+
+While doing his research, he happened to be confronted with some interesting perfect squares. These prefect squares consists only of digits which are
+\themselves perfect squares. 0, 1, 4 and 9 are such digits. These are called perfect digits.
+
+As we all know Chef also has habit of asking too many questions, he is asking- given two numbers a and b, how many perfect squares exists between 
+these two numbers inclusive, that contains only perfect digits. 
+
+Input:
+
+First line of input will contains T, number of test cases. Then T lines follows, each containing two positive integers a and b.
+
+*/
+
+/*************************************************
+
+ Author :- Traverser (moonlight)
+ Aim     :-  Reach pupil at CF and 4⭐ stars at CC
+ Moto   :-  Keep going, that's only way'
+
+***************************************************/
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <unordered_set>
+#include <numeric>
+#include <map>
+#include <unordered_map>
+#include <iomanip>
+#include <utility>
+#include <queue>
+//==========Macros================//
+#define fr(i, a, b) for (int i = a; i < b; i++)
+#define frn(i, n) for (int i = 1; i <= n; i++)
+#define fb(i, a, b) for (int i = b - 1; i >= a; i--)
+#define fa(a,x) for (auto &a : x)
+#define ll long long int
+#define pb emplace_back
+#define ppb pop_back
+#define mkp make_pair
+#define all(x) x.begin(), x.end()
+#define rev(x) x.rbegin(),x.rend()
+#define f first
+#define s second
+#define endl '\n'
+//================================//
+
+//===========Read /Write=================//
+#define print(x) cout<<x;
+#define println(x)cout<<x<<endl;
+#define printds(a)for(auto x:a)cout<<x<<" "
+#define inar(a,n) for(int i=0; i<n; i++)cin>>a[i]; 
+#define inds(a) for(auto it:a)cin>>*it; 
+//======================================//
+
+//==========Maths functions==============//
+bool isq(ll x){ ll sq=sqrt(x); return(sq*sq==x);}
+bool isp(int x){ return x && (!(x&(x-1)));}
+ll min(ll a,ll b) {if(a<b) return a; else return b;}
+ll max(ll a,ll b) {if(a>b) return a; else return b;}
+ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b);}
+ll lcm(ll a, ll b){ll l = (a * b) / gcd(a, b);return l;}
+//=====================================//
+
+using namespace std;
+
+//==============Algorithms===========//
+const int P = 10000000;
+vector<bool> prime(P + 1, 1);
+void Sieve()   
+{
+	for (int i = 2; i * i <= P; i++)
+	{
+		if (prime[i] == true)
+			for (int j = i * i; j <= P; j += i)
+				prime[j] = false;
+	}
+}
+
+ll binpow(ll base, ll pow)
+{
+	ll res = 1;
+	while (pow)
+	{
+		if (pow % 2 != 0)
+		{
+			res *= base;
+			pow--;
+		}
+		else
+		{
+			base *= base;
+			pow /= 2;
+		}
+	}
+	return res;
+}
+
+int modpow(long long x, unsigned int y, int p)
+{
+	int res = 1;
+	x = x % p;
+	if (x == 0)
+		return 0;
+	while (y > 0)
+	{
+		if (y & 1)
+			res = (res * x) % p;
+		y = y >> 1;
+		x = (x * x) % p;
+	}
+
+	return res;
+}
+
+//=====================================//
+bool check(ll n)
+{
+	string s = to_string(n);
+	bool ok = true;
+	for (auto e : s)
+	{
+		if (e != '9' and e != '4' and e != '0' and e != '1')
+		{
+			ok = false;
+			break;
+		}
+	}
+	return ok;
+}
+vector<ll> num;
+void precompute()
+{
+	for (long long  i = 1; i <= 100009; i++)
+	{
+		ll sq = i * i;
+		if (check(sq))
+			num.pb(sq);
+	}
+}
+
+void Traverser()
+{
+	//--------------------Practice_logs---------------//
+	//Time:- 12.20
+	//Date:- 1 May
+	//Stuff:-solving and tired;
+	//-------------------------------------------------//
+
+	/*Logic:- we need to find all sqaures till 10^10 
+which consist of only 9,4,0,1, these digits only 
+it is enough to find all sqaures till 10^10 and check manually using a function and putting these sqaures in a vector and then checking those sqaures lies between and given a and b*/
+	ll a, b;
+	cin >> a >> b;
+	int ans = 0;
+	for (auto e : num)
+		if (e >= a and e <= b)
+			ans++;
+	cout << ans << endl;
+}
+
+
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+	ll TC;
+	TC = 1;
+	precompute();
+	cin >> TC;
+
+	while (TC--)
+	{
+		Traverser();
+	}
+
+	return 0;
+}
