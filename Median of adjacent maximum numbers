@@ -1,0 +1,97 @@
+/*
+You are given an array A of size 2 * N consisting of positive integers, where N is an odd number. You can construct an array B from A as 
+follows, B[i] = max(A[2 * i - 1], A[2 * i]), i.e. B array contains the maximum of adjacent pairs of array A. Assume that we use 1-based indexing
+throughout the problem.
+
+You want to maximize the median of the array B. For achieving that, you are allowed to permute the entries of A. Find out the maximum median of
+corresponding B array that you can get. Also, find out any permutation for which this maximum is achieved.
+
+Note
+Median of an array of size n, where n is odd, is the middle element of the array when it is sorted in non-decreasing order. Note that n being odd,
+the middle element will be unique, i.e. at index (n+1) / 2.
+
+Input
+The first line of the input contains an integer T denoting the number of test cases. The description of T test cases follows.
+
+The first line of each test case contains an integer N.
+
+The second line of each test case contains 2 * N space separated integers denoting array A.
+
+Output
+For each test case, output two lines.
+
+The first of which should contain an integer corresponding to maximum value of the median of array B that you can get.
+
+In the second line, print 2 * N integers in a single line denoting any permutation of A for which the maximum value of median of array B is achieved.
+
+*/
+
+// #include <iostream>
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+// 	// your code goes here
+// 	long int t;
+// 	while(t--)
+// 	{
+// 	    int n,i;
+// 	    cin>>n;
+// 	    int a[2*n];
+// 	    for(i=0;i<(2*n);i++)
+// 	    {
+// 	        cin>>a[i];
+// 	    }
+// 	    sort(a, a+(2*n));
+	    
+// 	    cout<<a[n+(n/2)]<<endl;
+	    
+// 	    for(i=0;i<n;i++)
+// 	    {
+// 	        cout<<a[i]<<" "<<a[i+n]<<" ";
+// 	    }
+// 	    cout<<endl;
+	    
+// 	}
+	
+// 	return 0;
+// }
+/* AUTHOR : a1_learner */
+#include <bits/stdc++.h>
+#define int long long int
+using namespace std;
+#define endl "\n"
+int32_t main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);cout.tie(NULL);
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int arr[2*n];
+        for(int i=0;i<(2*n);i++)
+        {
+            cin>>arr[i];
+        }
+        sort(arr,arr+(2*n));
+        cout<<arr[n + n/2 ]<<endl;
+        for(int i=0;i<n;i++)
+        {
+            cout<<arr[i]<<" "<<arr[i+(n)]<<" ";
+        }
+        cout<<endl;
+    }
+	return 0;
+}
+/* We want to maximize median i.e, we must have larger numbers in array B, so we can sort array A and take right half of sorted A as B,
+now we want to find median so just by property of median it (n+1)/2 element when n is odd or (n+1)/2 +1 th element if n is even, here according 
+to orginal array after sorting our median will lie at the position at half of the right half so (arr[n+n/2])..
+    Easy to understand by taking example...
+    4 
+    1 3 4 6 7 8 9 5 
+    After sorting --> 1 3 4 5 6 7 8 9
+    So to maximize median we can select median of right half part ...here it will be 8 ..
+    now to return the permutation of given array we can select 1 element from left half and 1 element from right half and output them.
+*/
