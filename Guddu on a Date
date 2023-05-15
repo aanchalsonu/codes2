@@ -1,0 +1,72 @@
+/*
+Guddu likes a girl that loves playing with numbers. She agreed to go on a date with Guddu, but only if he can solve the following problem:
+
+An integer is round if it is greater than 
+0
+0 and the sum of its digits in decimal representation is a multiple of 
+10
+10. Find the 
+�
+N-th smallest round integer.
+
+However, Guddu does not like playing with numbers at all and he is unable to solve this problem, so he begs you to solve it
+for him. In return, he will definitely give you a treat.
+
+*/
+
+// #include <iostream>
+// using namespace std;
+
+
+// int main() {
+// 	// your code goes here
+// 	long int a[100000]={0};
+// 	long int x = 20, y = 1;
+// 	for(int i=0;i<100000;i++)
+// 	{
+// 	    a[i] = x-y;
+// 	    x = x+10;
+// 	    y = y+1;
+// 	    if(y == 9) 
+// 	    y = 1;
+	    
+// 	}
+// 	long int t;
+// 	cin>>t;
+// 	while(t--)
+// 	{
+// 	    int n;
+// 	    cin>>n;
+	    
+// 	    cout<<a[n-1]<<endl;
+// 	}
+	
+
+// 	return 0;
+// }
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t; 
+	while(t--){
+	    string n,ans; 
+	    cin>>n; 
+	    int k=n.size();
+	    ans=n; 
+	    long long int res,sum=0;
+	     for(int i=0; i<k; i++){
+	         sum+=n[i]-'0';
+	     }
+	     res=(10-(sum%10));
+	     if(sum%10==0) ans+='0';
+	     else ans+=(res+'0');
+	     cout<<ans<<endl; 
+	}
+	return 0;
+}
+
