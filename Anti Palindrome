@@ -1,0 +1,135 @@
+/*
+A string T is called semi-palindrome if you can rearrange the characters of 
+T to make it into a palindrome.
+For eg. if 
+T=aabb, it isn't a palindrome as of now, but it can be rearranged to form 
+abba, which is a palindrome. Thus, T=aabb is a semi-palindrome.
+
+An anti-palindrome is the opposite of a semi-palindrome. In particular, a string 
+T is called an anti-palindrome if it is not possible to rearrange the characters of 
+T to make it into a palindrome.
+For eg. if 
+T=abc, there is no rearrangement of this string which makes it into a palindrome. Hence, T=abc is an anti-palindrome.
+
+Now on to the problem:
+
+You are given a string consisting of N english lowercase letters.
+
+Your aim is to convert S into an anti-palindrome. For this, you are allowed to do the following operation as many times as you want (even 0 times) :
+
+Select an index#include <iostream>
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,ctr1=0,ctr2=0;
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    unordered_map<char,int> mp;
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	        mp[s[i]]++;
+	    }
+	    
+	    for(auto i : mp)
+	    {
+	        if(i.second % 2 == 0 && i.second > 0)
+	        ctr1++;
+	        else if(i.second %2 != 0)
+	        ctr2++;
+	        
+	       // if(i.second > 1)
+	       // count += (i.second-1);
+	    }
+	    
+      
+      /*
+      FIRST KEEP A COUNT OF BOTH EVEN AND ODD OCCURENCES OF THE LETTERS IN THE STRING AND THEN APPLY THE CONDITIONS      
+      */
+      
+      
+	    if(ctr2 >= 2)
+	    cout<<0<<endl;
+	    else if((ctr2==0 && ctr1 !=0 ) || (ctr2 == 1 && ctr1 != 0 ))
+	    cout<<1<<endl;
+	    else if(ctr2 == 1 && ctr1 == 0)
+	    cout<<2<<endl;
+	   // cout<<count<<endl;
+	    
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	return 0;
+}
+(1≤i≤N) and change to any other english lowercase letter.
+Find the minimum number of operations needed to make S into an anti-palindrome.
+
+Note: It can be proven that for the given constraints (
+2≤N≤10 5), it is always possible to make S into an anti-palindrome using the operations.
+
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,ctr1=0,ctr2=0;
+	    cin>>n;
+	    string s;
+	    cin>>s;
+	    unordered_map<char,int> mp;
+	    
+	    for(int i=0;i<n;i++)
+	    {
+	        mp[s[i]]++;
+	    }
+	    
+	    for(auto i : mp)
+	    {
+	        if(i.second % 2 == 0 && i.second > 0)
+	        ctr1++;
+	        else if(i.second %2 != 0)
+	        ctr2++;
+	        
+	       // if(i.second > 1)
+	       // count += (i.second-1);
+	    }
+	    
+	    if(ctr2 >= 2)
+	    cout<<0<<endl;
+	    else if((ctr2==0 && ctr1 !=0 ) || (ctr2 == 1 && ctr1 != 0 ))
+	    cout<<1<<endl;
+	    else if(ctr2 == 1 && ctr1 == 0)
+	    cout<<2<<endl;
+	   // cout<<count<<endl;
+	    
+	}
+	
+	
+	return 0;
+}
