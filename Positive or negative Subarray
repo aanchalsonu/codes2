@@ -1,0 +1,35 @@
+/*
+
+Consider an array A having length N such that 1≤i≤N.
+You are given an integer array 1≤i≤N.
+
+We create another array C of length Let the number of subarrays of C having sum strictly greater than P andLet the number of subarrays of C
+having sum strictly less than Determine the value of ∣x∣ denotes the absolute value of X is a subarray of an array X can be obtained from  by 
+the deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end.
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+int main() {
+	// your code goes here
+	ll t;
+	cin>>t;
+	while(t--){
+	    ll n;
+	    cin>>n;
+	    vector<int>v(n);
+	    for(int i=0; i<n; i++)
+	    cin>>v[i];
+	    
+	    ll p=0,q=0;
+	    for(ll i=0; i<n; i++){
+	        if(v[i]==1) p+=i+1;
+	        else q+=i+1;
+	    }
+	    
+	    cout<<abs(p-q)<<endl;
+	}
+	return 0;
+}
