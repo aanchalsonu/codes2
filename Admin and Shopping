@@ -1,0 +1,47 @@
+/*
+
+CodeChef admins went on shopping at a shopping mall.
+
+There are N shops in the mall where the i th
+  shop has a capacity of ]eople. In other words, at any point in time, there can be at most 
+
+th
+  shop.
+
+There are X admins. Each admin wants to visit each of the  shops exactly once. It is known that an admin takes exactly one hour for shopping at any
+particular shop. Find the minimum time (in hours) in which all the admins can complete their shopping.
+
+Note:
+
+An admin can visit the shops in any order.
+It is possible that at some point in time, an admin sits idle and does not visit any shop while others are shopping.
+Input Format
+First line will contain T, the number of test cases. Then the test cases follow.
+The first line of each test case contains two integers X - the number of shops and the number of admins.
+The second line of each test case contains N integers  - the capacity of the shops.
+
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	
+	int t;
+  cin>>t;
+  while(t--)
+  {
+    int n,k;
+    cin>>n>>k;
+    int a[n];
+    for(int i=0;i<n;i++) cin>>a[i];  
+      sort(a,a+n);
+     int ans=k/a[0];
+     if(k%a[0]) ans++;
+     cout<<max(n,ans)<<endl;
+  }
+    return 0;
+}
