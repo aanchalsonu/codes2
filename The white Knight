@@ -1,0 +1,122 @@
+/*
+
+You are given a chessboard of size NxN. There is a white knight and several black pawns located on the board. The knight can move 
+similarly to the normal knight in the game of chess; however it can only move towards the right of the board (see the below figure).
+
+The mission of the knight is to capture as many black pawns as possible. Its journey ends when it moves to the rightmost column of the board.
+
+Compute the maximum number of black pawns the white knight can capture.
+
+Input
+The first line contains t, the number of test cases (about 10). Then t test cases follow.
+
+Each test case has the following form:
+
+The first line contains N, the size of the chessboard (4 ≤ N ≤ 1000).
+Then N lines follow, each line containing N characters which may be '.', 'K' or 'P', corresponding to the empty cell, the white knight,
+and the black pawn, respectively. 
+There is exactly one 'K' character in the whole of the board.
+
+*/
+
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+// int solve(char a[][] , int n, int i, int j,vector<vector<int>> &dp )
+// {
+//     if(i >= n || j >=n)
+//     {
+//         return 0;
+//     }
+//     if(dp[i][j] != -1)
+//     return dp[i][j];
+    
+//     if(a[i+1][j-2] == 'P')
+//     dp[i][j] = 1 + solve(a,n,i+1,j-2,dp);
+//     else if(a[i+2][j+1] == 'P')
+//     dp[i][j] = 1 + solve(a,n,i+2,j+1,dp);
+//     else if(a[i+2][j+1] == 'P')
+//     dp[i][j] = 1+ solve(a,n,i+2,j+1,dp);
+//     else if(a[i+1][j+2] == 'P')
+//     dp[i][j] = 1 + solve(a,n,i+1,j+2,dp);
+    
+//     return dp[i][j];
+    
+// }
+
+
+// int main() {
+// 	// your code goes here
+	
+// 	long int t;
+// 	cint>>t;
+// 	while(t--)
+// 	{
+// 	    int n,start=0,end=0;
+// 	    cin>>n;
+// 	    char a[n][n];
+// 	    for(int i=0;i<n;i++)
+// 	    {
+// 	        for(int j=0;j<n;j++)
+// 	        {
+// 	            cin>>a[i][j];
+// 	            if(a[i][j] == 'k')
+// 	            {
+// 	                start=i;
+// 	                end=j;
+// 	            }
+// 	        }
+// 	    }
+	    
+// 	    vector<vector<int>> dp(n+1, vector<int> (n+1,-1));
+	    
+// 	    cout<<solve(a,n,start,end,dp)<<endl;
+// 	}
+// 	return 0;
+// }
+
+int dfs(vector<string> &gr, int i, int j, int n, vector<vector<int>> &dp){
+    if(i<0 || i>=n || j>=n) return 0;
+    if(dp[i][j]!=-1) return dp[i][j];
+    int res = 0;
+    if(gr[i][j]=='P') res++;
+    
+    int temp = 0;
+    
+    temp = max(temp,dfs(gr,i-2,j+1,n,dp));
+    temp = max(temp,dfs(gr,i-1,j+2,n,dp));
+    temp = max(temp,dfs(gr,i+1,j+2,n,dp));
+    temp = max(temp,dfs(gr,i+2,j+1,n,dp));
+    
+    return dp[i][j] = res+temp;
+}
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    
+    int t;
+    cin>>t;
+    while(t--){
+        int n;cin>>n;
+        vector<vector<int>> dp(n,vector<int>(n,-1));
+        vector<string> gr(n);
+        for(int i=0;i<n;i++){
+            cin>>gr[i];
+        }
+        int ans = 0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                if(gr[i][j] == 'K'){
+                    ans = dfs(gr,i,j,n,dp);
+                }
+            }
+        }
+        
+        cout<<ans<<endl;
+    }
+    return 0;
+}
