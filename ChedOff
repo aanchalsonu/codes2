@@ -1,0 +1,63 @@
+You want to partition the set S={1,2,…,N} into ∣≥2, and the sum of elements in each 
+is odd.
+Is it possible to do so?
+
+Note 1: Partitioning the set 
+S={1,2,…,N} into 
+K sets   means that every element of S should be in exactly one of the sets 
+ and ≤ 1≤i≤K.
+
+Input Format
+The first line of input will contain a single integer 
+�
+T, denoting the number of test cases.
+The first line and only line of each test case contains two space-separated integers, 
+�
+N and 
+�
+K.
+Output Format
+For each test case, output YES if you can partition the set satisfying the requirements. Otherwise, output NO.
+
+You may print each character of YES and NO in uppercase or lowercase (for example, yes, yEs, Yes will be considered identical).
+
+
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;long long int n,k,o;
+	cin>>t;
+	while(t--){
+	    cin>>n>>k;
+	    if(n%2) o=n/2+1;
+	    else o=n/2;
+	    if(k>n/2) cout<<"no\n";
+	    else {
+	        if((o%2&&k%2)||(o%2==0&&k%2==0)) cout<<"yes\n";
+	        else  cout<<"no\n";
+	    }
+	}
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;long long int n,k,o;
+	cin>>t;
+	while(t--){
+	    cin>>n>>k;
+	    if(n%2) o=n/2+1;
+	    else o=n/2;
+	    if(k>n/2) cout<<"no\n";
+	    else {
+	        if((o%2&&k%2)||(o%2==0&&k%2==0)) cout<<"yes\n";
+	        else  cout<<"no\n";
+	    }
+	}
+	return 0;
+}
