@@ -1,0 +1,62 @@
+/*
+
+You are given an array 
+�
+A of length 
+�
+K. Find any permutation 
+�
+P of length 
+�
+N such that only the prefixes of length 
+�
+�
+A 
+i
+​
+  (
+1
+≤
+�
+≤
+�
+1≤i≤K) form a permutation.
+
+Under the given constraints, it is guaranteed that there exists at least one permutation which satisfies the given condition.
+
+If there are multiple solutions, you may print any.
+
+Note: A permutation of length 
+�
+N is an array where every element from 
+1
+1 to 
+�
+N occurs exactly once.
+
+*/
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t>0){
+	    int k,n;
+	    cin>>k>>n;
+	    int a[n];
+	    for(int i=0;i<n;i++)cin>>a[i];
+	    int x=0;
+	    for(int i=0;i<n;i++){
+	        for(int j=a[i];j>x;j--)
+	        cout<<j<<" ";
+	        x=a[i];
+	    }
+	    cout<<endl;
+	    t--;
+	   // x=a[i];
+	    
+	}
+	return 0;
+}
