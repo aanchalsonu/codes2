@@ -1,0 +1,52 @@
+/*
+Chef is throwing a party for his 
+
+N friends. There is a pizza store nearby and he wants to buy pizza for his friends. Each pizza has exactly 
+
+K slices. Chef's friends get sad if one gets more slices than the other. Also, Chef gets sad if there are some pizza slices left. More formally, suppose Chef buys 
+
+P pizzas, then everyone is happy if and only if there is a way to distribute 
+ friends.
+
+You need to find the minimum number of pizzas Chef has to buy to share all the slices among his friends so that none of his friends
+gets sad. Note that Chef hates pizza and doesn't take any slices.
+
+Input Format
+First line of input contains 
+
+T, the number of test cases. Then the test cases follow.
+Each test case contains two space-separated integers 
+
+N and 
+
+K, where 
+
+N is the number of friends of chef and 
+
+K is the number of slices in a pizza.
+
+*/
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n,k;
+	    cin>>n>>k;
+	    int ans = 0;
+	    
+	    ans = gcd(n,k);
+	    
+	   // ans = (k/n)+(k%n);
+	    cout<<n/ans<<endl;
+	    
+	}
+	return 0;
+}
