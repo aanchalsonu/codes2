@@ -1,0 +1,38 @@
+/*
+
+Sheokand is good at mathematics. One day, to test his math skills, Kaali gave him an integer  To impress Kaali, Sheokand has to convert 
+into an integer M that can be represented in the form   (where x and y are non-negative integers such that. In order to do that, he can
+perform two types of operations:
+add 1 to n 
+substract 1 from n
+However, Sheokand is preparing for his exams. Can you help him find the minimum number of operations required to convert N into a valid integer 
+
+*/
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	
+	long int t;
+	cin>>t;
+	while(t--)
+	{
+	    long long n,x=1000000001,s;
+	    int a[32];
+	    
+	    cin>>n;
+	    for(int i=0;i<32;i++){a[i]=pow(2,i);}
+	   for(int i=0;i<32;i++){for(int j=i+1;j<32;j++)
+	     {s=a[i]+a[j];x=min(x,abs(s-n));}
+	   }
+	   cout<<x<<endl;
+	}
+	return 0;
+}
+
+
+THE LOGIC IS FIRST CALCULATE THE WHOLE 'a' ARRAY WHICH CONTAINS ALL THE POWER VALUES 
+NOW START ITERATING IT ANS FIND THE MINIMUM VALUE
+WHICH IS THE ANSWER
